@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMR — Creative Maximum Reasoning</title>
+  <meta name="description" content="Creative Maximum Reasoning (CMR): aplicaciones para Google Play escritas, editadas y desarrolladas por Jonathan Gabriel Nieto.">
+  
+  <!-- Seguridad de Vanguardia (CSP & Políticas) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  
+  <!-- Configuración de Tema y Colores -->
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0a0c10">
+
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:title" content="CMR — Creative Maximum Reasoning">
+  <meta property="og:description" content="Escribo mundos. Construyo el software para leerlos. Aplicaciones desarrolladas por Jonathan Gabriel Nieto.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cmr-reasoning.com.ar/">
+  <meta property="og:image" content="assets/images/CMR_Encabezado_Desarrollador_4096x2304.jpg">
+
+  <!-- Favicons Oficiales -->
+  <link rel="icon" type="image/x-icon" href="assets/favicons/favicon32.ico">
+  <link rel="icon" type="image/x-icon" href="assets/favicons/favicon16.ico" sizes="16x16">
+  <link rel="shortcut icon" href="assets/favicons/favicon48.ico">
+  <link rel="apple-touch-icon" href="assets/images/CMR_Icono_Desarrollador_512x512.jpg">
+
+  <!-- Tipografía Editorial Oficial -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Hoja de Estilos Modular -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  
+  <!-- Script Modular con Defer -->
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Barra de Navegación -->
+  <header>
+    <nav class="nav wrap" aria-label="Navegación principal">
+      <a class="brand" href="#top">
+        <img class="brand-logo" src="assets/images/CMR Logo.png" alt="CMR Logo" width="34" height="34">
+        <div class="brand-title">
+          <span class="brand-cmr">CMR</span>
+          <span class="brand-sub">Creative Maximum Reasoning</span>
+        </div>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#apps">Aplicaciones</a></li>
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="kicker">CMR — Creative Maximum Reasoning</div>
+          <h1>Escribo mundos.<br>Construyo el software para leerlos.</h1>
+          <p class="hero-sub">Jonathan Gabriel Nieto — escritor, editor y desarrollador. CMR reúne las aplicaciones que diseño, escribo y programo yo mismo, pensadas primero como herramientas y después como producto.</p>
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="#apps">Ver aplicaciones</a>
+            <a class="btn btn-outline" href="#about">Sobre mí</a>
+          </div>
+        </div>
+
+        <div class="hero-banner-frame">
+          <img src="assets/images/CMR_Encabezado_Desarrollador_4096x2304.jpg" alt="Encabezado Desarrollador CMR" width="500" height="280">
+          <div class="hero-banner-caption">
+            <span>Jonathan Gabriel Nieto</span>
+            <span>cmr-reasoning.com.ar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Aplicaciones -->
+    <section id="apps">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Aplicaciones</h2>
+          <p>Cada aplicación de CMR tiene su propia página con detalles, estado y forma de contacto.</p>
+        </div>
+        
+        <div class="apps-grid">
+          <!-- Tarjeta App 1: CMR Writer Lite -->
+          <a class="app-card" href="apps/cmr-writer-lite.html">
+            <div class="app-mono">CW</div>
+            <h3>CMR Writer Lite</h3>
+            <p class="desc">Editor de capítulos, notas y vista previa de lectura para escribir historias por capítulos, con sistema de personajes.</p>
+            <span class="badge">Prueba cerrada</span>
+            <span class="app-link">Ver la app →</span>
+          </a>
+
+          <!-- Tarjeta Próxima App -->
+          <div class="app-card disabled" aria-disabled="true">
+            <div class="app-mono">?</div>
+            <h3>Próxima aplicación</h3>
+            <p class="desc">En este espacio va a aparecer la siguiente app de CMR cuando esté lista para mostrarse.</p>
+            <span class="badge">En desarrollo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Sobre mí -->
+    <section class="about" id="about">
+      <div class="wrap about-grid">
+        <div class="author-presentation">
+          <img class="author-photo" src="assets/images/CMR_Icono_Desarrollador_512x512.jpg" alt="Jonathan Gabriel Nieto" width="132" height="132">
+          <h3 class="author-name">Jonathan Gabriel Nieto</h3>
+          <span class="author-badge">Escritor & Desarrollador</span>
+        </div>
+        <div>
+          <p class="about-lede">Creative Maximum Reasoning es el estudio de una sola persona: yo.</p>
+          <p class="about-body">Soy Jonathan Gabriel Nieto. Escribo, edito y programo cada proyecto que publico bajo CMR. También soy el creador de <em>Seres del Noveno Universo (S9U)</em>, un universo narrativo propio — la misma sensibilidad de escritor está detrás de cada aplicación que construyo acá: pensadas para gente que lee y escribe, con el mismo cuidado que le pondría a un capítulo.</p>
+          <div class="roles">
+            <span class="role-tag">Escritor</span>
+            <span class="role-tag">Editor</span>
+            <span class="role-tag">Desarrollador</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de Página Oficial en 3 Columnas -->
+  <footer id="contact">
+    <div class="wrap footer-grid">
+      <!-- Columna Izquierda: Contacto & Estudio -->
+      <div class="footer-col-left">
+        <span class="footer-col-tag">// Contacto & Estudio</span>
+        <a class="footer-link" href="mailto:cmr.apps.oficial@gmail.com">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          cmr.apps.oficial@gmail.com
+        </a>
+        <span class="footer-subtext">Neuquén, Argentina</span>
+        <span class="footer-domain">cmr-reasoning.com.ar</span>
+      </div>
+
+      <!-- Columna Central: Emblema & Firma Oficial -->
+      <div class="footer-col-center">
+        <img class="footer-emblem" src="assets/images/Perfil Logo.png" alt="CMR Emblema" width="76" height="76">
+        <p class="footer-brand-title">Creative Maximum Reasoning</p>
+        <p class="footer-copyright">Copyright © <span id="year">2026</span> Jonathan Gabriel Nieto / CMR — Creative Maximum Reasoning.</p>
+      </div>
+
+      <!-- Columna Derecha: Ecosistema & Redes -->
+      <div class="footer-col-right">
+        <span class="footer-col-tag">// Ecosistema & Redes</span>
+        <div class="footer-social-row">
+          <!-- Google Play -->
+          <a class="social-btn" href="#apps" title="Google Play Store — Apps CMR" aria-label="Google Play">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.793 12 3.61 22.186a2.38 2.38 0 0 1-.61-.958V2.772c.162-.38.375-.708.61-.958zm11.242 11.243l2.253 2.253-11.7 6.649 9.447-8.902zm0-2.114L5.405 2.04l11.7 6.65-2.254 2.253zm1.472 1.057l3.864 2.196c1.09.619 1.09 1.626 0 2.245l-3.864 2.196-2.52-2.52 2.52-2.117z"/></svg>
+          </a>
+          <!-- GitHub -->
+          <a class="social-btn" href="https://github.com" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <!-- Universo S9U -->
+          <a class="social-btn" href="#about" title="Seres del Noveno Universo (S9U)" aria-label="S9U">
+            <span style="font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: -0.02em;">S9U</span>
+          </a>
+        </div>
+        <span class="footer-subtext">Software & Narrativa de Autor</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
