@@ -81,8 +81,8 @@ export class CMREngine {
     // D. Registrar atajos de teclado globales accesibles
     this.setupGlobalShortcuts();
 
-    // E. Conectar telemetría en vivo y disparadores de vistas previas
-    this.setupTelemetryAndTriggers();
+    // E. Conectar disparadores de vistas previas de aplicaciones
+    this.setupAppPreviewTriggers();
 
     // Log sobrio de confirmación de arranque en consola
     console.info(
@@ -91,20 +91,8 @@ export class CMREngine {
     );
   }
 
-  setupTelemetryAndTriggers() {
-    // 1. Telemetría viva de rendimiento CMR Vitals
-    if (this.eventBus) {
-      this.eventBus.on('quality:metrics', ({ fps, tier, frameTimeMs }) => {
-        const fpsEl = document.getElementById('cmrFpsVal');
-        const tierEl = document.getElementById('cmrTierVal');
-        const frameEl = document.getElementById('cmrFrameTimeVal');
-        if (fpsEl) fpsEl.textContent = fps;
-        if (tierEl) tierEl.textContent = tier.charAt(0).toUpperCase() + tier.slice(1);
-        if (frameEl) frameEl.textContent = frameTimeMs;
-      });
-    }
-
-    // 2. Disparadores de vista previa interactiva desde las tarjetas
+  setupAppPreviewTriggers() {
+    // Disparadores de vista previa interactiva desde las tarjetas
     document.addEventListener('click', (e) => {
       const trigger = e.target.closest('[data-preview-trigger]');
       if (trigger) {

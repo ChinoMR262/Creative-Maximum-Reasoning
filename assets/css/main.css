@@ -10,13 +10,14 @@
 @import url('./living-frames.css');
 @import url('./accessibility.css');
 
+/* Ocultar barra superior en todos los dispositivos ya que la navegación es lateral */
+header {
+  display: none !important;
+}
+
 @media (min-width: 960px) {
   body {
     padding-left: var(--rail-width);
-  }
-  /* En escritorio, el Living Rail lateral asume la navegación de autor */
-  header {
-    display: none;
   }
 }
 
@@ -66,6 +67,8 @@ html {
 }
 
 body {
+  position: relative;
+  min-height: 100vh;
   font-family: var(--sans);
   color: var(--text-main);
   background-color: var(--bg-matte);
@@ -553,29 +556,6 @@ section {
   border-color: var(--accent-gold);
   background: var(--gold-subtle);
   transform: translateY(-1px);
-}
-
-/* Badge de Telemetría Viva de CMR Vitals */
-.cmr-telemetry-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  background: rgba(12, 12, 14, 0.85);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xs);
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--text-muted);
-  letter-spacing: 0.03em;
-  margin-top: 16px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.cmr-telemetry-badge strong {
-  color: var(--accent-gold);
-  font-weight: 600;
 }
 
 /* Sección Sobre mí */

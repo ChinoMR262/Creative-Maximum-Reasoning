@@ -12,7 +12,11 @@ export class RailBrand {
     brand.setAttribute('aria-label', 'CMR Inicio');
 
     brand.innerHTML = `
-      <img src="assets/images/CMR Logo.png" alt="CMR" width="26" height="26">
+      <img src="assets/images/CMR Logo.png" alt="CMR" width="28" height="28">
+      <div class="rail-brand-meta">
+        <span class="rail-brand-title">CMR</span>
+        <span class="rail-brand-sub">Creative Maximum Reasoning</span>
+      </div>
     `;
 
     return brand;
