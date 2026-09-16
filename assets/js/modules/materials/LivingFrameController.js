@@ -1,14 +1,19 @@
 /**
- * Creative Maximum Reasoning (CMR) — Living Frame Controller
- * Controlador de marcos vivos y selección por material (10 materiales oficiales)
+ * Creative Maximum Reasoning (CMR) — Living Frame Controller Orchestrator
+ * Orquestador de marcos vivos reactivos con inyección de capas procedimentales de material
  * doc/CMR_Web_System_v2_Documentation/docs/05_LIVING_FRAMES_AND_SELECTION.md y 06_MATERIAL_SYSTEM.md
  */
+
+import { MaterialFactory } from './registry/MaterialFactory.js';
+import { MaterialState } from './contracts/MaterialState.js';
 
 export class LivingFrameController {
   constructor(eventBus = null) {
     this.eventBus = eventBus;
     this.frames = [];
+    this.materialInstances = new Map();
     this.activeFrame = null;
+    this._onPointerMove = this._handlePointerMove.bind(this);
   }
 
   mount() {
@@ -25,27 +30,42 @@ export class LivingFrameController {
         frame.dataset.material = defaultMaterials[idx % defaultMaterials.length];
       }
 
-      frame.dataset.state = 'dormant';
       if (!frame.hasAttribute('tabindex')) {
         frame.setAttribute('tabindex', '0');
       }
+      frame.setAttribute('role', 'button');
+      frame.setAttribute('aria-selected', 'false');
 
-      // Interacción Pointer / Hover
+      // Capa SVG procedimental para trazos vivos de autor
+      let svg = frame.querySelector('.living-frame-svg');
+      if (!svg) {
+        svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'living-frame-svg');
+        svg.setAttribute('aria-hidden', 'true');
+        frame.prepend(svg);
+      }
+
+      // Instanciar material hiper-modular
+      const material = MaterialFactory.create(frame.dataset.material);
+      material.mount(frame, svg);
+      this.materialInstances.set(frame, material);
+
+      // Eventos Pointer
       frame.addEventListener('pointerenter', () => {
-        if (frame.dataset.state !== 'selected') {
-          frame.dataset.state = 'hover';
+        if (frame !== this.activeFrame) {
+          material.enterState(MaterialState.HOVER);
         }
       });
 
       frame.addEventListener('pointerleave', () => {
-        if (frame.dataset.state !== 'selected') {
-          frame.dataset.state = 'dormant';
+        if (frame !== this.activeFrame) {
+          material.enterState(MaterialState.DORMANT);
         }
       });
 
       frame.addEventListener('pointerdown', () => {
-        if (frame.dataset.state !== 'selected') {
-          frame.dataset.state = 'press';
+        if (frame !== this.activeFrame) {
+          material.enterState(MaterialState.PRESS);
         }
       });
 
@@ -61,18 +81,43 @@ export class LivingFrameController {
         }
       });
     });
+
+    window.addEventListener('pointermove', this._onPointerMove, { passive: true });
+  }
+
+  _handlePointerMove(e) {
+    // Actualizar cálculo fino de proximidad hacia cada marco vivo
+    this.frames.forEach((frame) => {
+      if (frame === this.activeFrame) return;
+
+      const rect = frame.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const distX = e.clientX - centerX;
+      const distY = e.clientY - centerY;
+      const distance = Math.hypot(distX, distY);
+      const radius = Math.max(rect.width, rect.height) * 1.3;
+
+      const proximity = Math.max(0, Math.min(1, 1 - distance / radius));
+      const material = this.materialInstances.get(frame);
+      if (material) {
+        material.updateProximity(proximity, e.clientX, e.clientY);
+      }
+    });
   }
 
   selectFrame(selectedFrame) {
-    this.frames.forEach((f) => {
-      f.removeAttribute('data-active');
-      f.setAttribute('aria-selected', 'false');
-      f.dataset.state = 'dormant';
-    });
+    if (this.activeFrame && this.activeFrame !== selectedFrame) {
+      const prevMaterial = this.materialInstances.get(this.activeFrame);
+      if (prevMaterial) {
+        prevMaterial.enterState(MaterialState.DORMANT);
+      }
+    }
 
-    selectedFrame.setAttribute('data-active', 'true');
-    selectedFrame.setAttribute('aria-selected', 'true');
-    selectedFrame.dataset.state = 'selected';
+    const material = this.materialInstances.get(selectedFrame);
+    if (material) {
+      material.enterState(MaterialState.SELECTED);
+    }
     this.activeFrame = selectedFrame;
 
     if (this.eventBus) {
@@ -85,6 +130,9 @@ export class LivingFrameController {
   }
 
   destroy() {
+    window.removeEventListener('pointermove', this._onPointerMove);
+    this.materialInstances.forEach((mat) => mat.destroy());
+    this.materialInstances.clear();
     this.frames = [];
     this.activeFrame = null;
   }

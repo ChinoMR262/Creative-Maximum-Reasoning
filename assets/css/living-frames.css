@@ -1,7 +1,7 @@
 /**
  * Creative Maximum Reasoning (CMR) — Living Frames & Material Selection
- * Reemplazo de tarjetas genéricas y subrayados por interacción viva
- * doc/CMR_Web_System_v2_Documentation/docs/05_LIVING_FRAMES_AND_SELECTION.md y 06_MATERIAL_SYSTEM.md
+ * Sistema de 4 capas: Geometría Base + Textura de Material + Trazos Procedurales Vectoriales + Glow
+ * doc/CMR_Web_System_v2_Documentation/docs/05_LIVING_FRAMES_AND_SELECTION.md & 06_MATERIAL_SYSTEM.md
  */
 
 .living-frame {
@@ -9,7 +9,7 @@
   background-color: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 24px;
+  padding: 28px;
   overflow: hidden;
   cursor: pointer;
   outline: none;
@@ -23,24 +23,26 @@
   transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
 }
 
-/* Capa de brillo rasante / Proximidad radial */
+/* ==========================================================================
+   Capa 1 & 2: Brillo rasante radial (Pointer proximity field)
+   ========================================================================== */
 .living-frame::before {
   content: '';
   position: absolute;
   inset: -1px;
   border-radius: inherit;
   pointer-events: none;
-  opacity: calc(var(--proximity, 0) * 0.7);
+  opacity: calc(var(--proximity, 0) * 0.75);
   background: radial-gradient(
-    400px circle at var(--px, 50%) var(--py, 50%),
-    rgba(212, 163, 67, 0.16),
-    transparent 65%
+    420px circle at var(--px, 50%) var(--py, 50%),
+    rgba(212, 163, 67, 0.18),
+    transparent 68%
   );
   transition: opacity var(--duration-fast) var(--ease-out-expo);
-  z-index: 2;
+  z-index: 1;
 }
 
-/* Microborde vivo del marco */
+/* Microborde interior de acople */
 .living-frame::after {
   content: '';
   position: absolute;
@@ -49,10 +51,35 @@
   pointer-events: none;
   border: 1px solid transparent;
   transition: border-color var(--duration-fast) var(--ease-out-expo), box-shadow var(--duration-fast) var(--ease-out-expo);
-  z-index: 3;
+  z-index: 2;
 }
 
-/* Estados de interacción */
+/* ==========================================================================
+   Capa 3: SVG Procedural para trazos vivos de autor
+   ========================================================================== */
+.living-frame-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+  overflow: visible;
+}
+
+.living-stroke {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: 
+    stroke-dashoffset 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    stroke 0.3s ease,
+    filter 0.3s ease;
+}
+
+/* ==========================================================================
+   Estados Globales del Marco
+   ========================================================================== */
 .living-frame:hover,
 .living-frame:focus-visible,
 .living-frame[data-state='hover'] {
@@ -70,102 +97,169 @@
 .living-frame[aria-selected='true'] {
   border-color: var(--accent-gold);
   background-color: var(--bg-card-hover);
-  box-shadow: var(--shadow-card), 0 0 16px var(--gold-subtle);
+  box-shadow: var(--shadow-card), 0 0 20px rgba(212, 163, 67, 0.18);
 }
 
 /* ==========================================================================
-   Especializaciones por Material (10 Materiales de la Especificación)
+   MATERIAL 1: ROOTS (Crecimiento orgánico, enredadera viva)
    ========================================================================== */
-
-/* 1. ROOTS (Crecimiento orgánico, ramificaciones sutiles) */
-.living-frame[data-material='roots']::after {
-  border-image: radial-gradient(circle at var(--px, 50%) var(--py, 50%), var(--accent-gold) 0%, transparent 70%) 1;
-}
-.living-frame[data-material='roots'][data-state='selected'] {
-  border-color: var(--accent-gold);
-  background: radial-gradient(circle at 100% 100%, rgba(212, 163, 67, 0.08) 0%, var(--bg-card-hover) 60%);
+.root-main {
+  stroke: var(--accent-gold, #d4a343);
+  stroke-width: 1.5;
+  opacity: 0.85;
 }
 
-/* 2. STONE (Microfisura mineral iluminada, sin explosiones falsas) */
-.living-frame[data-material='stone'] {
-  border-style: solid;
-  border-width: 1px;
-}
-.living-frame[data-material='stone'][data-state='selected']::after {
-  border-color: rgba(212, 163, 67, 0.7);
-  clip-path: polygon(0 0, 95% 0, 100% 8%, 100% 100%, 8% 100%, 0 92%);
+.root-branch {
+  stroke: var(--accent-gold-bright, #e8be66);
+  stroke-width: 1.2;
+  opacity: 0.7;
 }
 
-/* 3. ARCANE (Filamentos lumínicos y nodos energéticos) */
-.living-frame[data-material='arcane']::before {
-  background: radial-gradient(
-    320px circle at var(--px, 50%) var(--py, 50%),
-    rgba(212, 163, 67, 0.24),
-    rgba(130, 90, 240, 0.08) 45%,
-    transparent 70%
-  );
-}
-.living-frame[data-material='arcane'][data-state='selected'] {
-  box-shadow: var(--shadow-card), 0 0 24px rgba(212, 163, 67, 0.3);
+.root-bud {
+  fill: var(--accent-gold, #d4a343);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* 4. FABRIC (Malla de tela sutil con recuperación elástica) */
-.living-frame[data-material='fabric'] {
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 8px 8px;
+.living-frame[data-material='roots'][data-state='selected'] .root-main {
+  stroke-width: 2;
+  filter: drop-shadow(0 0 3px rgba(212, 163, 67, 0.7));
+  animation: rootPulse 3s ease-in-out infinite alternate;
 }
 
-/* 5. GLASS (Vidrio grafito mate con refracción y borde nítido) */
-.living-frame[data-material='glass'] {
-  background-color: rgba(24, 24, 29, 0.65);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+@keyframes rootPulse {
+  0% { opacity: 0.8; }
+  100% { opacity: 1; filter: drop-shadow(0 0 6px rgba(212, 163, 67, 0.9)); }
 }
 
-/* 6. MAGNETIC DUST (Atracción perimetral sutil) */
-.living-frame[data-material='magnetic-dust']::before {
-  opacity: calc(var(--proximity, 0) * 0.9);
+/* ==========================================================================
+   MATERIAL 2: STONE (Borde mineral biselado & microfisuras Kintsugi)
+   ========================================================================== */
+.stone-border {
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 1.5;
 }
 
-/* 7. LIQUID METAL (Highlight especular viscoso en High/Ultra) */
-.living-frame[data-material='liquid-metal'][data-state='hover']::before {
-  opacity: 0.9;
-  background: radial-gradient(
-    250px circle at var(--px, 50%) var(--py, 50%),
-    rgba(255, 255, 255, 0.15),
-    rgba(212, 163, 67, 0.25) 30%,
-    transparent 65%
-  );
+.stone-fissure {
+  stroke: rgba(212, 163, 67, 0.4);
+  stroke-width: 1;
 }
 
-/* 8. MECHANISM (Lock mecánico e inercia de piezas) */
-.living-frame[data-material='mechanism'] {
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-}
-.living-frame[data-material='mechanism'][data-state='selected'] {
-  border-color: var(--accent-gold-bright);
+.stone-active {
+  stroke: rgba(212, 163, 67, 0.85);
+  stroke-width: 1.8;
 }
 
-/* 9. INK (Tinta capilar sobre papel literario) */
-.living-frame[data-material='ink'] {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-.living-frame[data-material='ink'][data-state='selected'] {
-  background: radial-gradient(
-    380px circle at var(--px, 50%) var(--py, 50%),
-    rgba(12, 12, 14, 0.95),
-    var(--bg-card-hover) 80%
-  );
-  border-color: var(--accent-gold);
+.fissure-glowing {
+  stroke: var(--accent-gold, #d4a343);
+  stroke-width: 1.4;
+  filter: drop-shadow(0 0 4px rgba(212, 163, 67, 0.8));
 }
 
-/* 10. FROST / CRYSTAL (Escarcha de invierno con cristalización perimetral) */
-.living-frame[data-material='frost'] {
-  border-color: rgba(180, 210, 230, 0.2);
+/* ==========================================================================
+   MATERIAL 3: ARCANE (Filamentos lumínicos y nodos de convergencia rúnica)
+   ========================================================================== */
+.arcane-filament {
+  stroke: var(--accent-gold, #d4a343);
+  stroke-width: 1.5;
+  opacity: 0.3;
 }
-.living-frame[data-material='frost'][data-state='selected'] {
-  border-color: var(--season-accent, #88a4b8);
-  box-shadow: 0 0 18px rgba(136, 164, 184, 0.25);
+
+.arcane-alpha {
+  stroke-dashoffset: 0;
+  animation: filamentDrift 14s linear infinite;
+}
+
+.arcane-beta {
+  stroke: #a27bf7;
+  stroke-dashoffset: 0;
+  animation: filamentDriftRev 18s linear infinite;
+}
+
+.arcane-node {
+  fill: var(--accent-gold, #d4a343);
+  opacity: 0.4;
+  transition: opacity 0.3s ease, fill 0.3s ease;
+}
+
+.arcane-stabilized {
+  animation-play-state: paused;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 5px rgba(212, 163, 67, 0.8));
+}
+
+.node-active {
+  fill: var(--accent-gold-bright, #e8be66);
+  opacity: 1;
+  filter: drop-shadow(0 0 6px rgba(212, 163, 67, 1));
+}
+
+@keyframes filamentDrift {
+  from { stroke-dashoffset: 200; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes filamentDriftRev {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 200; }
+}
+
+/* ==========================================================================
+   MATERIAL 4: FROST (Dendritas cristalinas de escarcha)
+   ========================================================================== */
+.frost-crystal {
+  stroke: var(--season-accent, #88a4b8);
+  stroke-width: 1.4;
+  opacity: 0.8;
+}
+
+.frost-solidified {
+  stroke: #c8e4f8;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 5px rgba(180, 220, 250, 0.85));
+}
+
+/* ==========================================================================
+   MATERIAL 5: MECHANISM (Escuadras métricas, vernier ticks & lock)
+   ========================================================================== */
+.mech-bracket {
+  stroke: rgba(212, 163, 67, 0.5);
+  stroke-width: 2;
+}
+
+.mech-vernier {
+  stroke: var(--accent-gold-bright, #e8be66);
+  stroke-width: 2;
+  stroke-dasharray: 2 2;
+  transition: x1 0.25s var(--ease-out-expo), x2 0.25s var(--ease-out-expo);
+}
+
+.mech-rivet {
+  fill: rgba(255, 255, 255, 0.3);
+  transition: fill 0.2s ease;
+}
+
+.mech-locked {
+  stroke: var(--accent-gold, #d4a343);
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 3px rgba(212, 163, 67, 0.6));
+}
+
+.rivet-engaged {
+  fill: var(--accent-gold-bright, #e8be66);
+  filter: drop-shadow(0 0 3px rgba(212, 163, 67, 0.8));
+}
+
+/* ==========================================================================
+   Accesibilidad: Prefers-Reduced-Motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .living-frame,
+  .living-stroke,
+  .arcane-alpha,
+  .arcane-beta,
+  .living-frame[data-material='roots'][data-state='selected'] .root-main {
+    transition: none !important;
+    animation: none !important;
+  }
 }
