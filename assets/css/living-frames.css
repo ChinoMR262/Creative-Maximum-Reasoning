@@ -251,6 +251,75 @@
 }
 
 /* ==========================================================================
+   MATERIAL 6: FABRIC (Urdimbre y Trama Textil)
+   ========================================================================== */
+.fabric-thread {
+  stroke: var(--border-accent, rgba(212, 163, 67, 0.4));
+  stroke-width: 1.2;
+  transition: opacity 0.25s ease;
+}
+
+.fabric-knot {
+  stroke: var(--accent-gold, #d4a343);
+  stroke-width: 1.5;
+  transition: opacity 0.25s ease;
+}
+
+/* ==========================================================================
+   MATERIAL 7: DARK GLASS (Vidrio Ahumado Biselado)
+   ========================================================================== */
+.glass-bevel {
+  stroke: rgba(255, 255, 255, 0.22);
+  stroke-width: 1.2;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.15));
+  transition: opacity 0.25s ease;
+}
+
+.living-frame[data-material='glass'] {
+  background: rgba(18, 18, 22, 0.75) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ==========================================================================
+   MATERIAL 8: MAGNETIC DUST (Polvo Polarizado)
+   ========================================================================== */
+.magnetic-dust-particle {
+  fill: var(--accent-gold, #d4a343);
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 0 3px rgba(212, 163, 67, 0.5));
+}
+
+/* ==========================================================================
+   MATERIAL 9: LIQUID METAL (Mercurio Especular)
+   ========================================================================== */
+.liquid-metal-flow {
+  stroke: #e2e8f0;
+  transition: opacity 0.25s ease, stroke-width 0.25s ease;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
+}
+
+.liquid-metal-droplet {
+  fill: var(--accent-gold-bright, #e8be66);
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 0 4px rgba(212, 163, 67, 0.7));
+}
+
+/* ==========================================================================
+   MATERIAL 10: INK (Capilaridad Caligráfica)
+   ========================================================================== */
+.ink-line {
+  stroke: var(--accent-gold, #d4a343);
+  transition: opacity 0.25s ease, stroke-width 0.25s ease;
+  filter: drop-shadow(0 0 3px rgba(212, 163, 67, 0.4));
+}
+
+.ink-splash {
+  fill: rgba(212, 163, 67, 0.35);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* ==========================================================================
    Accesibilidad: Prefers-Reduced-Motion
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
