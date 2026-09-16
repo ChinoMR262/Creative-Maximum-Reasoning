@@ -19,6 +19,7 @@ import { ParticleSystem } from '../graphics/ParticleSystem.js';
 import { SecurityHardening } from '../security/SecurityHardening.js';
 import { CodexModal } from '../interaction/CodexModal.js';
 import { GestureRouter } from '../interaction/GestureRouter.js';
+import { RendererAdapter } from './RendererAdapter.js';
 
 export class CMREngine {
   constructor() {
@@ -46,8 +47,9 @@ export class CMREngine {
     this.frames = new LivingFrameController(this.eventBus);
     this.rail = new LivingRail(this.theme, this.seasonal, this.quality, this.eventBus);
 
-    // 6. Subsistema gráfico de partículas
+    // 6. Subsistema gráfico de partículas atmosféricas y adaptador 3D
     this.particles = new ParticleSystem(this.quality, this.seasonal, this.eventBus);
+    this.renderer = new RendererAdapter(this.quality, this.eventBus);
 
     this.isMounted = false;
   }
@@ -70,11 +72,29 @@ export class CMREngine {
     this.particles.mount();
     this.codexModal.mount();
 
-    // C. Conectar reloj central de animación
+    // C. Montar capa de renderizado 3D (WebGPU / WebGL2 / Canvas2D)
+    let canvas3d = document.getElementById('cmr-canvas-3d');
+    if (!canvas3d) {
+      canvas3d = document.createElement('canvas');
+      canvas3d.id = 'cmr-canvas-3d';
+      canvas3d.setAttribute('aria-hidden', 'true');
+      canvas3d.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-2;opacity:0.65;';
+      document.body.prepend(canvas3d);
+    }
+    this.renderer.init(canvas3d).catch(err => {
+      console.warn('[CMR Engine] Inicialización de RendererAdapter degradada:', err);
+    });
+
+    window.addEventListener('resize', () => {
+      this.renderer.setSize(window.innerWidth, window.innerHeight);
+    }, { passive: true });
+
+    // D. Conectar reloj central de animación
     this.clock.subscribe((dt, t) => {
       this.pointer.update(dt, t);
       this.proximity.update(dt, t);
       this.particles.update(dt, t);
+      this.renderer.render(dt, t);
       this.quality.update(dt);
     });
 
