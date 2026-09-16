@@ -18,6 +18,7 @@ import { LivingRail } from '../navigation/LivingRail.js';
 import { ParticleSystem } from '../graphics/ParticleSystem.js';
 import { SecurityHardening } from '../security/SecurityHardening.js';
 import { CodexModal } from '../interaction/CodexModal.js';
+import { GestureRouter } from '../interaction/GestureRouter.js';
 
 export class CMREngine {
   constructor() {
@@ -34,8 +35,8 @@ export class CMREngine {
     // 3. Subsistemas de interacción
     this.pointer = new PointerField(this.eventBus);
     this.proximity = new ProximityEngine(this.pointer);
+    this.gestures = new GestureRouter(this.eventBus);
     this.codexModal = new CodexModal();
-
 
     // 4. Subsistemas de tema y estaciones
     this.theme = new ThemeState(this.eventBus);
@@ -63,6 +64,7 @@ export class CMREngine {
     this.seasonal.mount();
     this.pointer.mount();
     this.proximity.mount();
+    this.gestures.mount();
     this.frames.mount();
     this.rail.mount();
     this.particles.mount();
@@ -127,6 +129,7 @@ export class CMREngine {
     this.clock.stop();
     this.pointer.destroy();
     this.proximity.destroy();
+    this.gestures.destroy();
     this.frames.destroy();
     this.rail.destroy();
     this.particles.destroy();

@@ -21,11 +21,13 @@ export class ProximityEngine {
   }
 
   update(dt, t) {
-    // Si la pantalla es táctil pura o reduced-motion, no calcular proximidad continua
+    // Si la pantalla es táctil pura, reduced-motion o está en reposo idle, no calcular proximidad continua
     if (document.documentElement.dataset.reducedMotion === 'true') return;
+    if (this.pointer.isIdle) return;
 
     const px = this.pointer.x;
     const py = this.pointer.y;
+    const speedNorm = this.pointer.smoothSpeed ? Math.min(1, this.pointer.smoothSpeed / 1.5) : 0;
 
     for (const el of this.elements) {
       const rect = el.getBoundingClientRect();
@@ -40,7 +42,9 @@ export class ProximityEngine {
       const distance = Math.hypot(dx, dy);
 
       if (distance < this.maxDistance) {
-        const proximity = Math.max(0, 1 - distance / this.maxDistance);
+        const rawProximity = Math.max(0, 1 - distance / this.maxDistance);
+        // Modulación sutil por velocidad del cursor (respuesta delicada si es lento, más vívida si es rápido)
+        const proximity = Math.min(1, rawProximity * (1 + speedNorm * 0.18));
         const localX = Math.max(0, Math.min(100, ((px - rect.left) / rect.width) * 100));
         const localY = Math.max(0, Math.min(100, ((py - rect.top) / rect.height) * 100));
 
@@ -48,10 +52,10 @@ export class ProximityEngine {
         el.style.setProperty('--px', `${localX.toFixed(1)}%`);
         el.style.setProperty('--py', `${localY.toFixed(1)}%`);
 
-        // Micro-inclinación 3D sutil sólo si el cursor está sobre el elemento
+        // Micro-inclinación 3D de autor sólo si el cursor está dentro del elemento
         if (px >= rect.left && px <= rect.right && py >= rect.top && py <= rect.bottom) {
-          const rx = ((50 - localY) * 0.05).toFixed(2);
-          const ry = ((localX - 50) * 0.05).toFixed(2);
+          const rx = ((50 - localY) * 0.045).toFixed(2);
+          const ry = ((localX - 50) * 0.045).toFixed(2);
           el.style.setProperty('--rx', `${rx}deg`);
           el.style.setProperty('--ry', `${ry}deg`);
         } else {
