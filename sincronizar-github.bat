@@ -104,6 +104,8 @@ if errorlevel 1 (
     echo   Verifica tu conexion a internet o tus credenciales de Git.
     echo =============================================================
     echo.
+    echo Presiona cualquier tecla para cerrar esta ventana...
+    pause > nul
 ) else (
     color 0a
     echo.
@@ -111,7 +113,7 @@ if errorlevel 1 (
     echo   EXITO TOTAL: Todo sincronizado correctamente con GitHub!
     echo =============================================================
     echo.
+    echo Cerrando automaticamente en 3 segundos (o presiona cualquier tecla)...
+    timeout /t 3 > nul 2>&1 || ping 127.0.0.1 -n 4 > nul
 )
 
-echo Presiona cualquier tecla para cerrar esta ventana...
-pause > nul
