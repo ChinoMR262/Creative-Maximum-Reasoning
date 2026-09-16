@@ -27,7 +27,7 @@ Creative Maximum Reasoning es el sello de desarrollo y creación independiente l
 
 - **Sitio Web:** [cmr-reasoning.com.ar](https://cmr-reasoning.com.ar)
 - **Contacto:** [contacto@cmr-reasoning.com.ar](mailto:contacto@cmr-reasoning.com.ar)
-- **Google Play:** [Creative Maximum Reasoning](https://play.google.com/store/apps/developer?id=Creative+Maximum+Reasoning)
+- **Google Play:** [Creative Maximum Reasoning](https://play.google.com/store/apps/dev?id=9143476523440074627)
 - **Ubicación:** Neuquén, Argentina
 
 ---
