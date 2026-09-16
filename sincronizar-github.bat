@@ -5,7 +5,7 @@ color 0b
 
 echo.
 echo =============================================================
-echo   Creative Maximum Reasoning (CMR) - Sincronizador a GitHub
+echo   Creative Maximum Reasoning - Sincronizador a GitHub
 echo =============================================================
 echo.
 
@@ -21,10 +21,10 @@ if exist "%~dp0.git" (
 
 if "%REPO_DIR%"=="" (
     color 0c
-    echo [ERROR] No se encontro el repositorio Git (.git) en ninguna ubicacion conocida.
+    echo [ERROR] No se encontro la carpeta .git del repositorio.
     echo Buscado en:
-    echo  - "%~dp0"
-    echo  - "%~dp0CMR-Pagina Principal\cmr-website"
+    echo   - %~dp0
+    echo   - %~dp0CMR-Pagina Principal\cmr-website
     echo.
     pause
     exit /b 1
@@ -41,29 +41,29 @@ if exist ".git\index.lock" (
     del /f /q ".git\index.lock" >nul 2>&1
 )
 if exist ".git\rebase-apply" (
-    echo [RECUPERACION] Abortando rebase colgado anterior...
+    echo [RECUPERACION] Abortando rebase previo...
     git rebase --abort >nul 2>&1
 )
 if exist ".git\rebase-merge" (
-    echo [RECUPERACION] Abortando rebase colgado anterior...
+    echo [RECUPERACION] Abortando rebase previo...
     git rebase --abort >nul 2>&1
 )
 if exist ".git\MERGE_HEAD" (
-    echo [RECUPERACION] Abortando merge colgado anterior...
+    echo [RECUPERACION] Abortando merge previo...
     git merge --abort >nul 2>&1
 )
 
-:: 3. Preparacion de cambios locales (NUEVOS, MODIFICADOS Y BORRADOS)
-echo [1/4] Registrando archivos creados, modificados o eliminados (git add -A)...
+:: 3. Preparacion de cambios locales (nuevos, modificados y borrados)
+echo [1/4] Registrando archivos creados, modificados o eliminados...
 git add -A .
 
-:: 4. Deteccion certera de cambios pendientes
+:: 4. Deteccion de cambios pendientes
 set "HAY_CAMBIOS="
 for /f "tokens=*" %%i in ('git status --porcelain') do (
     set "HAY_CAMBIOS=1"
-    goto :hay_cambios_detectados
+    goto :cambios_detectados
 )
-:hay_cambios_detectados
+:cambios_detectados
 
 if defined HAY_CAMBIOS (
     set "HORA=%time: =0%"
@@ -77,22 +77,22 @@ if defined HAY_CAMBIOS (
     echo [2/4] No hay cambios locales nuevos para commitear.
 )
 
-:: 5. Descarga y sincronizacion con GitHub (PULL SEGURO sin colisiones)
+:: 5. Descarga y sincronizacion con GitHub
 echo.
-echo [3/4] Sincronizando con repositorio remoto (git pull origin main --rebase)...
+echo [3/4] Sincronizando con repositorio remoto git pull...
 git pull origin main --rebase
 if errorlevel 1 (
-    echo [AVISO] Rebase con advertencia. Recuperando y aplicando merge seguro...
+    echo [AVISO] Rebase con advertencia. Aplicando merge seguro...
     git rebase --abort >nul 2>&1
     git pull origin main --no-rebase -m "merge: sincronizar cambios remotos con GitHub"
 )
 
-:: 6. Subida final a GitHub (PUSH)
+:: 6. Subida final a GitHub
 echo.
-echo [4/4] Subiendo cambios a GitHub (git push origin main)...
+echo [4/4] Subiendo cambios a GitHub git push...
 git push origin main
 if errorlevel 1 (
-    echo [REINTENTO] Intentando fijar upstream (git push -u origin main)...
+    echo [REINTENTO] Intentando fijar upstream git push -u origin main...
     git push -u origin main
 )
 
