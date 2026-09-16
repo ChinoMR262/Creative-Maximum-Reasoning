@@ -1,0 +1,171 @@
+/**
+ * Creative Maximum Reasoning (CMR) — Living Frames & Material Selection
+ * Reemplazo de tarjetas genéricas y subrayados por interacción viva
+ * doc/CMR_Web_System_v2_Documentation/docs/05_LIVING_FRAMES_AND_SELECTION.md y 06_MATERIAL_SYSTEM.md
+ */
+
+.living-frame {
+  position: relative;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  transition: 
+    background-color var(--duration-fast) var(--ease-out-expo),
+    border-color var(--duration-fast) var(--ease-out-expo),
+    transform var(--duration-fast) var(--ease-out-expo),
+    box-shadow var(--duration-fast) var(--ease-out-expo);
+  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+}
+
+/* Capa de brillo rasante / Proximidad radial */
+.living-frame::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: calc(var(--proximity, 0) * 0.7);
+  background: radial-gradient(
+    400px circle at var(--px, 50%) var(--py, 50%),
+    rgba(212, 163, 67, 0.16),
+    transparent 65%
+  );
+  transition: opacity var(--duration-fast) var(--ease-out-expo);
+  z-index: 2;
+}
+
+/* Microborde vivo del marco */
+.living-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  border: 1px solid transparent;
+  transition: border-color var(--duration-fast) var(--ease-out-expo), box-shadow var(--duration-fast) var(--ease-out-expo);
+  z-index: 3;
+}
+
+/* Estados de interacción */
+.living-frame:hover,
+.living-frame:focus-visible,
+.living-frame[data-state='hover'] {
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-strong);
+}
+
+.living-frame:focus-visible {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 2px var(--bg-matte), 0 0 0 4px var(--accent-gold);
+}
+
+.living-frame[data-state='selected'],
+.living-frame[data-active='true'],
+.living-frame[aria-selected='true'] {
+  border-color: var(--accent-gold);
+  background-color: var(--bg-card-hover);
+  box-shadow: var(--shadow-card), 0 0 16px var(--gold-subtle);
+}
+
+/* ==========================================================================
+   Especializaciones por Material (10 Materiales de la Especificación)
+   ========================================================================== */
+
+/* 1. ROOTS (Crecimiento orgánico, ramificaciones sutiles) */
+.living-frame[data-material='roots']::after {
+  border-image: radial-gradient(circle at var(--px, 50%) var(--py, 50%), var(--accent-gold) 0%, transparent 70%) 1;
+}
+.living-frame[data-material='roots'][data-state='selected'] {
+  border-color: var(--accent-gold);
+  background: radial-gradient(circle at 100% 100%, rgba(212, 163, 67, 0.08) 0%, var(--bg-card-hover) 60%);
+}
+
+/* 2. STONE (Microfisura mineral iluminada, sin explosiones falsas) */
+.living-frame[data-material='stone'] {
+  border-style: solid;
+  border-width: 1px;
+}
+.living-frame[data-material='stone'][data-state='selected']::after {
+  border-color: rgba(212, 163, 67, 0.7);
+  clip-path: polygon(0 0, 95% 0, 100% 8%, 100% 100%, 8% 100%, 0 92%);
+}
+
+/* 3. ARCANE (Filamentos lumínicos y nodos energéticos) */
+.living-frame[data-material='arcane']::before {
+  background: radial-gradient(
+    320px circle at var(--px, 50%) var(--py, 50%),
+    rgba(212, 163, 67, 0.24),
+    rgba(130, 90, 240, 0.08) 45%,
+    transparent 70%
+  );
+}
+.living-frame[data-material='arcane'][data-state='selected'] {
+  box-shadow: var(--shadow-card), 0 0 24px rgba(212, 163, 67, 0.3);
+}
+
+/* 4. FABRIC (Malla de tela sutil con recuperación elástica) */
+.living-frame[data-material='fabric'] {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+/* 5. GLASS (Vidrio grafito mate con refracción y borde nítido) */
+.living-frame[data-material='glass'] {
+  background-color: rgba(24, 24, 29, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* 6. MAGNETIC DUST (Atracción perimetral sutil) */
+.living-frame[data-material='magnetic-dust']::before {
+  opacity: calc(var(--proximity, 0) * 0.9);
+}
+
+/* 7. LIQUID METAL (Highlight especular viscoso en High/Ultra) */
+.living-frame[data-material='liquid-metal'][data-state='hover']::before {
+  opacity: 0.9;
+  background: radial-gradient(
+    250px circle at var(--px, 50%) var(--py, 50%),
+    rgba(255, 255, 255, 0.15),
+    rgba(212, 163, 67, 0.25) 30%,
+    transparent 65%
+  );
+}
+
+/* 8. MECHANISM (Lock mecánico e inercia de piezas) */
+.living-frame[data-material='mechanism'] {
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+.living-frame[data-material='mechanism'][data-state='selected'] {
+  border-color: var(--accent-gold-bright);
+}
+
+/* 9. INK (Tinta capilar sobre papel literario) */
+.living-frame[data-material='ink'] {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.living-frame[data-material='ink'][data-state='selected'] {
+  background: radial-gradient(
+    380px circle at var(--px, 50%) var(--py, 50%),
+    rgba(12, 12, 14, 0.95),
+    var(--bg-card-hover) 80%
+  );
+  border-color: var(--accent-gold);
+}
+
+/* 10. FROST / CRYSTAL (Escarcha de invierno con cristalización perimetral) */
+.living-frame[data-material='frost'] {
+  border-color: rgba(180, 210, 230, 0.2);
+}
+.living-frame[data-material='frost'][data-state='selected'] {
+  border-color: var(--season-accent, #88a4b8);
+  box-shadow: 0 0 18px rgba(136, 164, 184, 0.25);
+}

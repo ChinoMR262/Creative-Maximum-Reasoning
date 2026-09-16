@@ -1,0 +1,83 @@
+/**
+ * Creative Maximum Reasoning (CMR) — Design Tokens Oficiales
+ * Basado en directrices de autor (Jonathan Gabriel Nieto)
+ * doc/directrices-diseno-identidad-cmr.md y doc/CMR_Web_System_v2_Documentation/docs/02_DESIGN_TOKENS_AND_ART_DIRECTION.md
+ */
+
+:root {
+  /* Paleta Negro Grafito Mate (Cero Azul - Neutro, Cálido y Editorial) */
+  --bg-matte: #0c0c0e;
+  --bg-surface: #131316;
+  --bg-card: #18181d;
+  --bg-card-hover: #222229;
+  --bg-overlay: rgba(12, 12, 14, 0.88);
+  
+  /* Bordes y separadores sutiles */
+  --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --border-accent: rgba(212, 163, 67, 0.38);
+  --border-subtle: rgba(255, 255, 255, 0.04);
+  
+  /* Textos editoriales (Marfil cálido, Ceniza neutro y Grafito apagado) */
+  --text-main: #f0eee9;
+  --text-muted: #9e9ea6;
+  --text-dim: #676770;
+  --text-inv: #0c0c0e;
+
+  /* Acentos de autor: Oro Faro / Ámbar artesanal */
+  --accent-gold: #d4a343;
+  --accent-gold-bright: #e8ba5c;
+  --gold-subtle: rgba(212, 163, 67, 0.12);
+  --gold-glow: rgba(212, 163, 67, 0.22);
+  --gold-border: rgba(212, 163, 67, 0.28);
+  
+  /* Estados del sistema */
+  --status-ready: #3cb371;
+  --status-ready-bg: rgba(60, 179, 113, 0.12);
+  --status-dev: #d4a343;
+  --status-dev-bg: rgba(212, 163, 67, 0.12);
+  --status-alert: #d66453;
+
+  /* Tipografías oficiales de autor */
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
+  
+  /* Medidas de grilla y contenedores */
+  --wrap-max: 1240px;
+  --wrap-text: 740px;
+  --rail-width: 82px;
+  --rail-expanded-width: 290px;
+  
+  /* Radios de borde artesanales (cero pill genérica) */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* Elevaciones de autor: sombras profundas y rasantes, nunca difuminados exagerados */
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 8px 24px -6px rgba(0, 0, 0, 0.65), 0 2px 6px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 20px rgba(212, 163, 67, 0.15);
+
+  /* Curvas de aceleración de autor (Snappy & Orgánico) */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  /* Duraciones */
+  --duration-fast: 180ms;
+  --duration-normal: 320ms;
+  --duration-slow: 540ms;
+
+  /* Z-Index Hierarchy */
+  --z-background: -10;
+  --z-canvas: -1;
+  --z-content: 1;
+  --z-interactive: 10;
+  --z-rail: 50;
+  --z-nav-artifact: 60;
+  --z-preview: 70;
+  --z-modal: 100;
+  --z-toast: 110;
+}

@@ -1,0 +1,83 @@
+/**
+ * Creative Maximum Reasoning (CMR) — Sistema de Temas y Capas Estacionales
+ * BaseMode: System / Light / Dark
+ * SeasonalEngine: Winter / Autumn / Spring / Summer / Off
+ * doc/CMR_Web_System_v2_Documentation/docs/11_THEME_SYSTEM.md y 12_SEASONAL_ENGINE.md
+ */
+
+/* ==========================================================================
+   Base Mode: Light (Pergamino / Papel de Autor, Cero Blanco Encandilante)
+   ========================================================================== */
+[data-theme='light'] {
+  --bg-matte: #f5f4ef;
+  --bg-surface: #ecebe5;
+  --bg-card: #e4e2da;
+  --bg-card-hover: #dad7cd;
+  --bg-overlay: rgba(245, 244, 239, 0.92);
+  
+  --border: rgba(18, 18, 22, 0.09);
+  --border-strong: rgba(18, 18, 22, 0.18);
+  --border-accent: rgba(168, 114, 26, 0.45);
+  --border-subtle: rgba(18, 18, 22, 0.05);
+
+  --text-main: #19191d;
+  --text-muted: #565660;
+  --text-dim: #7f7f8a;
+  --text-inv: #f5f4ef;
+
+  --accent-gold: #aa741f;
+  --accent-gold-bright: #c4892c;
+  --gold-subtle: rgba(170, 116, 31, 0.14);
+  --gold-glow: rgba(170, 116, 31, 0.18);
+  --gold-border: rgba(170, 116, 31, 0.32);
+
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 8px 20px -6px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* ==========================================================================
+   Seasonal Layers (Ortogonales e independientes del modo base)
+   ========================================================================== */
+
+/* Invierno: Escarcha sutil, matiz níveo y bordes cristalinos */
+[data-season='winter'] {
+  --season-accent: #7fa4bd;
+  --season-glow: rgba(127, 164, 189, 0.18);
+  --season-tint: rgba(165, 198, 219, 0.035);
+  --season-border-frost: rgba(195, 220, 235, 0.22);
+}
+
+/* Otoño: Tonos secos, ocre quemado y cobre templado */
+[data-season='autumn'] {
+  --season-accent: #c46c37;
+  --season-glow: rgba(196, 108, 55, 0.18);
+  --season-tint: rgba(196, 108, 55, 0.035);
+  --season-border-frost: rgba(220, 140, 90, 0.22);
+}
+
+/* Primavera: Brotes nacientes, verde oliva suave y energía orgánica */
+[data-season='spring'] {
+  --season-accent: #769f64;
+  --season-glow: rgba(118, 159, 100, 0.18);
+  --season-tint: rgba(118, 159, 100, 0.035);
+  --season-border-frost: rgba(145, 195, 125, 0.22);
+}
+
+/* Verano: Sol meridional, destellos dorados y aire cálido */
+[data-season='summer'] {
+  --season-accent: #d4a343;
+  --season-glow: rgba(212, 163, 67, 0.22);
+  --season-tint: rgba(212, 163, 67, 0.04);
+  --season-border-frost: rgba(240, 195, 100, 0.25);
+}
+
+/* Capa ambiental activa según estación */
+[data-season]:not([data-season='off']) body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-background);
+  background-color: var(--season-tint, transparent);
+  transition: background-color var(--duration-slow) var(--ease-out-expo);
+}

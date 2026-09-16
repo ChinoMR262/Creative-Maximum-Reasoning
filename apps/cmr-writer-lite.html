@@ -7,7 +7,7 @@
   <meta name="description" content="CMR Writer Lite: editor de capítulos, notas y vista previa de lectura, con sistema de personajes. Desarrollado por Jonathan Gabriel Nieto.">
   
   <!-- Seguridad de Vanguardia (CSP & Políticas) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
@@ -39,9 +39,11 @@
   
   <!-- Motor de Animación Motion (Framer Motion) y Script Principal -->
   <script src="../assets/js/motion.js" defer></script>
-  <script src="../assets/js/main.js" defer></script>
+  <script type="module" src="../assets/js/main.js"></script>
 </head>
 <body>
+  <a href="#content" class="skip-to-content">Saltar al contenido</a>
+
 
   <!-- Barra de Navegación -->
   <header>

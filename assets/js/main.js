@@ -1,52 +1,21 @@
 /**
- * Creative Maximum Reasoning (CMR) — Lógica de Interacción & Framer Motion
- * Vanguardista, Vanilla JS sin dependencias externas, seguro y modular.
+ * Creative Maximum Reasoning (CMR) — Entrypoint Modular v2.0
+ * Inicializa el CMREngine y preserva las animaciones de autor con Framer Motion
+ * Directrices: doc/directrices-diseno-identidad-cmr.md & doc/CMR_Web_System_v2_Documentation
  */
 
-'use strict';
+import { CMREngine } from './modules/engine/CMREngine.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Sincronización automática de año de copyright
+  // 1. Inicializar el motor maestro CMR Web System v2
+  const engine = new CMREngine();
+  engine.mount();
+  window.__CMR_ENGINE__ = engine; // Acceso para diagnóstico en consola
+
+  // 2. Sincronización automática de año de copyright
   const yearEl = document.getElementById('year');
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
-  }
-
-  // 2. Navegación móvil accesible
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = navLinks.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-
-    // Cerrar menú al hacer clic en cualquier enlace
-    navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    // Cerrar menú al hacer clic fuera del drawer
-    document.addEventListener('click', (e) => {
-      if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && e.target !== navToggle) {
-        navLinks.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    // Cerrar menú con tecla Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
-        navLinks.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.focus();
-      }
-    });
   }
 
   // 3. Animaciones con Framer Motion (Motion Engine)
@@ -91,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (appsSection) {
       inView(appsSection, () => {
         animate(
-          appsSection.querySelectorAll('.section-head, .app-card'),
+          appsSection.querySelectorAll('.section-head, .living-frame, .app-card'),
           { opacity: [0, 1], y: [22, 0] },
           { delay: stagger(0.12), duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }
         );
@@ -110,19 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, { margin: '0px 0px -80px 0px' });
     }
 
-    // E. Revelación de Funcionalidades en Subpágina
-    const featuresList = document.querySelector('.features-list');
-    if (featuresList) {
-      inView(featuresList, () => {
-        animate(
-          featuresList.querySelectorAll('.feature-row'),
-          { opacity: [0, 1], y: [16, 0] },
-          { delay: stagger(0.08), duration: 0.55, ease: 'easeOut' }
-        );
-      }, { margin: '0px 0px -60px 0px' });
-    }
-
-    // F. Revelación del Pie de Página (Footer 3-Col)
+    // E. Revelación del Pie de Página (Footer 3-Col)
     const footer = document.querySelector('footer');
     if (footer) {
       inView(footer, () => {

@@ -1,8 +1,21 @@
 /**
- * Creative Maximum Reasoning (CMR) — Sistema de Diseño Oficial
- * Directrices: doc/directrices-diseno-identidad-cmr.md
+ * Creative Maximum Reasoning (CMR) — Sistema de Diseño Oficial Modular v2
+ * Directrices: doc/directrices-diseno-identidad-cmr.md & doc/CMR_Web_System_v2_Documentation
  * Paleta: Negro Oscuro Mate Oscurecido | Tipografía: Fraunces + Inter + JetBrains Mono
  */
+
+@import url('./tokens.css');
+@import url('./themes.css');
+@import url('./living-rail.css');
+@import url('./living-frames.css');
+@import url('./accessibility.css');
+
+@media (min-width: 960px) {
+  body {
+    padding-left: var(--rail-width);
+  }
+}
+
 
 :root {
   /* Paleta Negro Grafito Mate (Cero Azul - Neutro y Cálido) */
