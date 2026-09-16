@@ -113,7 +113,7 @@ if errorlevel 1 (
     echo   EXITO TOTAL: Todo sincronizado correctamente con GitHub!
     echo =============================================================
     echo.
-    echo Cerrando automaticamente en 3 segundos (o presiona cualquier tecla)...
+    echo Cerrando automaticamente en 3 segundos o al presionar una tecla...
     timeout /t 3 > nul 2>&1 || ping 127.0.0.1 -n 4 > nul
 )
 
