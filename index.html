@@ -7,7 +7,7 @@
   <meta name="description" content="Creative Maximum Reasoning (CMR): aplicaciones para Google Play escritas, editadas y desarrolladas por Jonathan Gabriel Nieto.">
   
   <!-- Seguridad de Vanguardia (CSP & Políticas) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
@@ -37,11 +37,13 @@
   <!-- Hoja de Estilos Modular -->
   <link rel="stylesheet" href="assets/css/main.css">
   
-  <!-- Motor de Animación Motion (Framer Motion) y Script Principal -->
+  <!-- Motor de Animación Motion (Framer Motion) y Engine Modular CMR v2 -->
   <script src="assets/js/motion.js" defer></script>
-  <script src="assets/js/main.js" defer></script>
+  <script type="module" src="assets/js/main.js"></script>
 </head>
 <body>
+  <a href="#top" class="skip-to-content">Saltar al contenido</a>
+
 
   <!-- Barra de Navegación -->
   <header>
@@ -99,8 +101,8 @@
         </div>
         
         <div class="apps-grid">
-          <!-- Tarjeta App 1: CMR Writer Lite -->
-          <a class="app-card" href="apps/cmr-writer-lite.html">
+          <!-- Tarjeta App 1: CMR Writer Lite (Material: Roots) -->
+          <a class="living-frame app-card" data-material="roots" href="apps/cmr-writer-lite.html" tabindex="0">
             <div class="app-mono">CW</div>
             <h3>CMR Writer Lite</h3>
             <p class="desc">Editor de capítulos, notas y vista previa de lectura para escribir historias por capítulos, con sistema de personajes.</p>
@@ -108,13 +110,14 @@
             <span class="app-link">Ver la app →</span>
           </a>
 
-          <!-- Tarjeta Próxima App -->
-          <div class="app-card disabled" aria-disabled="true">
+          <!-- Tarjeta Próxima App (Material: Arcane) -->
+          <div class="living-frame app-card disabled" data-material="arcane" aria-disabled="true" tabindex="0">
             <div class="app-mono">?</div>
             <h3>Próxima aplicación</h3>
             <p class="desc">En este espacio va a aparecer la siguiente app de CMR cuando esté lista para mostrarse.</p>
             <span class="badge">En desarrollo</span>
           </div>
+
         </div>
       </div>
     </section>
