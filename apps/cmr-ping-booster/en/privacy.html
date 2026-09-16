@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy &amp; Technical Specifications · CMR Ping Booster</title>
+
+  <meta name="description" content="CMR Ping Booster privacy policy for Android: VpnService use, DNS queries, permissions, and data handling.">
+  <meta name="author" content="Jonathan Gabriel Nieto / CMR — Creative Maximum Reasoning">
+  <meta name="creator" content="Jonathan Gabriel Nieto">
+  <meta name="publisher" content="Creative Maximum Reasoning (CMR)">
+  <meta name="copyright" content="Copyright © 2026 Jonathan Gabriel Nieto / CMR — Creative Maximum Reasoning. All rights reserved.">
+  <meta name="theme-color" content="#090a0d">
+
+  <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+  <link rel="apple-touch-icon" href="../assets/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="./index.html" class="brand">
+        <img src="../assets/logo.png" alt="Official CMR Logo" class="brand-logo">
+        <div class="brand-text">
+          <h1>CMR Ping Booster</h1>
+          <span>Creative Maximum Reasoning</span>
+        </div>
+      </a>
+      <div class="nav-wrapper">
+        <nav class="nav-links">
+          <a href="./index.html" class="nav-link">Home</a>
+          <a href="./index.html#app-android" class="nav-link">Android App</a>
+          <a href="./index.html#pc-suite" class="nav-link">PC Suite</a>
+          <a href="./pc-privacy.html" class="nav-link">PC Terms</a>
+        </nav>
+        <div class="nav-actions">
+          <div class="lang-switch" role="group" aria-label="Language selector">
+            <a href="../privacy.html" class="lang-option">ES</a>
+            <a href="./privacy.html" class="lang-option active">EN</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="legal-main">
+    <div class="container" style="max-width: 940px;">
+
+      <article class="legal-document privacy-document">
+
+        <div class="legal-header privacy-masthead">
+          <p class="privacy-overline">CMR Ping Booster · Android</p>
+          <h1>Your connection is not our product.</h1>
+          <p class="privacy-lede">This policy explains plainly what the app processes to resolve DNS, and what never reaches CMR.</p>
+
+          <div class="legal-meta-strip">
+            <span>Package ID: <code>com.cmr.pingbooster</code></span>
+            <span>Effective Date: 2026</span>
+          </div>
+        </div>
+
+        <aside class="privacy-trustline" aria-label="CMR privacy commitment">
+          <p>CMR does not sell, share, or turn your traffic into advertising.</p>
+          <ul>
+            <li>No account</li>
+            <li>No ads</li>
+            <li>No logs at CMR</li>
+          </ul>
+        </aside>
+
+        <div class="legal-content">
+
+          <section class="legal-section" id="ownership">
+            <h2 class="legal-section-title"><span class="legal-section-num">01</span> Ownership and Legal Scope</h2>
+            <p>
+              This document defines the privacy policies and security specifications for the mobile software <strong>CMR Ping Booster</strong> (Package ID: <code>com.cmr.pingbooster</code>), developed under the sole authorship and ownership of <strong>Jonathan Gabriel Nieto</strong> for the entity <strong>Creative Maximum Reasoning (CMR)</strong>.
+            </p>
+          </section>
+
+          <section class="legal-section" id="zero-data">
+            <h2 class="legal-section-title"><span class="legal-section-num">02</span> Zero-Data Collection Principle</h2>
+            <p>
+              CMR Ping Booster does not collect or store personal data, browsing history, or DNS queries on CMR servers. To provide DNS resolution, required queries are sent directly to the public resolver selected by the user. That provider applies its own privacy policy:
+            </p>
+            <ul style="padding-left: 20px; margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+              <li><strong>Personal Identifiers:</strong> We do not request names, accounts, email addresses, contacts, precise GPS location, or hardware identifiers (IMEI/MAC addresses).</li>
+              <li><strong>Browsing Data:</strong> CMR does not receive or store DNS queries, visited domains, network packets, or web sessions. Required queries are sent directly to the selected resolver.</li>
+              <li><strong>Infrastructure:</strong> The application does not operate commercial proxy nodes, external routing gateways, or analytical tracking servers.</li>
+            </ul>
+            <p>
+              For Google Play taxonomy purposes, this ephemeral transfer is conservatively declared as <strong>Web browsing → Web browsing history</strong>. This does not mean that CMR creates or retains a history: CMR does not receive this data, and the query is sent to the selected public DNS provider to return the requested resolution.
+            </p>
+          </section>
+
+          <section class="legal-section" id="vpnservice">
+            <h2 class="legal-section-title"><span class="legal-section-num">03</span> VpnService declaration</h2>
+            <p>
+              The app declares the following use of <code>android.permission.BIND_VPN_SERVICE</code>:
+            </p>
+
+            <div class="legal-highlight-box">
+              <strong style="color: var(--text-pure); display: block; margin-bottom: 6px; font-family: var(--font-mono); font-size: 0.85rem;">SOLE TECHNICAL PURPOSE:</strong>
+              <p style="font-size: 0.88rem; margin-bottom: 0;">
+                Android <code>VpnService</code> creates a local interface (TUN <code>10.254.1.2</code>) that processes DNS queries. Allowed queries are forwarded over authenticated DNS-over-TLS to the provider shown in the app: Cloudflare, Google Public DNS, Quad9, AdGuard, or Control D. Results depend on the network, provider, and location; the app does not guarantee lower ping or fewer interruptions.
+              </p>
+            </div>
+
+            <p style="margin-top: 12px; font-size: 0.85rem; color: var(--text-muted);">
+              <strong>Clarification:</strong> CMR Ping Booster is not a remote VPN, does not mask the public IP address, and does not send general traffic to CMR servers. It does process DNS packets that Android directs to the local interface and forwards them encrypted to the selected resolver.
+            </p>
+          </section>
+
+          <section class="legal-section" id="permissions">
+            <h2 class="legal-section-title"><span class="legal-section-num">04</span> Android Permissions and Technical Justification</h2>
+            <table class="legal-table">
+              <thead>
+                <tr>
+                  <th>System Permission</th>
+                  <th>Technical Justification</th>
+                  <th>Scope</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>INTERNET</code></td>
+                  <td>Run TCP/DNS measurements and forward DNS over TLS.</td>
+                  <td>Network</td>
+                </tr>
+                <tr>
+                  <td><code>ACCESS_NETWORK_STATE</code></td>
+                  <td>Detect active connectivity and respond to network changes.</td>
+                  <td>Network status</td>
+                </tr>
+                <tr>
+                  <td><code>ACCESS_WIFI_STATE / CHANGE_WIFI_STATE</code></td>
+                  <td>Read link status and request a low-latency Wi-Fi lock during the session.</td>
+                  <td>Wi-Fi</td>
+                </tr>
+                <tr>
+                  <td><code>WAKE_LOCK</code></td>
+                  <td>Temporarily keep service processing available while the session is active.</td>
+                  <td>Active session</td>
+                </tr>
+                <tr>
+                  <td><code>POST_NOTIFICATIONS</code></td>
+                  <td>Render foreground status notifications with immediate emergency kill-switch controls.</td>
+                  <td>Android 13+</td>
+                </tr>
+                <tr>
+                  <td><code>BIND_VPN_SERVICE</code></td>
+                  <td>Restrict the local VPN service to Android and require native consent.</td>
+                  <td>VPN service</td>
+                </tr>
+                <tr>
+                  <td><code>FOREGROUND_SERVICE / SPECIAL_USE</code></td>
+                  <td>Keep the user-started VPN visible with a persistent stop control.</td>
+                  <td>Foreground</td>
+                </tr>
+                <tr>
+                  <td><code>ACCESS_NOTIFICATION_POLICY</code></td>
+                  <td>Enable and restore Do Not Disturb only after special access is granted.</td>
+                  <td>Optional</td>
+                </tr>
+                <tr>
+                  <td><code>PACKAGE_USAGE_STATS</code></td>
+                  <td>Sort recent app suggestions when usage access is granted.</td>
+                  <td>Optional</td>
+                </tr>
+                <tr>
+                  <td><code>KILL_BACKGROUND_PROCESSES</code></td>
+                  <td>Ask Android to perform limited background process closure for selected apps.</td>
+                  <td>Local management</td>
+                </tr>
+                <tr>
+                  <td><code>moe.shizuku.manager.permission.API_V23</code></td>
+                  <td>Request optional advanced access only through Shizuku.</td>
+                  <td>Optional</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="legal-section" id="pc-suite-reference">
+            <h2 class="legal-section-title"><span class="legal-section-num">05</span> Separation from Windows PC Suite</h2>
+            <p>
+              The Android mobile utility is entirely independent of the Windows PC desktop edition. To review the desktop security model, Multimedia Timer architecture, and in-app updater documentation, visit the dedicated terms:
+            </p>
+            <p style="margin-top: 8px;">
+              <a href="./pc-privacy.html" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">View Windows PC technical terms and privacy policy</a>
+            </p>
+          </section>
+
+          <section class="legal-section" id="trademarks">
+            <h2 class="legal-section-title"><span class="legal-section-num">06</span> Intellectual Property and Trademarks</h2>
+            <p>
+              Copyright © 2026 <strong>Jonathan Gabriel Nieto / CMR — Creative Maximum Reasoning</strong>. All rights reserved. Video game titles and trademarks cited within this website and documentation belong to their respective copyright holders and are mentioned strictly for technical interoperability reference.
+            </p>
+          </section>
+
+          <section class="legal-section" id="terms">
+            <h2 class="legal-section-title"><span class="legal-section-num">07</span> Terms of Use</h2>
+            <p>
+              Purchase grants a personal, limited, revocable, non-exclusive, and non-transferable license to use CMR Ping Booster on devices associated with the purchaser's Google Play account. The applicable price is the price displayed by Google Play when the purchase is confirmed. The app contains no advertising, subscriptions, or in-app purchases.
+            </p>
+            <p style="margin-top: 10px;">
+              Measurements and adjustments depend on the device, Android version, Internet provider, DNS resolver, location, and game server. No specific reduction in ping, jitter, packet loss, or increase in FPS is guaranteed. Advanced functions requiring Shizuku, root, or special access are optional, identified before use, and remain under the user's control.
+            </p>
+            <p style="margin-top: 10px;">
+              The app does not increase Wi-Fi signal, disable Android-controlled network scanning, or stop Digital Wellbeing, system services, or third-party apps. Its MTU setting applies only to the local DNS interface, never to the physical Wi-Fi or mobile interface.
+            </p>
+            <p style="margin-top: 10px;">
+              Purchases, cancellations, and refund requests are administered through Google Play and applicable consumer law. Nothing in these terms limits non-waivable consumer rights.
+            </p>
+          </section>
+
+          <section class="legal-section" id="licenses">
+            <h2 class="legal-section-title"><span class="legal-section-num">08</span> Third-Party Licenses</h2>
+            <p>
+              CMR Ping Booster uses components from Android, Kotlin, AndroidX, Jetpack Compose, Kotlin Coroutines, DataStore, and Shizuku. Each component retains the copyright and license published by its owner; complete notices included with the package prevail over this summary. References to Google, Android, Shizuku, DNS providers, or video games do not imply sponsorship, affiliation, or endorsement of CMR.
+            </p>
+          </section>
+
+          <section class="legal-section" id="contact">
+            <h2 class="legal-section-title"><span class="legal-section-num">09</span> Official Contact Channels</h2>
+            <p>
+              For developer inquiries, technical support, or Google Play Console compliance verification:
+            </p>
+
+            <div class="contact-channels">
+              <div class="contact-card">
+                <span class="contact-label">Official Application Support</span>
+                <a href="mailto:cmr.apps.oficial@gmail.com" class="contact-email">cmr.apps.oficial@gmail.com</a>
+              </div>
+              <div class="contact-card">
+                <span class="contact-label">Lead Developer Contact</span>
+                <a href="mailto:chinooficial262@gmail.com" class="contact-email">chinooficial262@gmail.com</a>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top-row">
+        <div class="footer-identity">
+          <img src="../assets/cmr_brand.png?v=2026" alt="Official CMR Logo" class="footer-logo-img">
+          <span class="footer-brand-name">Creative Maximum Reasoning</span>
+        </div>
+
+        <div class="footer-links-row">
+          <a href="./index.html#app-android" class="footer-link">Android App</a>
+          <a href="./index.html#pc-suite" class="footer-link">PC Suite</a>
+          <a href="./privacy.html" class="footer-link">Android Policy</a>
+          <a href="./pc-privacy.html" class="footer-link">PC Terms</a>
+          <a href="../version.json" class="footer-link">version.json</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <span>Copyright © 2026 Jonathan Gabriel Nieto / CMR. All rights reserved.</span>
+        <span>Package ID: com.cmr.pingbooster · Google Play Ready</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

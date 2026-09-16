@@ -1,0 +1,28 @@
+{
+  "android": {
+    "versionCode": 4,
+    "versionName": "1.0.0",
+    "packageId": "com.cmr.pingbooster",
+    "distribution": "Google Play",
+    "aabName": "CMR_Ping_Booster_v1.0.0(4)_Release.aab",
+    "aabSha256": "02B691461D9F57223AAC0445D6EEC6F5FEF47444D326E6C24E32C9C832BE2AB8",
+    "minAndroidVersion": "Android 7.0 (API 24)",
+    "targetAndroidVersion": "Android 16 (API 36)",
+    "releaseDate": "2026-09-16"
+  },
+  "pc": {
+    "version": "1.0.0",
+    "exeName": "CMR_Ping_Booster_PC.exe",
+    "downloadUrl": "https://chinomr262.github.io/CMR-Ping-Booster/CMR_Ping_Booster_PC.exe",
+    "sha256": "CC05884A4F44DEE87BA99DC4C362A916650398EDA2335DC9E4084DEC3671DE2F",
+    "releaseDate": "2026-09-12",
+    "minWindowsVersion": "Windows 10 / Windows 11 (x64)",
+    "changelog": [
+      "Actualización directa integrada desde el mismo programa: presionás actualizar y busca/aplica la nueva versión automáticamente",
+      "Solicitud de resolución del temporizador multimedia mientras el programa está activo",
+      "Purga selectiva de memoria de trabajo (Working Sets) de RAM sin interrupciones",
+      "Configuración local de sockets y medición de destinos regionales",
+      "No inyecta DLL ni accede a la memoria de juegos; la compatibilidad depende de las reglas de cada producto"
+    ]
+  }
+}

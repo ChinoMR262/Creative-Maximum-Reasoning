@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMR Ping Booster | Red para juegos</title>
+
+  <meta name="description" content="Sitio oficial de CMR Ping Booster para Android y Windows: medición de red, DNS configurable, documentación y privacidad.">
+  <meta name="author" content="Jonathan Gabriel Nieto / CMR — Creative Maximum Reasoning">
+  <meta name="creator" content="Jonathan Gabriel Nieto">
+  <meta name="publisher" content="Creative Maximum Reasoning (CMR)">
+  <meta name="copyright" content="Copyright © 2026 Jonathan Gabriel Nieto / CMR — Creative Maximum Reasoning. Todos los derechos reservados.">
+  <meta name="application-name" content="CMR Ping Booster">
+  <meta name="theme-color" content="#090a0d">
+
+  <meta property="og:title" content="CMR Ping Booster · Suite Oficial de Red Gaming">
+  <meta property="og:description" content="Herramientas locales de medición y configuración de red para Android y Windows, sin promesas de rendimiento garantizado.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Creative Maximum Reasoning (CMR)">
+  <meta property="og:image" content="./assets/cmr_brand.png">
+  <meta property="article:author" content="Jonathan Gabriel Nieto">
+
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+  <link rel="apple-touch-icon" href="./assets/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CMR Ping Booster",
+    "operatingSystem": "Android, Windows 10, Windows 11",
+    "applicationCategory": "UtilitiesApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Jonathan Gabriel Nieto"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Creative Maximum Reasoning (CMR)",
+      "logo": "https://chinomr262.github.io/CMR-Ping-Booster/assets/cmr_brand.png"
+    },
+    "copyrightHolder": {
+      "@type": "Person",
+      "name": "Jonathan Gabriel Nieto"
+    },
+    "copyrightYear": 2026,
+    "description": "Herramientas locales de medición y configuración DNS para Android y Windows desarrolladas por Creative Maximum Reasoning."
+  }
+  </script>
+</head>
+<body>
+  <div class="scroll-progress-bar" id="scroll-progress" aria-hidden="true"></div>
+
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="./index.html" class="brand">
+        <img src="./assets/logo.png" alt="Logo Oficial CMR" class="brand-logo">
+        <div class="brand-text">
+          <h1>CMR Ping Booster</h1>
+          <span>Creative Maximum Reasoning</span>
+        </div>
+      </a>
+      <div class="nav-wrapper">
+        <nav class="nav-links">
+          <a href="#app-android" class="nav-link">App Android</a>
+          <a href="#arquitectura" class="nav-link">Especificación</a>
+          <a href="#suite-pc" class="nav-link">Suite PC</a>
+          <a href="#actualizador-pc" class="nav-link">Actualizador PC</a>
+          <a href="#auditoria" class="nav-link">Auditoría y Políticas</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="../../index.html" class="nav-link" style="color: #60a5fa; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; margin-right: 8px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            CMR Central
+          </a>
+          <div class="lang-switch" role="group" aria-label="Selector de idioma">
+            <a href="./index.html" class="lang-option active">ES</a>
+            <a href="./en/index.html" class="lang-option">EN</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO PRINCIPAL / APARTADO ANDROID -->
+    <section class="hero" id="app-android">
+      <div class="container">
+        <div class="hero-editorial">
+
+          <div class="hero-main-column">
+            <div class="badge-live">
+              <span class="status-indicator"></span>
+              <span>APP ANDROID · RELEASE ACTUAL</span>
+            </div>
+
+            <h2 class="hero-title">
+              Control local de DNS.<br>
+              <span class="hero-title-sub">Mediciones reales en tu dispositivo.</span>
+            </h2>
+
+            <p class="hero-subtitle">
+              CMR Ping Booster crea una interfaz VPN local para aplicar el resolver DNS y el MTU elegidos. Mide la red en el momento de uso, no modifica juegos y no garantiza una reducción del ping.
+            </p>
+
+            <div class="cta-group" id="descargas-android">
+              <a href="./privacy.html" class="btn-download" id="btn-dl-android">
+                <div class="btn-icon-wrapper">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                </div>
+                <div class="btn-content">
+                  <span class="btn-title">Detalles de Android y privacidad</span>
+                  <span class="btn-sub" id="android-version-badge">v1.0.0 · Android 7.0 o superior</span>
+                </div>
+              </a>
+
+              <a href="#suite-pc" class="btn-secondary-action">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M2 3.5l8-1.1v8.8H2V3.5zm9.8-1.4L22 0.5v10.7h-10.2V2.1zm-9.8 10.7h8v8.8l-8-1.1v-7.7zm9.8 0H22v10.7l-10.2-1.6V12.8z"/>
+                </svg>
+                <span>Ver Suite para PC (Windows)</span>
+              </a>
+            </div>
+
+            <div class="hero-trust-strip">
+              <div class="trust-item">
+                <span class="trust-bullet"></span>
+                <span>100% Sin Publicidad</span>
+              </div>
+              <div class="trust-item">
+                <span class="trust-bullet"></span>
+                <span>Cero Recolección de Datos</span>
+              </div>
+              <div class="trust-item">
+                <span class="trust-bullet"></span>
+                <span>Túnel DNS Exclusivo Local</span>
+              </div>
+              <div class="trust-item">
+                <span class="trust-bullet"></span>
+                <span>Sin Inyección en Juegos</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ESPECIFICACIÓN DE INGENIERÍA Y ARQUITECTURA -->
+    <section class="spec-section" id="arquitectura">
+      <div class="container">
+
+        <div class="section-editorial-head">
+          <div class="head-title-wrap">
+            <h2>Módulos de Red y Arquitectura del Sistema</h2>
+            <p>Implementación técnica fundamentada en estándares RFC y APIs oficiales de Android y Windows.</p>
+          </div>
+          <span class="head-meta-code">SPEC DOC · REV 2026</span>
+        </div>
+
+        <div class="spec-rows-list">
+
+          <div class="spec-row">
+            <span class="spec-code">MOD-01</span>
+            <div class="spec-name">Sin modificación de juegos</div>
+            <div class="spec-desc">
+              No abre identificadores de proceso (<code>PROCESS_VM_READ</code>), no inyecta bibliotecas DLL ni analiza la memoria de los juegos. El software actúa exclusivamente sobre la capa de conectividad del sistema operativo.
+            </div>
+            <div class="spec-status">Sin inyección</div>
+          </div>
+
+          <div class="spec-row">
+            <span class="spec-code">MOD-02</span>
+            <div class="spec-name">DNS público cifrado</div>
+            <div class="spec-desc">
+              Compara cinco resolvers públicos y reenvía las consultas mediante DNS sobre TLS al proveedor seleccionado. El resultado depende de la red y de la ubicación.
+            </div>
+            <div class="spec-status">DNS configurable</div>
+          </div>
+
+          <div class="spec-row">
+            <span class="spec-code">MOD-03</span>
+            <div class="spec-name">Solicitud Wi-Fi de baja latencia</div>
+            <div class="spec-desc">
+              Solicita el modo Wi-Fi de baja latencia mientras la sesión está activa. Android y el fabricante determinan su efecto real.
+            </div>
+            <div class="spec-status">API de Android</div>
+          </div>
+
+          <div class="spec-row">
+            <span class="spec-code">MOD-04</span>
+            <div class="spec-name">Túnel Loopback VpnService</div>
+            <div class="spec-desc">
+              Implementación estricta de la API nativa <code>VpnService</code> de Android en <code>10.254.1.2</code>, configurada únicamente para capturar paquetes UDP/DNS locales. No opera proxy comercial ni almacena tráfico externo.
+            </div>
+            <div class="spec-status">Local Loopback</div>
+          </div>
+
+          <div class="spec-row">
+            <span class="spec-code">MOD-05</span>
+            <div class="spec-name">Reversibilidad Inmediata</div>
+            <div class="spec-desc">
+              Al detener la sesión, el servicio cierra la interfaz VPN local y libera los bloqueos Wi-Fi adquiridos por la app.
+            </div>
+            <div class="spec-status">Cierre verificable</div>
+          </div>
+
+          <div class="spec-row">
+            <span class="spec-code">MOD-06</span>
+            <div class="spec-name">Sin servidores de CMR</div>
+            <div class="spec-desc">
+              No requiere cuenta ni incluye analítica publicitaria. Las consultas DNS salen directamente al resolver público elegido y CMR no las recibe.
+            </div>
+            <div class="spec-status">Sin cuenta</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- APARTADO DEDICADO: SUITE PARA PC (WINDOWS) -->
+    <section class="desktop-suite-section" id="suite-pc">
+      <div class="container">
+
+        <div class="desktop-console-layout">
+          <div class="desktop-info-col">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              <span class="badge-pill-status pc">WINDOWS DESKTOP</span>
+              <span class="head-meta-code">EDICIÓN INDEPENDIENTE PARA ESCRITORIO</span>
+            </div>
+            <h3>CMR Ping Booster para PC</h3>
+            <p>
+              Utilidad portátil de 64 bits para Windows 10 y 11. Solicita ajustes documentados del temporizador y de sockets mientras está abierta, sin instalar controladores de kernel.
+            </p>
+
+            <ul class="desktop-features-check">
+              <li><strong>Temporizador multimedia:</strong> Solicita una resolución de 1 ms mientras el programa está activo; Windows y el hardware determinan el efecto.</li>
+              <li><strong>Purga Selectiva de Memoria RAM:</strong> Libera conjuntos de trabajo residuales (Working Sets) sin congelar hilos de ejecución activos.</li>
+              <li><strong>Totalmente Desacoplado de Android:</strong> Programa de escritorio nativo (.exe) sin dependencias ni servicios ocultos.</li>
+              <li><strong>Sin inyección:</strong> No modifica memoria ni binarios de juegos. Cada juego conserva sus propias reglas de compatibilidad.</li>
+            </ul>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px;">
+              <a href="./CMR_Ping_Booster_PC.exe" download class="btn-download" id="btn-dl-pc">
+                <div class="btn-icon-wrapper">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M2 3.5l8-1.1v8.8H2V3.5zm9.8-1.4L22 0.5v10.7h-10.2V2.1zm-9.8 10.7h8v8.8l-8-1.1v-7.7zm9.8 0H22v10.7l-10.2-1.6V12.8z"/>
+                  </svg>
+                </div>
+                <div class="btn-content">
+                  <span class="btn-title">Descargar para PC (Windows x64)</span>
+                  <span class="btn-sub" id="pc-version-badge">v1.0.0 EXE · Binario Autónomo Portable</span>
+                </div>
+              </a>
+
+              <a href="./pc-privacy.html" class="btn-secondary-action">
+                <span>Ver Política y Términos de PC</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="arch-compare-box">
+            <div class="arch-compare-title">Ficha Técnica Multiplataforma (Android vs Windows)</div>
+            <table class="arch-table">
+              <thead>
+                <tr>
+                  <th>Parámetro</th>
+                  <th>Android</th>
+                  <th>Windows PC</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Canal de Distribución</td>
+                  <td><strong>Google Play Console</strong></td>
+                  <td><strong>Binario Autónomo (.exe)</strong></td>
+                </tr>
+                <tr>
+                  <td>Mecanismo de Red</td>
+                  <td>VpnService Loopback (10.254.1.2)</td>
+                  <td>Multimedia Timer + Winsock Anycast</td>
+                </tr>
+                <tr>
+                  <td>Actualización</td>
+                  <td>Vía Google Play Store</td>
+                  <td>Directa In-App (Buscador integrado)</td>
+                </tr>
+                <tr>
+                  <td>Datos y privacidad</td>
+                  <td>Sin cuenta ni analítica</td>
+                  <td>Sin cuenta ni analítica</td>
+                </tr>
+                <tr>
+                  <td>Requisitos</td>
+                  <td>Android 7.0 o superior</td>
+                  <td>Windows 10 / 11 (64-bit)</td>
+                </tr>
+                <tr>
+                  <td>Riesgo Anti-Cheat</td>
+                  <td>No modifica juegos</td>
+                  <td>Sin inyección de memoria</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SISTEMA DE ACTUALIZACIÓN DIRECTA DE PC -->
+    <section class="updater-section" id="actualizador-pc">
+      <div class="container">
+        <div class="updater-layout">
+
+          <div class="updater-details">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              <span class="badge-pill-status pc">IN-APP UPDATER</span>
+              <span class="head-meta-code">ACTUALIZACIÓN DIRECTA DE PC</span>
+            </div>
+            <h3>Actualizá CMR Ping Booster desde el Mismo Programa</h3>
+            <p>
+              No importa en qué provincia o lugar te encuentres: dentro de la aplicación de PC solo tenés que presionar en <strong>"🔍 Buscar Actualizaciones"</strong>.
+            </p>
+            <p>
+              El programa consultará de manera transparente el buzón de versiones en la nube. Si detecta una nueva versión disponible, habilitará el botón para descargar e instalar en caliente. El software reemplaza el archivo ejecutable y se reinicia automáticamente sin que tengas que descargar nada a mano ni perder tu configuración.
+            </p>
+            <div style="margin-top: 14px; display: flex; gap: 12px; align-items: center;">
+              <a href="./version.json" target="_blank" class="btn-secondary-action">
+                <span>Ver Manifiesto version.json</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+              <a href="./pc-privacy.html#actualizador-pc" class="btn-secondary-action">
+                <span>Detalle técnico del actualizador</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="json-console">
+            <div class="json-console-header">
+              <span>buzón: version.json (Nodo PC)</span>
+              <span>HTTP 200 OK</span>
+            </div>
+            <pre><code>{
+  "pc": {
+    "version": "1.0.0",
+    "exeName": "CMR_Ping_Booster_PC.exe",
+    "status": "In-App Updater Activo",
+    "updaterEngine": "AutoUpdaterService.cs",
+    "checkMode": "GitHub Pages / HTTPS Direct"
+  }
+}</code></pre>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- AUDITORÍA DE CUMPLIMIENTO GOOGLE PLAY Y ESPECIFICACIONES LEGALES -->
+    <section class="legal-audit-section" id="auditoria">
+      <div class="container">
+
+        <div class="section-editorial-head">
+          <div class="head-title-wrap">
+            <h2>Cumplimiento de Políticas y Especificación Legal</h2>
+            <p>Transparencia técnica y alineamiento con las normativas de seguridad de Google Play Console y estándares de PC.</p>
+          </div>
+          <span class="head-meta-code">DATA SAFETY &amp; COMPLIANCE</span>
+        </div>
+
+        <div class="audit-grid">
+
+          <div class="audit-cell">
+            <div>
+              <span class="audit-cell-tag">ANDROID GOOGLE PLAY</span>
+              <h3>Política de Privacidad Oficial</h3>
+              <p>
+                Explica qué procesa la interfaz VPN local, qué datos no recibe CMR y qué resolvers externos pueden intervenir.
+              </p>
+            </div>
+            <a href="./privacy.html" class="audit-cell-link">
+              <span>Leer documento oficial</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <div class="audit-cell">
+            <div>
+              <span class="audit-cell-tag">VPNSERVICE DECLARATION</span>
+              <h3>Uso Justificado de VpnService</h3>
+              <p>
+                Uso restrictivo de la API <code>VpnService</code> en bucle local (10.254.1.2) exclusivamente para enrutamiento Anycast DNS, sin tunelizar tráfico web ni operar VPN remota.
+              </p>
+            </div>
+            <a href="./privacy.html#vpnservice" class="audit-cell-link">
+              <span>Ver cláusula técnica</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <div class="audit-cell">
+            <div>
+              <span class="audit-cell-tag">WINDOWS DESKTOP</span>
+              <h3>Términos y Seguridad para PC</h3>
+              <p>
+                Documentación técnica de la suite de Windows: temporizador multimedia, ausencia de inyección y funcionamiento del actualizador.
+              </p>
+            </div>
+            <a href="./pc-privacy.html" class="audit-cell-link">
+              <span>Ver política de PC</span>
+              <span>→</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top-row">
+        <div class="footer-identity">
+          <img src="./assets/cmr_brand.png?v=2026" alt="Logo Oficial CMR" class="footer-logo-img">
+          <span class="footer-brand-name">Creative Maximum Reasoning</span>
+        </div>
+
+        <div class="footer-links-row">
+          <a href="#app-android" class="footer-link">App Android</a>
+          <a href="#suite-pc" class="footer-link">Suite PC</a>
+          <a href="#actualizador-pc" class="footer-link">Actualizador PC</a>
+          <a href="./privacy.html" class="footer-link">Política Android</a>
+          <a href="./pc-privacy.html" class="footer-link">Política PC</a>
+          <a href="./version.json" class="footer-link">version.json</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <span>Copyright © 2026 Jonathan Gabriel Nieto / CMR. Todos los derechos reservados.</span>
+        <span>Suite Multiplataforma Oficial · Android &amp; Windows PC</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

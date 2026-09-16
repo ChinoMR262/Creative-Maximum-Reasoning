@@ -9,7 +9,7 @@ export const CMR_WRITER_PREVIEW_DATA = {
   status: 'En Desarrollo // Prueba Cerrada',
   title: 'CMR Writer Lite',
   subtitle: 'Editor de narrativa por capítulos con sistema de personajes y notas cronológicas, creado por Jonathan Gabriel Nieto.',
-  appUrl: 'apps/cmr-writer-lite.html',
+  appUrl: 'apps/cmr-writer-lite/',
   tabs: [
     {
       id: 'editor',

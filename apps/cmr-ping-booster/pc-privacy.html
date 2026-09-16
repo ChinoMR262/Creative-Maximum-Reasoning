@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Términos Técnicos y Política de Privacidad de PC · CMR Ping Booster</title>
+
+  <meta name="description" content="Especificación técnica oficial, política de privacidad y arquitectura de seguridad de CMR Ping Booster para Windows PC. Cero riesgo anti-cheat y actualizador directo in-app.">
+  <meta name="author" content="Jonathan Gabriel Nieto / CMR — Creative Maximum Reasoning">
+  <meta name="creator" content="Jonathan Gabriel Nieto">
+  <meta name="publisher" content="Creative Maximum Reasoning (CMR)">
+  <meta name="copyright" content="Copyright © 2026 Jonathan Gabriel Nieto / CMR — Creative Maximum Reasoning. Todos los derechos reservados.">
+  <meta name="theme-color" content="#090a0d">
+
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+  <link rel="apple-touch-icon" href="./assets/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="scroll-progress-bar" id="scroll-progress" aria-hidden="true"></div>
+
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="./index.html" class="brand">
+        <img src="./assets/logo.png" alt="Logo Oficial CMR" class="brand-logo">
+        <div class="brand-text">
+          <h1>CMR Ping Booster</h1>
+          <span>Creative Maximum Reasoning</span>
+        </div>
+      </a>
+      <div class="nav-wrapper">
+        <nav class="nav-links">
+          <a href="./index.html" class="nav-link">Inicio</a>
+          <a href="./index.html#app-android" class="nav-link">App Android</a>
+          <a href="./index.html#suite-pc" class="nav-link">Suite PC</a>
+          <a href="./privacy.html" class="nav-link">Política Android</a>
+        </nav>
+        <div class="nav-actions">
+          <div class="lang-switch" role="group" aria-label="Selector de idioma">
+            <a href="./pc-privacy.html" class="lang-option active">ES</a>
+            <a href="./en/pc-privacy.html" class="lang-option">EN</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="legal-main">
+    <div class="container" style="max-width: 940px;">
+
+      <article class="legal-document pc-privacy-document">
+
+        <div class="legal-header pc-privacy-masthead">
+          <p class="pc-privacy-overline">CMR Ping Booster · Windows</p>
+          <h1>Rendimiento sin invadir tu PC.</h1>
+          <p class="pc-privacy-lede">La edición de escritorio mide y ajusta sólo lo que podés revisar, activar y restaurar desde la propia aplicación.</p>
+
+          <div class="legal-meta-strip">
+            <span>Binario: <code>CMR_Ping_Booster_PC.exe</code> (x64)</span>
+            <span>•</span>
+            <span>Versión: 1.0.0</span>
+            <span>•</span>
+            <span>Compatibilidad: Windows 10 / Windows 11</span>
+          </div>
+        </div>
+
+        <aside class="pc-privacy-trustline" aria-label="Principios de privacidad de CMR para PC">
+          <p>Sin inyección, sin controladores de kernel y sin telemetría enviada por CMR.</p>
+          <ul>
+            <li>Acciones reversibles</li>
+            <li>Datos locales</li>
+            <li>Control visible</li>
+          </ul>
+        </aside>
+
+        <div class="legal-content">
+
+          <section class="legal-section" id="titularidad-pc">
+            <h2 class="legal-section-title"><span class="legal-section-num">01</span> Titularidad y Naturaleza del Software</h2>
+            <p>
+              <strong>CMR Ping Booster para PC</strong> es un software de optimización de entorno y estabilidad de red desarrollado de forma autónoma bajo la autoría de <strong>Jonathan Gabriel Nieto</strong> para <strong>Creative Maximum Reasoning (CMR)</strong>.
+            </p>
+            <p>
+              Se distribuye como una aplicación portable de 64-bit para Microsoft Windows 10 y Windows 11. No requiere instalación de controladores intrusivos de bajo nivel (drivers de kernel) ni servicios persistentes en segundo plano que afecten el rendimiento del equipo.
+            </p>
+          </section>
+
+          <section class="legal-section" id="anti-cheat">
+            <h2 class="legal-section-title"><span class="legal-section-num">02</span> Política de Integridad y Cero Riesgo Anti-Cheat</h2>
+            <p>
+              La premisa fundamental de CMR Ping Booster para PC es garantizar la compatibilidad absoluta y el <strong>cero riesgo de baneo o sanción</strong> en cualquier plataforma de videojuegos competitivos en línea:
+            </p>
+
+            <div class="legal-highlight-box">
+              <strong style="color: var(--text-pure); display: block; margin-bottom: 6px; font-family: var(--font-mono); font-size: 0.85rem;">PRINCIPIOS TÉCNICOS DE NO-INTRUSIÓN:</strong>
+              <ul style="padding-left: 18px; margin-top: 6px; display: flex; flex-direction: column; gap: 6px; font-size: 0.88rem;">
+                <li><strong>Cero Acceso a Memoria:</strong> El software nunca solicita identificadores de proceso con permisos de lectura o escritura (<code>PROCESS_VM_READ</code> / <code>PROCESS_VM_WRITE</code>).</li>
+                <li><strong>Cero Inyección de Librerías:</strong> No se inyectan archivos DLL, no se utilizan hooks en la tabla de direcciones de importación (IAT) ni se modifican los ejecutables de los juegos.</li>
+                <li><strong>Compatibilidad Total:</strong> Funciona armónicamente junto a sistemas de seguridad como Riot Vanguard, Easy Anti-Cheat (EAC), BattlEye, Valve Anti-Cheat (VAC) y Activision Ricochet.</li>
+              </ul>
+            </div>
+
+            <p style="margin-top: 12px;">
+              Todas las optimizaciones se limitan a funciones documentadas del sistema operativo: ajuste de precisión del reloj multimedia de Windows (<code>timeBeginPeriod(1)</code>), liberación de memoria residual no utilizada mediante <code>EmptyWorkingSet</code>, y optimización de resolución DNS Anycast local.
+            </p>
+          </section>
+
+          <section class="legal-section" id="actualizador-pc">
+            <h2 class="legal-section-title"><span class="legal-section-num">03</span> Sistema de Actualización Directa Integrada (In-App Auto-Update)</h2>
+            <p>
+              Para mayor comodidad de los usuarios de cualquier provincia o región, el programa cuenta con un mecanismo de auto-actualización directa dentro de su propia interfaz de usuario:
+            </p>
+
+            <div style="background: var(--bg-panel-elevated); border: 1px solid var(--border-dim); border-radius: var(--radius-sm); padding: 18px; margin: 14px 0;">
+              <h4 style="color: var(--accent-gold); font-family: var(--font-mono); font-size: 0.88rem; margin-bottom: 8px;">¿CÓMO SE ACTUALIZA EL PROGRAMA DE PC?</h4>
+              <ol style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; color: var(--text-primary);">
+                <li>El usuario abre la pestaña <strong>Ajustes</strong> dentro de la aplicación y presiona el botón <strong>"🔍 Buscar Actualizaciones"</strong>.</li>
+                <li>El servicio consulta de manera segura y transparente el buzón central de versiones en GitHub Pages (<code>version.json</code>).</li>
+                <li>Si existe una versión más reciente, el programa habilita el botón <strong>"⬇️ Descargar e Instalar Ahora"</strong>, mostrando el progreso de descarga porcentual en vivo.</li>
+                <li>Al completarse la descarga, el programa ejecuta un script atómico seguro, reemplaza el ejecutable en su misma ubicación y relanza la aplicación actualizada al instante, preservando todas las preferencias.</li>
+              </ol>
+            </div>
+
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Este proceso es 100% transparente, no descarga instaladores adicionales de terceros ni requiere permisos de administrador invasivos.
+            </p>
+          </section>
+
+          <section class="legal-section" id="privacidad-pc">
+            <h2 class="legal-section-title"><span class="legal-section-num">04</span> Privacidad Cero-Datos y Operación Local</h2>
+            <p>
+              Al igual que la versión móvil, CMR Ping Booster para PC opera bajo una política rigurosa de cero recolección:
+            </p>
+            <ul style="padding-left: 20px; margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+              <li><strong>Sin Cuentas ni Registros:</strong> No se requiere iniciar sesión, crear credenciales ni proporcionar datos personales.</li>
+              <li><strong>Sin Telemetría Oculta:</strong> No se envían estadísticas de juego, listas de programas instalados ni historiales de navegación a ningún servidor.</li>
+              <li><strong>Sin Publicidad:</strong> La interfaz está libre de banners comerciales, módulos de monetización y rastreadores de terceros.</li>
+            </ul>
+          </section>
+
+          <section class="legal-section" id="reversibilidad-pc">
+            <h2 class="legal-section-title"><span class="legal-section-num">05</span> Reversibilidad Inmediata y Salida Limpia</h2>
+            <p>
+              El programa fue diseñado para no dejar residuos en el sistema:
+            </p>
+            <ul style="padding-left: 20px; margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+              <li>Al desactivar el modo de juego o cerrar la aplicación desde la bandeja del sistema (System Tray), se invoca inmediatamente <code>timeEndPeriod</code> para restaurar el temporizador estándar del reloj de Windows.</li>
+              <li>Se restablece la configuración DNS del adaptador de red activo.</li>
+              <li>No quedan procesos secundarios ni servicios residentes en memoria.</li>
+            </ul>
+          </section>
+
+          <section class="legal-section" id="canales-contacto-pc">
+            <h2 class="legal-section-title"><span class="legal-section-num">06</span> Canales de Soporte y Contacto</h2>
+            <p>
+              Para consultas técnicas, sugerencias o reporte de incidencias de la versión de PC:
+            </p>
+
+            <div class="contact-channels">
+              <div class="contact-card">
+                <span class="contact-label">Soporte Técnico de Aplicaciones</span>
+                <a href="mailto:cmr.apps.oficial@gmail.com" class="contact-email">cmr.apps.oficial@gmail.com</a>
+              </div>
+              <div class="contact-card">
+                <span class="contact-label">Contacto con el Desarrollador</span>
+                <a href="mailto:chinooficial262@gmail.com" class="contact-email">chinooficial262@gmail.com</a>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top-row">
+        <div class="footer-identity">
+          <img src="./assets/cmr_brand.png?v=2026" alt="Logo Oficial CMR" class="footer-logo-img">
+          <span class="footer-brand-name">Creative Maximum Reasoning</span>
+        </div>
+
+        <div class="footer-links-row">
+          <a href="./index.html#app-android" class="footer-link">App Android</a>
+          <a href="./index.html#suite-pc" class="footer-link">Suite PC</a>
+          <a href="./privacy.html" class="footer-link">Política Android</a>
+          <a href="./pc-privacy.html" class="footer-link">Política PC</a>
+          <a href="./version.json" class="footer-link">version.json</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <span>Copyright © 2026 Jonathan Gabriel Nieto / CMR. Todos los derechos reservados.</span>
+        <span>Suite Multiplataforma · Android &amp; Windows PC</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

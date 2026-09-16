@@ -1,0 +1,4 @@
+# Excluir binarios que superen el límite de 100MB de GitHub estándar
+*.exe
+*.aab
+*.zip

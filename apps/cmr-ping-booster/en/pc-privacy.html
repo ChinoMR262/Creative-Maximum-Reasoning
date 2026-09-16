@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC Technical Terms &amp; Privacy Policy · CMR Ping Booster</title>
+
+  <meta name="description" content="Official technical specifications, privacy policy, and security architecture of CMR Ping Booster for Windows PC. Zero anti-cheat risk and direct in-app auto-updater.">
+  <meta name="author" content="Jonathan Gabriel Nieto / CMR — Creative Maximum Reasoning">
+  <meta name="creator" content="Jonathan Gabriel Nieto">
+  <meta name="publisher" content="Creative Maximum Reasoning (CMR)">
+  <meta name="copyright" content="Copyright © 2026 Jonathan Gabriel Nieto / CMR — Creative Maximum Reasoning. All rights reserved.">
+  <meta name="theme-color" content="#090a0d">
+
+  <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+  <link rel="apple-touch-icon" href="../assets/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="./index.html" class="brand">
+        <img src="../assets/logo.png" alt="Official CMR Logo" class="brand-logo">
+        <div class="brand-text">
+          <h1>CMR Ping Booster</h1>
+          <span>Creative Maximum Reasoning</span>
+        </div>
+      </a>
+      <div class="nav-wrapper">
+        <nav class="nav-links">
+          <a href="./index.html" class="nav-link">Home</a>
+          <a href="./index.html#app-android" class="nav-link">Android App</a>
+          <a href="./index.html#pc-suite" class="nav-link">PC Suite</a>
+          <a href="./privacy.html" class="nav-link">Android Policy</a>
+        </nav>
+        <div class="nav-actions">
+          <div class="lang-switch" role="group" aria-label="Language selector">
+            <a href="../pc-privacy.html" class="lang-option">ES</a>
+            <a href="./pc-privacy.html" class="lang-option active">EN</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="legal-main">
+    <div class="container" style="max-width: 940px;">
+
+      <article class="legal-document pc-privacy-document">
+
+        <div class="legal-header pc-privacy-masthead">
+          <p class="pc-privacy-overline">CMR Ping Booster · Windows</p>
+          <h1>Performance without invading your PC.</h1>
+          <p class="pc-privacy-lede">The desktop edition measures and adjusts only what you can inspect, enable, and restore from the application itself.</p>
+
+          <div class="legal-meta-strip">
+            <span>Binary: <code>CMR_Ping_Booster_PC.exe</code> (x64)</span>
+            <span>•</span>
+            <span>Version: 1.0.0</span>
+            <span>•</span>
+            <span>OS: Windows 10 / Windows 11</span>
+          </div>
+        </div>
+
+        <aside class="pc-privacy-trustline" aria-label="CMR PC privacy principles">
+          <p>No injection, no kernel drivers, and no CMR-sent telemetry.</p>
+          <ul>
+            <li>Reversible actions</li>
+            <li>Local data</li>
+            <li>Visible control</li>
+          </ul>
+        </aside>
+
+        <div class="legal-content">
+
+          <section class="legal-section" id="ownership-pc">
+            <h2 class="legal-section-title"><span class="legal-section-num">01</span> Ownership and Scope of PC Edition</h2>
+            <p>
+              <strong>CMR Ping Booster for PC</strong> is a native desktop gaming optimization tool created under the sole authorship of <strong>Jonathan Gabriel Nieto</strong> for <strong>Creative Maximum Reasoning (CMR)</strong>.
+            </p>
+            <p>
+              Distributed as a portable 64-bit standalone executable for Microsoft Windows 10 and Windows 11. It operates without kernel-level device drivers or persistent background daemons.
+            </p>
+          </section>
+
+          <section class="legal-section" id="anti-cheat">
+            <h2 class="legal-section-title"><span class="legal-section-num">02</span> Zero Anti-Cheat Risk Guarantee</h2>
+            <p>
+              The core technical foundation of CMR Ping Booster PC is complete compatibility and <strong>zero risk of penalties or bans</strong> across competitive multiplayer anti-cheat engines:
+            </p>
+
+            <div class="legal-highlight-box">
+              <strong style="color: var(--text-pure); display: block; margin-bottom: 6px; font-family: var(--font-mono); font-size: 0.85rem;">NON-INTRUSION TECHNICAL PRINCIPLES:</strong>
+              <ul style="padding-left: 18px; margin-top: 6px; display: flex; flex-direction: column; gap: 6px; font-size: 0.88rem;">
+                <li><strong>No Memory Access:</strong> Never opens handles requesting process read or write rights (<code>PROCESS_VM_READ</code> / <code>PROCESS_VM_WRITE</code>).</li>
+                <li><strong>No Library Injection:</strong> Injects no dynamic-link libraries (.dll), applies no Import Address Table (IAT) patches, and modifies no gaming binaries.</li>
+                <li><strong>Universal Anti-Cheat Compatibility:</strong> Safely coexists with Riot Vanguard, Easy Anti-Cheat (EAC), BattlEye, Valve Anti-Cheat (VAC), and Call of Duty Ricochet.</li>
+              </ul>
+            </div>
+
+            <p style="margin-top: 12px;">
+              All system tuning relies on documented Win32/UWP APIs: Multimedia Timer resolution locking via <code>timeBeginPeriod(1)</code>, passive memory compaction via <code>EmptyWorkingSet</code>, and local Anycast DNS socket tuning.
+            </p>
+          </section>
+
+          <section class="legal-section" id="in-app-updater">
+            <h2 class="legal-section-title"><span class="legal-section-num">03</span> Direct In-App Auto-Update Mechanism</h2>
+            <p>
+              For users across any province, region, or network, the PC client features a self-contained in-app updater:
+            </p>
+
+            <div style="background: var(--bg-panel-elevated); border: 1px solid var(--border-dim); border-radius: var(--radius-sm); padding: 18px; margin: 14px 0;">
+              <h4 style="color: var(--accent-gold); font-family: var(--font-mono); font-size: 0.88rem; margin-bottom: 8px;">HOW DOES THE PC UPDATE PROCESS WORK?</h4>
+              <ol style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; color: var(--text-primary);">
+                <li>The user navigates to the <strong>Settings</strong> tab and clicks <strong>"🔍 Check for Updates"</strong>.</li>
+                <li>The service performs an authenticated HTTPS lookup against the central GitHub Pages version manifest (<code>version.json</code>).</li>
+                <li>If a newer release exists, the client activates <strong>"⬇️ Download and Install Now"</strong>, reporting real-time percentage progress.</li>
+                <li>Upon download completion, an atomic batch script gracefully swaps the executable in-place and relaunches the updated client with all user settings intact.</li>
+              </ol>
+            </div>
+
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              This process requires no manual file copying, no third-party installers, and no registry pollution.
+            </p>
+          </section>
+
+          <section class="legal-section" id="privacy-pc">
+            <h2 class="legal-section-title"><span class="legal-section-num">04</span> Zero-Data Policy &amp; Local Execution</h2>
+            <p>
+              Consistent with the mobile architecture, the Windows PC edition collects zero information:
+            </p>
+            <ul style="padding-left: 20px; margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+              <li><strong>No Accounts:</strong> No registration, login, or personal profile required.</li>
+              <li><strong>No Telemetry:</strong> Gaming telemetry, process lists, and hardware IDs are never transmitted.</li>
+              <li><strong>No Ads:</strong> Clean, commercial-free interface without third-party tracking scripts.</li>
+            </ul>
+          </section>
+
+          <section class="legal-section" id="reversibility-pc">
+            <h2 class="legal-section-title"><span class="legal-section-num">05</span> Complete Reversibility &amp; Clean Exit</h2>
+            <p>
+              The application leaves no residual footprint:
+            </p>
+            <ul style="padding-left: 20px; margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+              <li>Exiting via the System Tray immediately triggers <code>timeEndPeriod</code> to return the Windows scheduler to its default power-saving state.</li>
+              <li>Original network adapter DNS assignments are restored cleanly.</li>
+              <li>Zero zombie processes remain in execution.</li>
+            </ul>
+          </section>
+
+          <section class="legal-section" id="contact-pc">
+            <h2 class="legal-section-title"><span class="legal-section-num">06</span> Support &amp; Developer Inquiries</h2>
+            <p>
+              For technical queries or feedback on the Windows release:
+            </p>
+
+            <div class="contact-channels">
+              <div class="contact-card">
+                <span class="contact-label">Application Support</span>
+                <a href="mailto:cmr.apps.oficial@gmail.com" class="contact-email">cmr.apps.oficial@gmail.com</a>
+              </div>
+              <div class="contact-card">
+                <span class="contact-label">Developer Contact</span>
+                <a href="mailto:chinooficial262@gmail.com" class="contact-email">chinooficial262@gmail.com</a>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top-row">
+        <div class="footer-identity">
+          <img src="../assets/cmr_brand.png?v=2026" alt="Official CMR Logo" class="footer-logo-img">
+          <span class="footer-brand-name">Creative Maximum Reasoning</span>
+        </div>
+
+        <div class="footer-links-row">
+          <a href="./index.html#app-android" class="footer-link">Android App</a>
+          <a href="./index.html#pc-suite" class="footer-link">PC Suite</a>
+          <a href="./privacy.html" class="footer-link">Android Policy</a>
+          <a href="./pc-privacy.html" class="footer-link">PC Terms</a>
+          <a href="../version.json" class="footer-link">version.json</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <span>Copyright © 2026 Jonathan Gabriel Nieto / CMR. All rights reserved.</span>
+        <span>Cross-Platform Suite · Android &amp; Windows PC</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

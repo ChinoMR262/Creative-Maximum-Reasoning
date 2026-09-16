@@ -1,0 +1,274 @@
+:root {
+  color-scheme: dark;
+  --ink: #101827;
+  --ink-soft: #182334;
+  --paper: #f8f3f6;
+  --text: #f0eaf0;
+  --muted: #c3b9c5;
+  --plum: #c7a3d0;
+  --gold: #e0b879;
+  --teal: #9ac5c2;
+  --line: #424b5a;
+  --focus: #f0d29a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+  margin: 0;
+  background: var(--ink);
+  color: var(--text);
+  font: 1rem/1.72 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body::after {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  content: "";
+  background-image: url("wallpaper_cmr.png");
+  background-position: center top;
+  background-size: 680px auto;
+  opacity: .17;
+  pointer-events: none;
+}
+
+body::before {
+  content: "";
+  position: relative;
+  z-index: 2;
+  display: block;
+  height: 5px;
+  background: var(--gold);
+}
+
+a {
+  color: var(--gold);
+}
+
+a:hover {
+  color: var(--paper);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 2rem, 880px);
+  margin: 0 auto;
+  padding: 3.5rem 0 4.5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  color: var(--paper);
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.brand-mark {
+  position: relative;
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: .78rem;
+  letter-spacing: -.08em;
+}
+
+.brand-mark::after {
+  position: absolute;
+  right: 0;
+  bottom: -.3rem;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: var(--gold);
+}
+
+header {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 72%, transparent);
+}
+
+h1,
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+h1 {
+  max-width: 13ch;
+  margin: 1.5rem 0 .75rem;
+  color: var(--paper);
+  font-size: clamp(2.4rem, 8vw, 4.8rem);
+  letter-spacing: -.045em;
+  line-height: 1.02;
+}
+
+h2 {
+  margin: 3rem 0 .65rem;
+  color: var(--plum);
+  font-size: clamp(1.35rem, 3vw, 1.7rem);
+  line-height: 1.2;
+}
+
+h2::before {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1px;
+  margin: 0 .65rem .35rem 0;
+  content: "";
+  background: var(--gold);
+}
+
+p,
+li {
+  color: var(--muted);
+}
+
+strong {
+  color: var(--paper);
+}
+
+.meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.lead {
+  max-width: 58ch;
+  color: var(--paper);
+  font-size: 1.12rem;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin: 1.75rem 0 3rem;
+}
+
+nav a {
+  padding: .25rem 0;
+  border-bottom: 1px solid transparent;
+  color: var(--muted);
+  font-size: .9rem;
+  text-decoration: none;
+}
+
+nav a + a::before {
+  margin: 0 .65rem;
+  content: "·";
+  color: var(--line);
+}
+
+nav a[aria-current="page"] {
+  border-color: var(--gold);
+  color: var(--paper);
+}
+
+.language-switch {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem;
+  margin: -1.7rem 0 2.8rem;
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.language-switch a {
+  padding: .2rem .55rem;
+  border: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+  border-radius: 999px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.language-switch a:hover {
+  border-color: var(--gold);
+  color: var(--paper);
+}
+
+.language-switch a[aria-current="true"] {
+  border-color: color-mix(in srgb, var(--gold) 76%, transparent);
+  color: var(--paper);
+}
+
+.identity,
+.note {
+  margin: 1.5rem 0;
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 72%, transparent);
+}
+
+.identity p,
+.note p {
+  margin: .25rem 0;
+}
+
+code {
+  border-bottom: 1px solid var(--teal);
+  color: var(--teal);
+  font-size: .92em;
+}
+
+footer {
+  margin-top: 4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .brand-mark::after {
+    animation: quiet-pulse 4s ease-in-out infinite;
+  }
+}
+
+@keyframes quiet-pulse {
+  0%,
+  100% {
+    opacity: .55;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .shell {
+    width: min(100% - 1.25rem, 880px);
+    padding-top: 2.5rem;
+  }
+
+  nav a {
+    flex: 0 1 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
