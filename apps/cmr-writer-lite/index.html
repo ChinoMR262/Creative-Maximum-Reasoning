@@ -37,11 +37,24 @@
   <!-- Hoja de Estilos Modular -->
   <link rel="stylesheet" href="../../assets/css/main.css">
   
+  <!-- Estilo específico para fondo sutil de autor -->
+  <style>
+    body.page-writer-lite {
+      background-color: #0c0e14 !important;
+      background-image: 
+        radial-gradient(ellipse at 50% 12%, rgba(12, 14, 20, 0.76) 0%, rgba(8, 10, 14, 0.94) 100%),
+        url('writer_pattern_bg.jpg') !important;
+      background-repeat: repeat !important;
+      background-size: 512px 512px !important;
+      background-attachment: fixed !important;
+    }
+  </style>
+  
   <!-- Motor de Animación Motion (Framer Motion) y Script Principal -->
   <script src="../../assets/js/motion.js" defer></script>
   <script type="module" src="../../assets/js/main.js"></script>
 </head>
-<body>
+<body class="page-writer-lite">
   <a href="#content" class="skip-to-content">Saltar al contenido</a>
 
   <!-- Barra de Navegación -->
@@ -66,8 +79,8 @@
     <!-- App Hero -->
     <section class="app-hero-subpage">
       <div class="wrap-narrow">
-        <div class="app-icon-frame" style="width: 72px; height: 72px; margin-bottom: 20px;">
-          <img src="../../assets/images/app_writer_lite.svg" alt="Icono oficial CMR Writer Lite" class="app-icon-img" width="72" height="72">
+        <div class="app-icon-frame" style="width: 80px; height: 80px; margin-bottom: 20px; border-color: rgba(212, 163, 67, 0.45); border-radius: 18px; overflow: hidden; background: transparent;">
+          <img src="icon_cmr_writer_lite.png" alt="Icono oficial CMR Writer Lite" class="app-icon-img" width="80" height="80" style="width: 100%; height: 100%; object-fit: cover; border-radius: 18px;" onerror="this.src='../../assets/images/icon_cmr_writer_lite.png';">
         </div>
         <h1>CMR Writer Lite</h1>
         <p class="tagline">Un editor pensado para escribir historias por capítulos: redactar, tomar notas y leer el resultado como lo va a leer quien te sigue.</p>
@@ -125,7 +138,6 @@
           <a class="btn btn-outline" href="privacy.html">Política de Privacidad</a>
           <a class="btn btn-outline" href="terms.html">Términos de Uso</a>
           <a class="btn btn-outline" href="copyright.html">Copyright</a>
-          <a class="btn btn-outline" href="en/privacy.html" lang="en">English (Legal)</a>
         </div>
       </div>
     </section>

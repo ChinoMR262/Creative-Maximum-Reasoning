@@ -410,12 +410,12 @@ section {
 .app-icon-frame {
   width: 52px;
   height: 52px;
-  border-radius: var(--radius-sm);
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-strong);
+  background: #0d1017;
+  border: 1px solid rgba(212, 163, 67, 0.35);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 4px 14px rgba(0, 0, 0, 0.35);
   overflow: hidden;
   transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
@@ -430,7 +430,7 @@ section {
 .app-icon-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
 }
 
@@ -461,40 +461,29 @@ section {
 }
 
 .badge {
-  font-family: var(--mono);
-  font-size: 11px;
-  padding: 5px 12px;
-  background: var(--gold-subtle);
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  background: rgba(212, 163, 67, 0.08);
   color: var(--accent-gold);
-  border: 1px solid rgba(212, 163, 67, 0.28);
+  border: 1px solid rgba(212, 163, 67, 0.25);
   align-self: flex-start;
   border-radius: var(--radius-sm);
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
-.badge::before {
-  content: '';
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent-gold);
-  box-shadow: 0 0 8px var(--accent-gold);
-  animation: beacon-pulse 2.4s infinite ease-in-out;
-}
-
-@keyframes beacon-pulse {
-  0%, 100% {
-    opacity: 0.45;
-    transform: scale(0.85);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.15);
-  }
+/* Página de autor CMR Writer Lite con textura de escritorio sutil */
+body.page-writer-lite {
+  background-color: #0c0e14;
+  background-image: 
+    radial-gradient(ellipse at 50% 10%, rgba(12, 14, 20, 0.72) 0%, rgba(8, 10, 14, 0.94) 100%),
+    url('../images/writer_pattern_bg.jpg');
+  background-repeat: repeat;
+  background-size: 512px 512px;
+  background-attachment: fixed;
 }
 
 .app-link {
