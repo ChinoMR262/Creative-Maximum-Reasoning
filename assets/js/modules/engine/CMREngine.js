@@ -17,6 +17,7 @@ import { LivingFrameController } from '../materials/LivingFrameController.js';
 import { LivingRail } from '../navigation/LivingRail.js';
 import { ParticleSystem } from '../graphics/ParticleSystem.js';
 import { SecurityHardening } from '../security/SecurityHardening.js';
+import { CodexModal } from '../interaction/CodexModal.js';
 
 export class CMREngine {
   constructor() {
@@ -33,6 +34,8 @@ export class CMREngine {
     // 3. Subsistemas de interacción
     this.pointer = new PointerField(this.eventBus);
     this.proximity = new ProximityEngine(this.pointer);
+    this.codexModal = new CodexModal();
+
 
     // 4. Subsistemas de tema y estaciones
     this.theme = new ThemeState(this.eventBus);
@@ -63,6 +66,7 @@ export class CMREngine {
     this.frames.mount();
     this.rail.mount();
     this.particles.mount();
+    this.codexModal.mount();
 
     // C. Conectar reloj central de animación
     this.clock.subscribe((dt, t) => {
@@ -106,6 +110,7 @@ export class CMREngine {
     this.frames.destroy();
     this.rail.destroy();
     this.particles.destroy();
+    this.codexModal.destroy();
     this.theme.destroy();
     this.eventBus.clear();
     this.isMounted = false;
