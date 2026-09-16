@@ -45,8 +45,17 @@ export class QualityManager {
       const currentFps = (this.frameCount * 1000) / elapsed;
       this.frameCount = 0;
       this.lastFpsCheck = now;
+      this.lastFps = Math.round(currentFps);
 
       this.evaluatePerformance(currentFps);
+
+      if (this.eventBus) {
+        this.eventBus.emit('quality:metrics', {
+          fps: this.lastFps,
+          tier: this.currentTier,
+          frameTimeMs: (1000 / (this.lastFps || 60)).toFixed(1)
+        });
+      }
     }
   }
 

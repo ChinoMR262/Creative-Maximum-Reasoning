@@ -177,39 +177,51 @@
         
         <div class="apps-grid">
           <!-- Tarjeta App 1: CMR Writer Lite (Material: Roots) -->
-          <a class="living-frame app-card" data-material="roots" href="apps/cmr-writer-lite/" tabindex="0" aria-label="CMR Writer Lite — Ver la app">
+          <div class="living-frame app-card" data-material="roots" tabindex="0" aria-label="CMR Writer Lite">
             <div class="app-mono">CW</div>
             <h3>CMR Writer Lite</h3>
-            <p class="desc">Editor de capítulos, notas y vista previa de lectura para escribir historias por capítulos, con sistema de personajes.</p>
+            <p class="desc">Editor de capítulos, notas y vista previa de lectura para escribir historias por capítulos, con sistema de personajes y árbol de eventos.</p>
             <span class="badge">Prueba cerrada — Android</span>
-            <span class="app-link">Ver la app →</span>
-          </a>
+            <div class="app-actions">
+              <a class="app-link" href="apps/cmr-writer-lite/">Ver la app →</a>
+              <button type="button" class="btn-preview-trigger" data-preview-trigger="writer" aria-label="Vista previa interactiva de CMR Writer Lite">Vista previa</button>
+            </div>
+          </div>
 
           <!-- Tarjeta App 2: CMR Ping Booster (Material: Mechanism) -->
-          <a class="living-frame app-card" data-material="mechanism" href="apps/cmr-ping-booster/" tabindex="0" aria-label="CMR Ping Booster — Ver la suite">
+          <div class="living-frame app-card" data-material="mechanism" tabindex="0" aria-label="CMR Ping Booster">
             <div class="app-mono">PB</div>
             <h3>CMR Ping Booster</h3>
             <p class="desc">Suite local de medición de red, resolución DNS personalizada y diagnóstico de latencia para Android y Windows PC.</p>
             <span class="badge">Release 1.0.0 — Android & PC</span>
-            <span class="app-link">Ver la suite →</span>
-          </a>
+            <div class="app-actions">
+              <a class="app-link" href="apps/cmr-ping-booster/">Ver la suite →</a>
+              <button type="button" class="btn-preview-trigger" data-preview-trigger="ping" aria-label="Vista previa interactiva de CMR Ping Booster">Vista previa</button>
+            </div>
+          </div>
 
           <!-- Tarjeta App 3: Seres del Noveno Universo (Material: Stone - Kintsugi) -->
-          <div class="living-frame app-card" data-material="stone" data-codex-trigger="s9u" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Abrir Códice de Seres del Noveno Universo">
+          <div class="living-frame app-card" data-material="stone" data-codex-trigger="s9u" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Seres del Noveno Universo — Abrir Códice">
             <div class="app-mono">S9U</div>
             <h3>Seres del Noveno Universo</h3>
             <p class="desc">Universo de fantasía oscura y ciencia ficción. Crónicas de Arakiel, códices y arquitectura mitológica de autor.</p>
             <span class="badge">Universo Literario</span>
-            <span class="app-link">Abrir códice vivo →</span>
+            <div class="app-actions">
+              <span class="app-link" style="color: var(--accent-gold);">Códice vivo</span>
+              <button type="button" class="btn-preview-trigger" data-codex-trigger="s9u" aria-label="Explorar códice vivo de S9U">Abrir códice →</button>
+            </div>
           </div>
 
           <!-- Tarjeta App 4: CMR Reasoning Engine (Material: Arcane) -->
-          <div class="living-frame app-card" data-material="arcane" tabindex="0" aria-label="CMR Reasoning Engine — En Laboratorio">
+          <div class="living-frame app-card" data-material="arcane" tabindex="0" aria-label="CMR Reasoning Engine">
             <div class="app-mono">RE</div>
             <h3>CMR Reasoning Engine</h3>
             <p class="desc">Mecanismos de asistencia cognitiva, memoria adaptativa y orquestación contextual para creadores y escritores.</p>
             <span class="badge">En laboratorio // I+D</span>
-            <span class="app-link" style="color: var(--accent-gold); opacity: 0.85;">Arquitectura de autor →</span>
+            <div class="app-actions">
+              <span class="app-link" style="color: var(--accent-gold); opacity: 0.85;">Arquitectura</span>
+              <button type="button" class="btn-preview-trigger" data-preview-trigger="reasoning" aria-label="Ver arquitectura de CMR Reasoning Engine">Ver detalles →</button>
+            </div>
           </div>
 
         </div>
@@ -256,6 +268,10 @@
         <img class="footer-emblem" src="assets/images/Perfil Logo.png" alt="CMR Emblema" width="76" height="76">
         <p class="footer-brand-title">Creative Maximum Reasoning</p>
         <p class="footer-copyright">Copyright © <span id="year">2026</span> Jonathan Gabriel Nieto / CMR — Creative Maximum Reasoning.</p>
+        <div class="cmr-telemetry-badge" id="cmrTelemetryBadge" aria-label="Telemetría de rendimiento CMR">
+          <span class="live-pulse-dot" aria-hidden="true"></span>
+          <span class="telemetry-text">CMR Vitals // <strong id="cmrFpsVal">60</strong> FPS // Tier: <strong id="cmrTierVal">Ultra</strong> // Frame: <strong id="cmrFrameTimeVal">16.6</strong>ms</span>
+        </div>
       </div>
 
       <!-- Columna Derecha: Ecosistema & Redes -->

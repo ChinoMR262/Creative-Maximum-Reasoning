@@ -227,6 +227,27 @@
   margin-bottom: 16px;
 }
 
+.preview-close-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.preview-close-btn:hover {
+  color: var(--accent-gold);
+  border-color: var(--gold-border);
+  background: var(--gold-subtle);
+}
+
 .preview-badge-live {
   display: flex;
   align-items: center;

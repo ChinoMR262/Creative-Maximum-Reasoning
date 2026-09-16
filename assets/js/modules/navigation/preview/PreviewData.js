@@ -116,10 +116,37 @@ export const CMR_REASONING_DATA = {
   status: 'En Laboratorio // I+D',
   title: 'CMR Reasoning Engine',
   subtitle: 'Mecanismos de asistencia cognitiva, memoria adaptativa y orquestación contextual para creadores y escritores independientes.',
-  features: [
-    'Gestión de grafo de personajes y continuidades cronológicas complejas',
-    'Detección de incongruencias tonales en manuscritos de gran extensión',
-    'Procesamiento local y privado sin telemetría invasiva'
+  appUrl: '#apps',
+  tabs: [
+    {
+      id: 'architecture',
+      label: '01 // Arquitectura',
+      excerpt: 'Motor contextual local diseñado para asistir la creación de mundos extensos sin interferir en el estilo.',
+      pillars: [
+        'Mapeo de grafos de continuidad narrativa',
+        'Indexación semántica local en SQLite / WASM',
+        'Consistencia de personajes en sagas'
+      ]
+    },
+    {
+      id: 'modules',
+      label: '02 // Módulos',
+      excerpt: 'Capas de inferencia desacopladas que operan sin telemetría ni llamadas a servicios en la nube.',
+      modulesList: [
+        { name: 'Memory Weaver', desc: 'Recuperación precisa de eventos y cronologías' },
+        { name: 'Tone Guardian', desc: 'Monitoreo de voz, ritmo y consistencia autoral' }
+      ]
+    },
+    {
+      id: 'privacy',
+      label: '03 // Privacidad',
+      excerpt: 'Filosofía de custodia de datos y propiedad intelectual inviolable.',
+      privacyList: [
+        '100% Procesamiento local y confidencial',
+        'Cero telemetría de manuscritos o notas',
+        'Interoperabilidad abierta con CMR Writer Lite'
+      ]
+    }
   ]
 };
 

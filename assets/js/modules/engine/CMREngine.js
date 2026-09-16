@@ -46,7 +46,7 @@ export class CMREngine {
     this.rail = new LivingRail(this.theme, this.seasonal, this.quality, this.eventBus);
 
     // 6. Subsistema gráfico de partículas
-    this.particles = new ParticleSystem(this.quality, this.seasonal);
+    this.particles = new ParticleSystem(this.quality, this.seasonal, this.eventBus);
 
     this.isMounted = false;
   }
@@ -81,11 +81,43 @@ export class CMREngine {
     // D. Registrar atajos de teclado globales accesibles
     this.setupGlobalShortcuts();
 
+    // E. Conectar telemetría en vivo y disparadores de vistas previas
+    this.setupTelemetryAndTriggers();
+
     // Log sobrio de confirmación de arranque en consola
     console.info(
       `%c[CMR Engine v2.0] Operativo | Tier: ${this.quality.getTier()} | Tema: ${this.theme.getResolvedTheme()} | Estación: ${this.seasonal.resolvedSeason}`,
       'background: #0c0c0e; color: #d4a343; padding: 4px 8px; border: 1px solid #d4a343; font-family: monospace;'
     );
+  }
+
+  setupTelemetryAndTriggers() {
+    // 1. Telemetría viva de rendimiento CMR Vitals
+    if (this.eventBus) {
+      this.eventBus.on('quality:metrics', ({ fps, tier, frameTimeMs }) => {
+        const fpsEl = document.getElementById('cmrFpsVal');
+        const tierEl = document.getElementById('cmrTierVal');
+        const frameEl = document.getElementById('cmrFrameTimeVal');
+        if (fpsEl) fpsEl.textContent = fps;
+        if (tierEl) tierEl.textContent = tier.charAt(0).toUpperCase() + tier.slice(1);
+        if (frameEl) frameEl.textContent = frameTimeMs;
+      });
+    }
+
+    // 2. Disparadores de vista previa interactiva desde las tarjetas
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('[data-preview-trigger]');
+      if (trigger) {
+        e.preventDefault();
+        const appKey = trigger.dataset.previewTrigger;
+        const preview = this.rail?.getPreviewPanel();
+        if (preview) {
+          preview.open(appKey);
+          const railApps = document.getElementById('railAppsItem');
+          railApps?.focus();
+        }
+      }
+    });
   }
 
   setupGlobalShortcuts() {

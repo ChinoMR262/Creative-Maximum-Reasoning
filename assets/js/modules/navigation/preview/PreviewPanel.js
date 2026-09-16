@@ -3,7 +3,7 @@
  * Ensamblador del panel flotante cinemático de aplicaciones
  */
 
-import { CMR_WRITER_PREVIEW_DATA, CMR_PING_PREVIEW_DATA } from './PreviewData.js';
+import { CMR_WRITER_PREVIEW_DATA, CMR_PING_PREVIEW_DATA, CMR_REASONING_DATA } from './PreviewData.js';
 import { PreviewTabs } from './PreviewTabs.js';
 
 export class PreviewPanel {
@@ -14,7 +14,9 @@ export class PreviewPanel {
   }
 
   getData(appKey = 'writer') {
-    return appKey === 'ping' ? CMR_PING_PREVIEW_DATA : CMR_WRITER_PREVIEW_DATA;
+    if (appKey === 'ping') return CMR_PING_PREVIEW_DATA;
+    if (appKey === 'reasoning') return CMR_REASONING_DATA;
+    return CMR_WRITER_PREVIEW_DATA;
   }
 
   render(appKey = 'writer') {
@@ -32,19 +34,41 @@ export class PreviewPanel {
     this.element = panel;
     this.tabsController = new PreviewTabs(panel);
     this.tabsController.mount();
-
-    // Soporte para cerrar con tecla Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && panel.classList.contains('open')) {
-        panel.classList.remove('open');
-      }
-    });
+    this.attachEvents();
 
     return panel;
   }
 
+  attachEvents() {
+    if (!this.element) return;
+
+    this.element.addEventListener('click', (e) => {
+      const closeBtn = e.target.closest('.preview-close-btn');
+      if (closeBtn) {
+        this.close();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.element?.classList.contains('open')) {
+        this.close();
+      }
+    });
+  }
+
+  open(appKey) {
+    if (appKey) {
+      this.updateApp(appKey);
+    }
+    this.element?.classList.add('open');
+  }
+
+  close() {
+    this.element?.classList.remove('open');
+  }
+
   updateApp(appKey) {
-    if (!this.element || this.currentApp === appKey) return;
+    if (!this.element || (this.currentApp === appKey && this.element.innerHTML)) return;
     this.currentApp = appKey;
     const data = this.getData(appKey);
     this.element.innerHTML = this.getInnerTemplate(data);
@@ -55,11 +79,15 @@ export class PreviewPanel {
 
   getInnerTemplate(data) {
     const isPing = this.currentApp === 'ping';
+    const isReasoning = this.currentApp === 'reasoning';
 
     return `
       <div class="preview-header">
-        <span class="preview-badge-live">${data.status}</span>
-        <span style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-gold);">${data.version}</span>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span class="preview-badge-live">${data.status}</span>
+          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-gold);">${data.version}</span>
+        </div>
+        <button type="button" class="preview-close-btn" aria-label="Cerrar vista previa">✕</button>
       </div>
       <h4 class="preview-title">${data.title}</h4>
       <p class="preview-sub">${data.subtitle}</p>
@@ -73,44 +101,7 @@ export class PreviewPanel {
       </div>
 
       <div class="preview-display-stage">
-        ${!isPing ? `
-          <!-- Writer Lite: Tab 1: Editor -->
-          <div class="preview-pane active" id="pane-editor">
-            <p class="pane-editor-text">${data.tabs[0].excerpt}</p>
-            <div class="pane-meta">
-              <span>${data.tabs[0].chapter}</span>
-              <span>${data.tabs[0].words}</span>
-            </div>
-          </div>
-
-          <!-- Writer Lite: Tab 2: Personajes -->
-          <div class="preview-pane" id="pane-characters">
-            <div style="display: flex; gap: 12px; align-items: center;">
-              <div style="width: 38px; height: 38px; border: 1px solid var(--accent-gold); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 700; color: var(--accent-gold);">${data.tabs[1].initials}</div>
-              <div>
-                <strong style="font-size: 13px; color: var(--text-main); display: block;">${data.tabs[1].name}</strong>
-                <span style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);">${data.tabs[1].role}</span>
-              </div>
-            </div>
-            <div class="pane-meta">
-              <span>${data.tabs[1].appearances}</span>
-              <span>${data.tabs[1].archetype}</span>
-            </div>
-          </div>
-
-          <!-- Writer Lite: Tab 3: Cronología -->
-          <div class="preview-pane" id="pane-timeline">
-            <div style="font-family: var(--font-mono); font-size: 11.5px; color: var(--text-main); line-height: 1.5;">
-              ${data.tabs[2].events.map(ev => `
-                <div style="margin-bottom: 4px;"><span style="color: var(--accent-gold);">${ev.year}:</span> ${ev.desc}</div>
-              `).join('')}
-            </div>
-            <div class="pane-meta">
-              <span>${data.tabs[2].scope}</span>
-              <span>${data.tabs[2].universe}</span>
-            </div>
-          </div>
-        ` : `
+        ${isPing ? `
           <!-- Ping Booster: Tab 1: Diagnóstico -->
           <div class="preview-pane active" id="pane-diagnostic">
             <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">${data.tabs[0].excerpt}</p>
@@ -147,6 +138,80 @@ export class PreviewPanel {
                 </li>
               `).join('')}
             </ul>
+          </div>
+        ` : isReasoning ? `
+          <!-- Reasoning Engine: Tab 1: Arquitectura -->
+          <div class="preview-pane active" id="pane-architecture">
+            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px;">${data.tabs[0].excerpt}</p>
+            <ul style="list-style: none; padding: 0; margin: 0; font-family: var(--font-mono); font-size: 11px;">
+              ${data.tabs[0].pillars.map(p => `
+                <li style="padding: 4px 0; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
+                  <span style="color: var(--accent-gold);">◈</span> ${p}
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+
+          <!-- Reasoning Engine: Tab 2: Módulos -->
+          <div class="preview-pane" id="pane-modules">
+            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px;">${data.tabs[1].excerpt}</p>
+            <div style="font-family: var(--font-mono); font-size: 11px;">
+              ${data.tabs[1].modulesList.map(m => `
+                <div style="margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border);">
+                  <strong style="color: var(--accent-gold); display: block;">${m.name}</strong>
+                  <span style="color: var(--text-muted); font-size: 10.5px;">${m.desc}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Reasoning Engine: Tab 3: Privacidad -->
+          <div class="preview-pane" id="pane-privacy">
+            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px;">${data.tabs[2].excerpt}</p>
+            <ul style="list-style: none; padding: 0; margin: 0; font-family: var(--font-mono); font-size: 11px;">
+              ${data.tabs[2].privacyList.map(pr => `
+                <li style="padding: 4px 0; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
+                  <span style="color: #4ade80;">✓</span> ${pr}
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+        ` : `
+          <!-- Writer Lite: Tab 1: Editor -->
+          <div class="preview-pane active" id="pane-editor">
+            <p class="pane-editor-text">${data.tabs[0].excerpt}</p>
+            <div class="pane-meta">
+              <span>${data.tabs[0].chapter}</span>
+              <span>${data.tabs[0].words}</span>
+            </div>
+          </div>
+
+          <!-- Writer Lite: Tab 2: Personajes -->
+          <div class="preview-pane" id="pane-characters">
+            <div style="display: flex; gap: 12px; align-items: center;">
+              <div style="width: 38px; height: 38px; border: 1px solid var(--accent-gold); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 700; color: var(--accent-gold);">${data.tabs[1].initials}</div>
+              <div>
+                <strong style="font-size: 13px; color: var(--text-main); display: block;">${data.tabs[1].name}</strong>
+                <span style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);">${data.tabs[1].role}</span>
+              </div>
+            </div>
+            <div class="pane-meta">
+              <span>${data.tabs[1].appearances}</span>
+              <span>${data.tabs[1].archetype}</span>
+            </div>
+          </div>
+
+          <!-- Writer Lite: Tab 3: Cronología -->
+          <div class="preview-pane" id="pane-timeline">
+            <div style="font-family: var(--font-mono); font-size: 11.5px; color: var(--text-main); line-height: 1.5;">
+              ${data.tabs[2].events.map(ev => `
+                <div style="margin-bottom: 4px;"><span style="color: var(--accent-gold);">${ev.year}:</span> ${ev.desc}</div>
+              `).join('')}
+            </div>
+            <div class="pane-meta">
+              <span>${data.tabs[2].scope}</span>
+              <span>${data.tabs[2].universe}</span>
+            </div>
           </div>
         `}
       </div>

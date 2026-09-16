@@ -69,9 +69,14 @@ export class LivingRail {
     }
   }
 
+  getPreviewPanel() {
+    return this.navList?.previewPanel;
+  }
+
   destroy() {
     this.scrollSpy?.destroy();
     this.navList?.destroy();
+    this.controls?.destroy();
     this.mobileArtifact?.destroy();
     this.railEl?.remove();
   }
