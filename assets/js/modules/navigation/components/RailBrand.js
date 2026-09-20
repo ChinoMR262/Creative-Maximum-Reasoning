@@ -8,7 +8,7 @@ export class RailBrand {
     const isSubpage = window.location.pathname.includes('/apps/');
     const basePath = isSubpage ? '../../' : './';
     const homeUrl = isSubpage ? `${basePath}index.html` : '#top';
-    const logoSrc = `${basePath}assets/images/CMR%20Logo.png`;
+    const logoSrc = new URL('../../../../images/CMR Logo.png', import.meta.url).href;
 
     const brand = document.createElement('a');
     brand.className = 'rail-brand';
@@ -17,7 +17,7 @@ export class RailBrand {
     brand.setAttribute('aria-label', 'CMR Inicio');
 
     brand.innerHTML = `
-      <img src="${logoSrc}" alt="CMR" width="28" height="28" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../../assets/images/CMR%20Logo.png';}">
+      <img src="${logoSrc}" alt="CMR" width="28" height="28">
       <div class="rail-brand-meta">
         <span class="rail-brand-title">CMR</span>
         <span class="rail-brand-sub">Creative Maximum Reasoning</span>

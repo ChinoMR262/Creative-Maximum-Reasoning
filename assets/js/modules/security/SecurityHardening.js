@@ -21,16 +21,9 @@ export class SecurityHardening {
       Object.freeze(Object.prototype);
     }
 
-    // 3. Verificación de políticas de seguridad
-    const nosniff = document.querySelector('meta[http-equiv="X-Content-Type-Options"]');
-    if (!nosniff) {
-      const meta = document.createElement('meta');
-      meta.httpEquiv = 'X-Content-Type-Options';
-      meta.content = 'nosniff';
-      document.head.appendChild(meta);
-    }
-
-    // 4. Marca de agua y metadato de protección de derechos de autor (Anti AI scraping)
+    // 3. Marca de agua y metadato de protección de derechos de autor.
+    // Las políticas nosniff, Permissions-Policy y anti-framing deben enviarse
+    // como cabeceras HTTP desde el perímetro; una meta etiqueta no las sustituye.
     const aiProtectMeta = document.querySelector('meta[name="robots"]');
     if (!aiProtectMeta) {
       const meta = document.createElement('meta');

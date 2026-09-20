@@ -198,7 +198,7 @@ nav a[aria-current="page"] {
 .language-switch a {
   padding: .2rem .55rem;
   border: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
-  border-radius: 999px;
+  border-radius: 2px;
   color: var(--muted);
   text-decoration: none;
 }

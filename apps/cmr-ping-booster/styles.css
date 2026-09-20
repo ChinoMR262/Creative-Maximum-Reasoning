@@ -2244,4 +2244,38 @@ body::before {
     display: none !important;
   }
 }
+/* Corrección responsive: los paneles técnicos ceden espacio sin ampliar el viewport. */
+.desktop-console-layout,
+.desktop-console-layout > *,
+.desktop-info-col,
+.arch-compare-box,
+.btn-content {
+  min-width: 0;
+}
 
+.desktop-info-col > div:first-child {
+  flex-wrap: wrap;
+}
+
+.arch-compare-box {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.head-meta-code,
+.btn-title,
+.btn-sub {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 680px) {
+  .desktop-console-layout {
+    gap: 28px;
+    padding: 24px 20px;
+  }
+
+  .btn-download,
+  .btn-secondary-action {
+    max-width: 100%;
+  }
+}

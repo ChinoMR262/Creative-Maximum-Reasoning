@@ -7,11 +7,9 @@
   <meta name="description" content="Creative Maximum Reasoning (CMR): aplicaciones para Google Play escritas, editadas y desarrolladas por Jonathan Gabriel Nieto.">
   <link rel="canonical" href="https://cmr-reasoning.com.ar/">
   
-  <!-- Seguridad & CSP -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self';">
+  <!-- Política compatible con alojamiento estático; las cabeceras HTTP se administran en el perímetro. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
   
   <!-- Configuración de Tema -->
   <meta name="color-scheme" content="dark">
@@ -146,7 +144,8 @@
         
         <div class="apps-grid">
           <!-- Tarjeta App 1: CMR Writer Lite (Material: Roots) -->
-          <div class="living-frame app-card" data-material="roots" tabindex="0" aria-label="CMR Writer Lite">
+          <article class="living-frame app-card" data-material="roots" tabindex="0" aria-label="CMR Writer Lite">
+            <span class="app-index" aria-hidden="true">01 / ANDROID</span>
             <div class="app-icon-frame">
               <img src="assets/images/icon_cmr_writer_lite.png" alt="Icono oficial CMR Writer Lite" class="app-icon-img" width="52" height="52">
             </div>
@@ -157,10 +156,11 @@
               <a class="app-link" href="apps/cmr-writer-lite/">Ver la app →</a>
               <button type="button" class="btn-preview-trigger" data-preview-trigger="writer" aria-label="Vista previa interactiva de CMR Writer Lite">Vista previa</button>
             </div>
-          </div>
+          </article>
 
-          <!-- Tarjeta App 2: CMR Ping Booster (Material: Mechanism) -->
-          <div class="living-frame app-card" data-material="mechanism" tabindex="0" aria-label="CMR Ping Booster">
+          <!-- Aplicación 2: CMR Ping Booster (Material: Mechanism) -->
+          <article class="living-frame app-card" data-material="mechanism" tabindex="0" aria-label="CMR Ping Booster">
+            <span class="app-index" aria-hidden="true">02 / ANDROID + PC</span>
             <div class="app-icon-frame">
               <img src="assets/images/icon_cmr_ping_booster.png" alt="Icono oficial CMR Ping Booster" class="app-icon-img" width="52" height="52">
             </div>
@@ -171,7 +171,7 @@
               <a class="app-link" href="apps/cmr-ping-booster/">Ver la suite →</a>
               <button type="button" class="btn-preview-trigger" data-preview-trigger="ping" aria-label="Vista previa interactiva de CMR Ping Booster">Vista previa</button>
             </div>
-          </div>
+          </article>
 
         </div>
       </div>

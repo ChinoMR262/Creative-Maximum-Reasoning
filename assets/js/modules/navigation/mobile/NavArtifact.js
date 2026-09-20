@@ -8,6 +8,9 @@ export class NavArtifact {
     this.themeState = themeState;
     this.qualityManager = qualityManager;
     this.element = null;
+    this.previousFocus = null;
+    this.previousBodyOverflow = '';
+    this.handleKeydown = null;
   }
 
   render() {
@@ -15,15 +18,16 @@ export class NavArtifact {
 
     const container = document.createElement('div');
     container.className = 'cmr-nav-artifact';
+    const logoUrl = new URL('../../../../images/CMR Logo.png', import.meta.url).href;
 
     container.innerHTML = `
       <button class="artifact-trigger" id="artifactTrigger" aria-label="Abrir Navegación CMR" aria-expanded="false" aria-controls="artifactDrawer">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
-      <div class="artifact-drawer" id="artifactDrawer" aria-hidden="true">
+      <div class="artifact-drawer" id="artifactDrawer" role="dialog" aria-modal="true" aria-label="Navegación CMR" aria-hidden="true" inert>
         <div class="artifact-drawer-header">
           <div class="brand">
-            <img class="brand-logo" src="assets/images/CMR Logo.png" alt="CMR Logo" width="30" height="30">
+            <img class="brand-logo" src="${logoUrl}" alt="CMR Logo" width="30" height="30">
             <span class="brand-cmr">CMR</span>
           </div>
           <button class="artifact-trigger" id="artifactCloseBtn" aria-label="Cerrar navegación">
@@ -49,26 +53,63 @@ export class NavArtifact {
     const mobileThemeToggle = container.querySelector('#mobileThemeToggle');
     const mobileThemeLabel = container.querySelector('#mobileThemeLabel');
 
-    const toggleDrawer = (open) => {
+    const getFocusableElements = () => Array.from(drawer.querySelectorAll(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    ));
+
+    const toggleDrawer = (open, restoreFocus = true) => {
       const isOpen = open !== undefined ? open : !drawer.classList.contains('open');
+
+      if (isOpen) {
+        this.previousFocus = document.activeElement;
+        this.previousBodyOverflow = document.body.style.overflow;
+        drawer.inert = false;
+      }
+
       drawer.classList.toggle('open', isOpen);
       drawer.setAttribute('aria-hidden', (!isOpen).toString());
       trigger.setAttribute('aria-expanded', isOpen.toString());
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      document.body.style.overflow = isOpen ? 'hidden' : this.previousBodyOverflow;
+
+      if (isOpen) {
+        requestAnimationFrame(() => getFocusableElements()[0]?.focus());
+      } else {
+        drawer.inert = true;
+        if (restoreFocus && this.previousFocus instanceof HTMLElement) {
+          this.previousFocus.focus();
+        }
+      }
     };
 
     trigger?.addEventListener('click', () => toggleDrawer(true));
     closeBtn?.addEventListener('click', () => toggleDrawer(false));
 
     drawer.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => toggleDrawer(false));
+      link.addEventListener('click', () => toggleDrawer(false, false));
     });
 
-    document.addEventListener('keydown', (e) => {
+    this.handleKeydown = (e) => {
       if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        e.preventDefault();
         toggleDrawer(false);
       }
-    });
+
+      if (e.key === 'Tab' && drawer.classList.contains('open')) {
+        const focusable = getFocusableElements();
+        if (!focusable.length) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    document.addEventListener('keydown', this.handleKeydown);
 
     mobileThemeToggle?.addEventListener('click', () => {
       this.themeState.cycle();
@@ -82,6 +123,11 @@ export class NavArtifact {
   }
 
   destroy() {
+    if (this.handleKeydown) {
+      document.removeEventListener('keydown', this.handleKeydown);
+      this.handleKeydown = null;
+    }
+    document.body.style.overflow = this.previousBodyOverflow;
     this.element?.remove();
   }
 }

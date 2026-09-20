@@ -553,13 +553,18 @@
     justify-content: space-between;
     padding: 36px 28px;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: opacity var(--duration-normal) var(--ease-out-expo);
+    transition:
+      opacity var(--duration-normal) var(--ease-out-expo),
+      visibility 0s linear var(--duration-normal);
   }
 
   .artifact-drawer.open {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
+    transition-delay: 0s;
   }
 
   .artifact-drawer-header {
