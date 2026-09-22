@@ -29,6 +29,12 @@ export function applySecurityHeaders(response) {
 export default {
   async fetch(request) {
     const url = new URL(request.url);
+    const legacyPcDownload = '/apps/cmr-ping-booster/cmr_ping_booster_pc.exe';
+
+    if (url.pathname.toLowerCase() === legacyPcDownload) {
+      return applySecurityHeaders(Response.redirect(new URL('/apps/cmr-ping-booster/', url), 301));
+    }
+
     const cacheableMethod = request.method === 'GET' || request.method === 'HEAD';
     const managedPath = !url.pathname.startsWith('/cdn-cgi/');
     const authenticated = request.headers.has('Authorization');
