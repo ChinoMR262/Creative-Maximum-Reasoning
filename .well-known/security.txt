@@ -1,0 +1,4 @@
+Contact: mailto:contacto@cmr-reasoning.com.ar
+Expires: 2027-09-22T00:00:00Z
+Preferred-Languages: es, en
+Canonical: https://cmr-reasoning.com.ar/.well-known/security.txt

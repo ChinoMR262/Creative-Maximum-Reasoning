@@ -28,7 +28,23 @@ export function applySecurityHeaders(response) {
 
 export default {
   async fetch(request) {
-    const response = await fetch(request);
+    const url = new URL(request.url);
+    const cacheableMethod = request.method === 'GET' || request.method === 'HEAD';
+    const managedPath = !url.pathname.startsWith('/cdn-cgi/');
+    const authenticated = request.headers.has('Authorization');
+    const isStaticAsset = /\.(?:avif|css|gif|ico|jpe?g|js|json|png|svg|webp|woff2?)$/i.test(url.pathname);
+    const edgeTtl = isStaticAsset ? 86400 : 600;
+
+    const response = await fetch(request, cacheableMethod && managedPath && !authenticated ? {
+      cf: {
+        cacheEverything: true,
+        cacheTtlByStatus: {
+          '200-299': edgeTtl,
+          '404': 60,
+          '500-599': 0
+        }
+      }
+    } : undefined);
     return applySecurityHeaders(response);
   }
 };
