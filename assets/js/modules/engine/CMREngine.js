@@ -100,10 +100,7 @@ export class CMREngine {
 
     this.clock.start();
 
-    // D. Registrar atajos de teclado globales accesibles
-    this.setupGlobalShortcuts();
-
-    // E. Conectar disparadores de vistas previas de aplicaciones
+    // D. Conectar disparadores de vistas previas de aplicaciones
     this.setupAppPreviewTriggers();
 
     // Log sobrio de confirmación de arranque en consola
@@ -130,20 +127,6 @@ export class CMREngine {
     });
   }
 
-  setupGlobalShortcuts() {
-    window.addEventListener('keydown', (e) => {
-      // Atajo Alt+T para ciclar tema
-      if (e.altKey && (e.key === 't' || e.key === 'T')) {
-        e.preventDefault();
-        this.theme.cycle();
-      }
-      // Atajo Alt+S para ciclar estación
-      if (e.altKey && (e.key === 's' || e.key === 'S')) {
-        e.preventDefault();
-        this.seasonal.cycle();
-      }
-    });
-  }
 
   destroy() {
     this.clock.stop();

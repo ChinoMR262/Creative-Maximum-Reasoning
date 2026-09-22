@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroBanner) {
       animate(
         heroBanner,
-        { opacity: [0, 1], x: [18, 0] },
+        { opacity: [0, 1] },
         { duration: 0.68, delay: 0.08, ease: [0.16, 1, 0.3, 1] }
       );
     }

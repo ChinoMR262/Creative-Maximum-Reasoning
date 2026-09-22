@@ -7,7 +7,7 @@
 export class ThemeState {
   constructor(eventBus = null) {
     this.eventBus = eventBus;
-    this.mode = 'system'; // 'system' | 'light' | 'dark'
+    this.mode = 'dark'; // Único modo visual habilitado
     this.systemQuery = window.matchMedia('(prefers-color-scheme: dark)');
     this.onSystemChange = this.onSystemChange.bind(this);
   }
@@ -23,12 +23,7 @@ export class ThemeState {
   }
 
   load() {
-    try {
-      const stored = localStorage.getItem('cmr_theme_mode');
-      if (stored === 'light' || stored === 'dark' || stored === 'system') {
-        this.mode = stored;
-      }
-    } catch (_) {}
+    this.mode = 'dark';
   }
 
   save() {
@@ -38,6 +33,7 @@ export class ThemeState {
   }
 
   setMode(mode) {
+    mode = 'dark';
     if (this.mode === mode) return;
     this.mode = mode;
     this.save();
@@ -52,10 +48,7 @@ export class ThemeState {
   }
 
   getResolvedTheme() {
-    if (this.mode === 'system') {
-      return this.systemQuery.matches ? 'dark' : 'light';
-    }
-    return this.mode;
+    return 'dark';
   }
 
   onSystemChange() {
@@ -82,8 +75,6 @@ export class ThemeState {
   }
 
   cycle() {
-    const sequence = ['system', 'dark', 'light'];
-    const nextIdx = (sequence.indexOf(this.mode) + 1) % sequence.length;
-    this.setMode(sequence[nextIdx]);
+    this.setMode('dark');
   }
 }

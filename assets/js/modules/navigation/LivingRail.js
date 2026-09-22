@@ -6,7 +6,6 @@
 
 import { RailBrand } from './components/RailBrand.js';
 import { RailNavList } from './components/RailNavList.js';
-import { RailControls } from './components/RailControls.js';
 import { RailScrollSpy } from './components/RailScrollSpy.js';
 import { NavArtifact } from './mobile/NavArtifact.js';
 
@@ -19,7 +18,6 @@ export class LivingRail {
 
     this.railEl = null;
     this.navList = new RailNavList();
-    this.controls = new RailControls(themeState, seasonalEngine, qualityManager);
     this.scrollSpy = null;
     this.mobileArtifact = new NavArtifact(themeState, qualityManager);
   }
@@ -27,7 +25,6 @@ export class LivingRail {
   mount() {
     this.renderDesktopRail();
     this.renderMobile();
-    this.listenEvents();
   }
 
   renderDesktopRail() {
@@ -44,7 +41,6 @@ export class LivingRail {
     topContainer.appendChild(this.navList.render());
 
     rail.appendChild(topContainer);
-    rail.appendChild(this.controls.render());
 
     document.body.prepend(rail);
     this.railEl = rail;
@@ -61,14 +57,6 @@ export class LivingRail {
     }
   }
 
-  listenEvents() {
-    if (this.eventBus) {
-      this.eventBus.on('quality:change', () => this.controls.updateLabels());
-      this.eventBus.on('theme:change', () => this.controls.updateLabels());
-      this.eventBus.on('season:change', () => this.controls.updateLabels());
-    }
-  }
-
   getPreviewPanel() {
     return this.navList?.previewPanel;
   }
@@ -76,7 +64,6 @@ export class LivingRail {
   destroy() {
     this.scrollSpy?.destroy();
     this.navList?.destroy();
-    this.controls?.destroy();
     this.mobileArtifact?.destroy();
     this.railEl?.remove();
   }

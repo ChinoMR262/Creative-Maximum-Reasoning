@@ -42,7 +42,7 @@ export class NavArtifact {
           <a href="#contact">Contacto <span>04</span></a>
         </nav>
         <div class="artifact-drawer-footer">
-          <button class="btn btn-outline" id="mobileThemeToggle">Tema: <span id="mobileThemeLabel">${this.themeState.mode}</span></button>
+          <span class="artifact-platform-label">Aplicaciones Android</span>
           <span class="rail-tier-badge">${this.qualityManager.getTier()}</span>
         </div>
       </div>
@@ -51,8 +51,6 @@ export class NavArtifact {
     const trigger = container.querySelector('#artifactTrigger');
     const closeBtn = container.querySelector('#artifactCloseBtn');
     const drawer = container.querySelector('#artifactDrawer');
-    const mobileThemeToggle = container.querySelector('#mobileThemeToggle');
-    const mobileThemeLabel = container.querySelector('#mobileThemeLabel');
     this.backgroundElements = Array.from(document.body.children).filter((element) => element !== container);
 
     const getFocusableElements = () => Array.from(drawer.querySelectorAll(
@@ -115,13 +113,6 @@ export class NavArtifact {
       }
     };
     document.addEventListener('keydown', this.handleKeydown);
-
-    mobileThemeToggle?.addEventListener('click', () => {
-      this.themeState.cycle();
-      if (mobileThemeLabel) {
-        mobileThemeLabel.textContent = this.themeState.mode;
-      }
-    });
 
     this.element = container;
     return container;

@@ -42,9 +42,9 @@ export const CMR_WRITER_PREVIEW_DATA = {
 
 export const CMR_PING_PREVIEW_DATA = {
   version: 'v1.0.0',
-  status: 'Release 1.0.0 · Android y PC',
+  status: 'Release 1.0.0 · Android',
   title: 'CMR Ping Booster',
-  subtitle: 'Suite local de diagnóstico de latencia, resolución DNS optimizada y telemetría de red de autor.',
+  subtitle: 'Aplicación Android para diagnóstico de latencia, resolución DNS y lectura local del estado de red.',
   appUrl: 'apps/cmr-ping-booster/',
   tabs: [
     {

@@ -10,7 +10,7 @@ export class SeasonalEngine {
   constructor(eventBus = null, hemisphere = 'south') {
     this.eventBus = eventBus;
     this.hemisphere = hemisphere;
-    this.mode = 'auto'; // 'off' | 'auto' | 'spring' | 'summer' | 'autumn' | 'winter'
+    this.mode = 'off'; // Capa cromática estacional deshabilitada
     this.resolvedSeason = 'off';
   }
 
@@ -20,12 +20,7 @@ export class SeasonalEngine {
   }
 
   load() {
-    try {
-      const stored = localStorage.getItem('cmr_season_mode');
-      if (['off', 'auto', 'spring', 'summer', 'autumn', 'winter'].includes(stored)) {
-        this.mode = stored;
-      }
-    } catch (_) {}
+    this.mode = 'off';
   }
 
   save() {
@@ -35,6 +30,7 @@ export class SeasonalEngine {
   }
 
   setMode(mode) {
+    mode = 'off';
     if (this.mode === mode) return;
     this.mode = mode;
     this.save();
@@ -63,8 +59,6 @@ export class SeasonalEngine {
   }
 
   cycle() {
-    const sequence = ['auto', 'winter', 'autumn', 'spring', 'summer', 'off'];
-    const nextIdx = (sequence.indexOf(this.mode) + 1) % sequence.length;
-    this.setMode(sequence[nextIdx]);
+    this.setMode('off');
   }
 }
