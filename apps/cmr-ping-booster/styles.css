@@ -4,37 +4,38 @@
    ========================================================================== */
 
 :root {
-  /* Fondo Táctico Carbón & Pizarra Antracita (Sincronizado con el Emblema de Radar) */
-  --bg-canvas: #0c0f16;
-  --bg-panel: #121620;
-  --bg-panel-elevated: #181d2a;
-  --bg-panel-subtle: #0e121a;
-  --bg-input: #090c12;
+  /* Fondo Negro Grafito Mate (Cero Azul) — Identidad Oficial CMR */
+  --bg-canvas: #0c0c0e;
+  --bg-panel: #131316;
+  --bg-panel-elevated: #18181d;
+  --bg-panel-subtle: #111114;
+  --bg-input: #08080a;
 
-  /* Bordes de Corte Técnico y Separadores con Tono Acero y Pizarra */
-  --border-dim: #1c2331;
-  --border-subtle: #262f42;
-  --border-mid: #34415a;
-  --border-strong: #48597a;
+  /* Bordes de Corte Técnico y Separadores con Tono Grafito */
+  --border-dim: rgba(255, 255, 255, 0.07);
+  --border-subtle: rgba(255, 255, 255, 0.11);
+  --border-mid: rgba(255, 255, 255, 0.16);
+  --border-strong: rgba(212, 163, 67, 0.38);
 
-  /* Acentos Mate Calibrados (Bronce Industrial, Verde Radar de Telecomunicaciones, Gris Acero) */
-  --accent-gold: #cf9b3c;
-  --accent-gold-subtle: rgba(207, 155, 60, 0.08);
-  --accent-gold-border: rgba(207, 155, 60, 0.25);
+  /* Acentos Mate Calibrados (Oro Faro Artesanal CMR, Verde Radar, Acero) */
+  --accent-gold: #d4a343;
+  --accent-gold-subtle: rgba(212, 163, 67, 0.12);
+  --accent-gold-border: rgba(212, 163, 67, 0.35);
   --accent-green: #38a169;
   --accent-green-subtle: rgba(56, 161, 105, 0.12);
-  --accent-steel: #8b93a3;
-  --accent-steel-subtle: rgba(139, 147, 163, 0.10);
+  --accent-steel: #9e9ea6;
+  --accent-steel-subtle: rgba(158, 158, 166, 0.10);
 
-  /* Tipografía Técnica de Ingeniería (IBM Plex) */
-  --text-pure: #f8fafc;
-  --text-primary: #e2e8f0;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --text-code: #cbd5e1;
+  /* Tipografía Oficial (Fraunces + Inter + JetBrains Mono) */
+  --text-pure: #f0eee9;
+  --text-primary: #e6e4df;
+  --text-secondary: #9e9ea6;
+  --text-muted: #676770;
+  --text-code: #d4a343;
 
-  --font-main: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', monospace;
 
   --radius-xs: 2px;
   --radius-sm: 4px;
