@@ -8,117 +8,104 @@
    Desktop: Living Rail Lateral (>= 960px)
    ========================================================================== */
 .cmr-rail {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
+  position: fixed;
+  inset: 0 auto 0 0;
   width: var(--rail-width);
-  background-color: var(--bg-surface);
+  height: 100dvh;
+  background: var(--bg-surface);
   border-right: 1px solid var(--border);
   z-index: var(--z-rail);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 32px 18px;
-  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.45);
-  transition: width var(--duration-normal) var(--ease-out-expo);
+  padding: 22px 16px 18px;
+  box-shadow: 12px 0 36px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
   user-select: none;
 }
 
-/* Filamento lumínico lateral con respiración orgánica */
 .cmr-rail::before {
   content: '';
   position: absolute;
-  top: 0;
-  right: -1px;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(212, 163, 67, 0.1) 20%,
-    var(--accent-gold) 50%,
-    rgba(212, 163, 67, 0.1) 80%,
-    transparent 100%
-  );
-  opacity: 0.35;
+  inset: 0 0 0 auto;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold-border) 18%, var(--gold-border) 82%, transparent);
+  opacity: 0.72;
   pointer-events: none;
-  animation: railBreathing 9s infinite alternate ease-in-out;
-}
-
-@keyframes railBreathing {
-  0% { opacity: 0.2; transform: scaleY(0.7); }
-  100% { opacity: 0.6; transform: scaleY(1); }
 }
 
 .rail-top {
   display: flex;
+  flex: 1;
+  min-height: 0;
   flex-direction: column;
   align-items: stretch;
-  gap: 32px;
+  gap: 24px;
   width: 100%;
 }
 
-/* Emblema de Autor en la cabecera del Rail */
 .rail-brand {
   display: flex;
   align-items: center;
   gap: 12px;
   width: 100%;
-  padding: 10px 14px;
-  border-radius: var(--radius-xs);
-  border: 1px solid var(--border-strong);
-  background: linear-gradient(145deg, var(--bg-card), var(--bg-matte));
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08), 0 4px 12px rgba(0, 0, 0, 0.5);
-  transition: border-color var(--duration-fast), transform var(--duration-fast), box-shadow var(--duration-fast);
+  padding: 2px 4px 18px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
   text-decoration: none;
+  transition: border-color var(--duration-fast), color var(--duration-fast);
 }
 
 .rail-brand:hover,
 .rail-brand:focus-visible {
-  border-color: var(--accent-gold);
-  transform: translateY(-1px);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.12), 0 6px 16px rgba(212, 163, 67, 0.2);
+  border-bottom-color: var(--accent-gold);
+}
+
+.rail-brand:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 4px;
 }
 
 .rail-brand img {
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
   object-fit: contain;
   flex-shrink: 0;
 }
 
 .rail-brand-meta {
   display: flex;
+  min-width: 0;
   flex-direction: column;
   line-height: 1.2;
-  overflow: hidden;
 }
 
 .rail-brand-title {
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--accent-gold);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
 }
 
 .rail-brand-sub {
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  color: var(--text-muted);
-  white-space: nowrap;
-  text-overflow: ellipsis;
   overflow: hidden;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.03em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-/* Lista de navegación */
 .rail-nav {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 7px;
   width: 100%;
-  padding: 0;
 }
 
 .rail-item-wrapper {
@@ -127,100 +114,173 @@
 }
 
 .rail-item {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 12px;
-  height: 44px;
-  width: 100%;
-  padding: 0 14px;
-  border-radius: var(--radius-xs);
-  color: var(--text-muted);
-  border: 1px solid transparent;
-  background-color: transparent;
-  transition: all var(--duration-fast) var(--ease-out-expo);
   position: relative;
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) 16px;
+  gap: 10px;
+  align-items: start;
+  width: 100%;
+  min-height: 52px;
+  max-height: 52px;
+  padding: 14px 12px;
+  overflow: hidden;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 2px;
   text-decoration: none;
   cursor: pointer;
+  transition:
+    max-height 0.42s var(--ease-out-expo),
+    min-height 0.42s var(--ease-out-expo),
+    padding 0.42s var(--ease-out-expo),
+    color 0.18s ease,
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.3s var(--ease-out-expo);
 }
 
-.rail-item svg {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-  transition: transform var(--duration-fast) var(--ease-out-expo), color var(--duration-fast);
+.rail-item:hover {
+  color: var(--text-main);
+  border-color: var(--border-strong);
+  background: var(--bg-card);
 }
 
-.rail-item-label {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.03em;
-  white-space: nowrap;
-  font-weight: 500;
-}
-
-.rail-item:hover,
 .rail-item:focus-visible {
   color: var(--text-main);
-  background-color: var(--bg-card);
-  border-color: var(--border-strong);
-}
-
-.rail-item:hover svg {
-  transform: scale(1.1);
-  color: var(--accent-gold);
+  border-color: var(--accent-gold);
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
 }
 
 .rail-item.active,
-.rail-item[aria-current='page'] {
-  color: var(--accent-gold);
-  background-color: var(--gold-subtle);
-  border-color: var(--gold-border);
-}
-
-.rail-item.active::before,
-.rail-item[aria-current='page']::before {
-  content: '';
-  position: absolute;
-  left: -18px;
-  top: 8px;
-  bottom: 8px;
-  width: 3px;
-  background-color: var(--accent-gold);
-  border-radius: 0 2px 2px 0;
-  box-shadow: 0 0 10px var(--accent-gold);
-}
-
-/* Tooltip tipográfico de autor */
-.rail-tooltip {
-  position: absolute;
-  left: calc(var(--rail-width) - 6px);
-  top: 50%;
-  transform: translateY(-50%) translateX(-6px);
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-strong);
+.rail-item[aria-current='location'] {
+  min-height: 136px;
+  max-height: 136px;
+  padding-block: 16px;
   color: var(--text-main);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  padding: 6px 12px;
-  border-radius: var(--radius-xs);
-  white-space: nowrap;
-  pointer-events: none;
-  opacity: 0;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
-  transition: opacity var(--duration-fast) var(--ease-out-expo), transform var(--duration-fast) var(--ease-out-expo);
-  z-index: var(--z-modal);
+  background: var(--bg-card);
+  border-color: var(--gold-border);
+  box-shadow: inset 3px 0 0 var(--accent-gold), 0 10px 28px rgba(0, 0, 0, 0.16);
 }
 
-.rail-item-wrapper:hover .rail-tooltip,
-.rail-item-wrapper:focus-within .rail-tooltip {
+.rail-item-index {
+  padding-top: 3px;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.rail-item.active .rail-item-index {
+  color: var(--accent-gold);
+}
+
+.rail-item-content {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.rail-item-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 22px;
+}
+
+.rail-item-heading svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.rail-item-heading strong {
+  overflow: hidden;
+  color: inherit;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rail-item-detail,
+.rail-item-action {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition:
+    max-height 0.32s var(--ease-out-expo),
+    margin 0.32s var(--ease-out-expo),
+    opacity 0.18s ease,
+    transform 0.32s var(--ease-out-expo);
+}
+
+.rail-item-detail {
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
+.rail-item-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--accent-gold);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.rail-item-action svg,
+.rail-item-chevron {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.rail-item-action svg {
+  width: 12px;
+  height: 12px;
+}
+
+.rail-item.active .rail-item-detail,
+.rail-item.active .rail-item-action {
+  max-height: 42px;
   opacity: 1;
-  transform: translateY(-50%) translateX(6px);
+  transform: translateY(0);
+}
+
+.rail-item.active .rail-item-detail {
+  margin-top: 13px;
+}
+
+.rail-item.active .rail-item-action {
+  margin-top: 10px;
+}
+
+.rail-item-chevron {
+  width: 15px;
+  height: 15px;
+  margin-top: 4px;
+  color: var(--text-dim);
+  transition: transform 0.32s var(--ease-out-expo), color 0.18s ease;
+}
+
+.rail-item.active .rail-item-chevron {
+  color: var(--accent-gold);
+  transform: rotate(90deg);
 }
 
 /* ==========================================================================
-   Panel de Preview Cinemático Integrado (CMR Preview Panel)
+   Panel de Preview Cinematico Integrado (CMR Preview Panel)
    ========================================================================== */
 .cmr-preview-panel {
   position: fixed;
@@ -244,7 +304,6 @@
 }
 
 .cmr-preview-panel.open,
-.rail-item-wrapper[data-has-preview]:hover .cmr-preview-panel,
 .cmr-preview-panel:hover {
   opacity: 1;
   visibility: visible;

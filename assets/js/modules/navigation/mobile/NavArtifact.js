@@ -36,10 +36,10 @@ export class NavArtifact {
           </button>
         </div>
         <nav class="artifact-drawer-links" aria-label="Enlaces móviles">
-          <a href="#top">Inicio <span>// 01</span></a>
-          <a href="#apps">Aplicaciones <span>// 02</span></a>
-          <a href="#about">Sobre mí & S9U <span>// 03</span></a>
-          <a href="#contact">Contacto <span>// 04</span></a>
+          <a href="#top">Inicio <span>01</span></a>
+          <a href="#apps">Aplicaciones <span>02</span></a>
+          <a href="#about">Sobre mí & S9U <span>03</span></a>
+          <a href="#contact">Contacto <span>04</span></a>
         </nav>
         <div class="artifact-drawer-footer">
           <button class="btn btn-outline" id="mobileThemeToggle">Tema: <span id="mobileThemeLabel">${this.themeState.mode}</span></button>

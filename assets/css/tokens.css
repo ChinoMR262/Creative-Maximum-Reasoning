@@ -46,8 +46,8 @@
   /* Medidas de grilla y contenedores */
   --wrap-max: 1240px;
   --wrap-text: 740px;
-  --rail-width: 260px;
-  --rail-expanded-width: 290px;
+  --rail-width: 292px;
+  --rail-expanded-width: 292px;
   
   /* Radios de borde artesanales (cero pill genérica) */
   --radius-xs: 2px;

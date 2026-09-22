@@ -32,16 +32,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroContent) {
       animate(
         heroContent,
-        { opacity: [0, 1], y: [24, 0] },
-        { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+        { opacity: [0, 1], y: [14, 0] },
+        { duration: 0.62, ease: [0.16, 1, 0.3, 1] }
       );
     }
 
     if (heroBanner) {
       animate(
         heroBanner,
-        { opacity: [0, 1], scale: [0.97, 1] },
-        { duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }
+        { opacity: [0, 1], x: [18, 0] },
+        { duration: 0.68, delay: 0.08, ease: [0.16, 1, 0.3, 1] }
       );
     }
 
@@ -55,16 +55,27 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     }
 
-    // C. Revelación progresiva en Scroll para Aplicaciones
+    // C. Revelacion editorial: primero el contexto, luego las fichas de producto.
     const appsSection = document.getElementById('apps');
     if (appsSection) {
       inView(appsSection, () => {
+        const sectionHead = appsSection.querySelector('.section-head');
+        const appCards = appsSection.querySelectorAll('.app-card');
+
+        if (sectionHead) {
+          animate(
+            sectionHead,
+            { opacity: [0, 1], y: [10, 0] },
+            { duration: 0.42, ease: [0.16, 1, 0.3, 1] }
+          );
+        }
+
         animate(
-          appsSection.querySelectorAll('.section-head, .living-frame, .app-card'),
-          { opacity: [0, 1], y: [22, 0] },
-          { delay: stagger(0.12), duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }
+          appCards,
+          { opacity: [0, 1], y: [16, 0] },
+          { delay: stagger(0.08), duration: 0.5, ease: [0.16, 1, 0.3, 1] }
         );
-      }, { margin: '0px 0px -80px 0px' });
+      }, { margin: '0px 0px -64px 0px' });
     }
 
     // D. Revelación progresiva en Scroll para Sobre mí
@@ -73,8 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
       inView(aboutSection, () => {
         animate(
           aboutSection.querySelectorAll('.author-presentation, .about-lede, .about-body, .roles'),
-          { opacity: [0, 1], y: [18, 0] },
-          { delay: stagger(0.14), duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }
+          { opacity: [0, 1], y: [12, 0] },
+          { delay: stagger(0.08), duration: 0.5, ease: [0.16, 1, 0.3, 1] }
         );
       }, { margin: '0px 0px -80px 0px' });
     }
@@ -85,8 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
       inView(footer, () => {
         animate(
           footer.querySelectorAll('.footer-col-left, .footer-col-center, .footer-col-right'),
-          { opacity: [0, 1], y: [14, 0] },
-          { delay: stagger(0.1), duration: 0.6, ease: 'easeOut' }
+          { opacity: [0, 1] },
+          { delay: stagger(0.06), duration: 0.42, ease: [0.16, 1, 0.3, 1] }
         );
       }, { margin: '0px 0px -40px 0px' });
     }

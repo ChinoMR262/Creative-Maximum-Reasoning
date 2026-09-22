@@ -8,6 +8,8 @@ import { PreviewPanel } from '../preview/PreviewPanel.js';
 export class RailNavList {
   constructor() {
     this.previewPanel = new PreviewPanel();
+    this.element = null;
+    this.handleClick = null;
   }
 
   render() {
@@ -19,35 +21,51 @@ export class RailNavList {
     const prefix = isSubpage ? '../../index.html' : '';
 
     nav.innerHTML = `
-      <!-- 01 // Inicio -->
-      <div class="rail-item-wrapper">
-        <a class="rail-item active" href="${prefix}#top" data-target="top" aria-current="page" aria-label="Inicio">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          <span class="rail-item-label">01 // Inicio</span>
+      <div class="rail-item-wrapper" data-expanded="true">
+        <a class="rail-item active" href="${prefix}#top" data-target="top" aria-current="location" aria-expanded="true">
+          <span class="rail-item-index" aria-hidden="true">01</span>
+          <span class="rail-item-content">
+            <span class="rail-item-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V21h13V9.5"/></svg><strong>Inicio</strong></span>
+            <span class="rail-item-detail" aria-hidden="false">La portada y la idea central de CMR.</span>
+            <span class="rail-item-action">Ir al inicio <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg></span>
+          </span>
+          <svg class="rail-item-chevron" viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg>
         </a>
       </div>
 
-      <!-- 02 // Aplicaciones con Preview Flotante -->
-      <div class="rail-item-wrapper" data-has-preview="true" id="railAppsWrapper">
-        <a class="rail-item" href="${prefix}#apps" data-target="apps" id="railAppsItem" aria-label="Aplicaciones">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          <span class="rail-item-label">02 // Aplicaciones</span>
+      <div class="rail-item-wrapper" data-expanded="false" data-has-preview="true" id="railAppsWrapper">
+        <a class="rail-item" href="${prefix}#apps" data-target="apps" id="railAppsItem" aria-expanded="false">
+          <span class="rail-item-index" aria-hidden="true">02</span>
+          <span class="rail-item-content">
+            <span class="rail-item-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 21h8M12 17v4"/></svg><strong>Aplicaciones</strong></span>
+            <span class="rail-item-detail" aria-hidden="true">Software de escritura y red desarrollado por CMR.</span>
+            <span class="rail-item-action">Ver aplicaciones <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg></span>
+          </span>
+          <svg class="rail-item-chevron" viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg>
         </a>
       </div>
 
-      <!-- 03 // Sobre mí -->
-      <div class="rail-item-wrapper">
-        <a class="rail-item" href="${prefix}#about" data-target="about" aria-label="Sobre mí">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <span class="rail-item-label">03 // Sobre mí</span>
+      <div class="rail-item-wrapper" data-expanded="false">
+        <a class="rail-item" href="${prefix}#about" data-target="about" aria-expanded="false">
+          <span class="rail-item-index" aria-hidden="true">03</span>
+          <span class="rail-item-content">
+            <span class="rail-item-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 21c.8-4 3.1-6 7-6s6.2 2 7 6"/></svg><strong>Sobre mí</strong></span>
+            <span class="rail-item-detail" aria-hidden="true">Autoría, criterio y forma de trabajo.</span>
+            <span class="rail-item-action">Conocer al autor <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg></span>
+          </span>
+          <svg class="rail-item-chevron" viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg>
         </a>
       </div>
 
-      <!-- 04 // Contacto -->
-      <div class="rail-item-wrapper">
-        <a class="rail-item" href="${prefix}#contact" data-target="contact" aria-label="Contacto">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span class="rail-item-label">04 // Contacto</span>
+      <div class="rail-item-wrapper" data-expanded="false">
+        <a class="rail-item" href="${prefix}#contact" data-target="contact" aria-expanded="false">
+          <span class="rail-item-index" aria-hidden="true">04</span>
+          <span class="rail-item-content">
+            <span class="rail-item-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg><strong>Contacto</strong></span>
+            <span class="rail-item-detail" aria-hidden="true">Canales oficiales y consultas directas.</span>
+            <span class="rail-item-action">Abrir contacto <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg></span>
+          </span>
+          <svg class="rail-item-chevron" viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg>
         </a>
       </div>
     `;
@@ -58,10 +76,49 @@ export class RailNavList {
       appsWrapper.appendChild(this.previewPanel.render());
     }
 
+    this.handleClick = (event) => {
+      const link = event.target.closest('.rail-item');
+      if (!link) return;
+
+      const targetId = link.dataset.target;
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      event.preventDefault();
+      this.setExpanded(targetId);
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+      if (window.location.hash !== `#${targetId}`) {
+        window.history.pushState(null, '', `#${targetId}`);
+      }
+    };
+
+    nav.addEventListener('click', this.handleClick);
+    this.element = nav;
     return nav;
   }
 
+  setExpanded(targetId) {
+    this.element?.querySelectorAll('.rail-item').forEach((item) => {
+      const matches = item.dataset.target === targetId;
+      item.classList.toggle('active', matches);
+      item.setAttribute('aria-expanded', matches.toString());
+      item.closest('.rail-item-wrapper')?.setAttribute('data-expanded', matches.toString());
+      item.querySelector('.rail-item-detail')?.setAttribute('aria-hidden', (!matches).toString());
+      if (matches) {
+        item.setAttribute('aria-current', 'location');
+      } else {
+        item.removeAttribute('aria-current');
+      }
+    });
+  }
+
   destroy() {
+    if (this.element && this.handleClick) {
+      this.element.removeEventListener('click', this.handleClick);
+    }
+    this.handleClick = null;
+    this.element = null;
     this.previewPanel?.destroy();
   }
 }
