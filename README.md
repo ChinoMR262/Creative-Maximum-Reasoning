@@ -33,3 +33,16 @@ Creative Maximum Reasoning es el sello de desarrollo y creación independiente l
 ---
 
 © 2026 Creative Maximum Reasoning. Todos los derechos reservados.
+
+---
+
+## Seguridad HTTP
+
+El sitio incluye una política CSP compatible con el alojamiento estático y un Worker de Cloudflare versionado en `cloudflare/security-headers-worker.js`. El Worker agrega CSP con protección anti-framing, HSTS, `nosniff`, Permissions Policy, Referrer Policy y COOP.
+
+La configuración está en `wrangler.toml`. Su activación requiere autenticación de la cuenta propietaria de la zona y debe verificarse después del despliegue con:
+
+```powershell
+npx wrangler deploy
+curl.exe -I https://cmr-reasoning.com.ar/
+```

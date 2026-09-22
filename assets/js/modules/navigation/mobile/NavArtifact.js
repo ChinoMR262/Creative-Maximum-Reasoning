@@ -11,6 +11,7 @@ export class NavArtifact {
     this.previousFocus = null;
     this.previousBodyOverflow = '';
     this.handleKeydown = null;
+    this.backgroundElements = [];
   }
 
   render() {
@@ -18,7 +19,7 @@ export class NavArtifact {
 
     const container = document.createElement('div');
     container.className = 'cmr-nav-artifact';
-    const logoUrl = new URL('../../../../images/CMR Logo.png', import.meta.url).href;
+    const logoUrl = new URL('../../../../images/optimized/cmr-logo-nav.webp', import.meta.url).href;
 
     container.innerHTML = `
       <button class="artifact-trigger" id="artifactTrigger" aria-label="Abrir Navegación CMR" aria-expanded="false" aria-controls="artifactDrawer">
@@ -27,7 +28,7 @@ export class NavArtifact {
       <div class="artifact-drawer" id="artifactDrawer" role="dialog" aria-modal="true" aria-label="Navegación CMR" aria-hidden="true" inert>
         <div class="artifact-drawer-header">
           <div class="brand">
-            <img class="brand-logo" src="${logoUrl}" alt="CMR Logo" width="30" height="30">
+            <img class="brand-logo" src="${logoUrl}" alt="CMR Logo" width="30" height="30" decoding="async">
             <span class="brand-cmr">CMR</span>
           </div>
           <button class="artifact-trigger" id="artifactCloseBtn" aria-label="Cerrar navegación">
@@ -52,6 +53,7 @@ export class NavArtifact {
     const drawer = container.querySelector('#artifactDrawer');
     const mobileThemeToggle = container.querySelector('#mobileThemeToggle');
     const mobileThemeLabel = container.querySelector('#mobileThemeLabel');
+    this.backgroundElements = Array.from(document.body.children).filter((element) => element !== container);
 
     const getFocusableElements = () => Array.from(drawer.querySelectorAll(
       'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
@@ -70,6 +72,9 @@ export class NavArtifact {
       drawer.setAttribute('aria-hidden', (!isOpen).toString());
       trigger.setAttribute('aria-expanded', isOpen.toString());
       document.body.style.overflow = isOpen ? 'hidden' : this.previousBodyOverflow;
+      this.backgroundElements.forEach((element) => {
+        element.inert = isOpen;
+      });
 
       if (isOpen) {
         requestAnimationFrame(() => getFocusableElements()[0]?.focus());
@@ -128,6 +133,10 @@ export class NavArtifact {
       this.handleKeydown = null;
     }
     document.body.style.overflow = this.previousBodyOverflow;
+    this.backgroundElements.forEach((element) => {
+      element.inert = false;
+    });
+    this.backgroundElements = [];
     this.element?.remove();
   }
 }

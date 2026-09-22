@@ -34,7 +34,7 @@ body::after {
   z-index: 0;
   inset: 0;
   content: "";
-  background-image: url("writer_pattern_bg.jpg");
+  background-image: url("writer-pattern-1024.webp");
   background-position: center top;
   background-size: 512px 512px;
   background-repeat: repeat;

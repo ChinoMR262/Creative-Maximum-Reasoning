@@ -16,10 +16,8 @@ export class SecurityHardening {
       // Si el acceso entre orígenes falla, el navegador ya previene acceso
     }
 
-    // 2. Congelar objetos sensibles en tiempo de ejecución
-    if (Object.freeze) {
-      Object.freeze(Object.prototype);
-    }
+    // 2. Evitar mutaciones globales de prototipos: congelar Object.prototype
+    // rompe librerias y no constituye una frontera de seguridad.
 
     // 3. Marca de agua y metadato de protección de derechos de autor.
     // Las políticas nosniff, Permissions-Policy y anti-framing deben enviarse

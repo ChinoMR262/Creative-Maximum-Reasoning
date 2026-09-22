@@ -36,7 +36,7 @@ header {
   /* Textos de alta legibilidad editorial (Marfil cálido y Ceniza neutro) */
   --text-main: #f0eee9;
   --text-muted: #9e9ea6;
-  --text-dim: #676770;
+  --text-dim: #80808a;
 
   /* Acentos de autor: Oro Faro / Ámbar artesanal */
   --accent-gold: #d4a343;
@@ -243,7 +243,7 @@ header {
 
 .btn-outline:hover {
   border-color: var(--accent-gold);
-  color: #ffffff;
+  color: var(--text-main);
   background: var(--bg-card-hover);
 }
 
@@ -275,7 +275,7 @@ header {
 .hero h1 {
   font-size: clamp(32px, 4.5vw, 48px);
   line-height: 1.16;
-  color: #ffffff;
+  color: var(--text-main);
   letter-spacing: -0.02em;
 }
 
@@ -416,6 +416,17 @@ section {
   display: block;
 }
 
+.app-icon-frame-large {
+  width: clamp(112px, 14vw, 150px);
+  height: clamp(112px, 14vw, 150px);
+  margin: 0 auto;
+  border-radius: 24px;
+}
+
+.app-icon-frame-large .app-icon-img {
+  object-fit: contain;
+}
+
 .app-mono {
   width: 46px;
   height: 46px;
@@ -459,13 +470,19 @@ section {
 
 /* Página de autor CMR Writer Lite con textura de escritorio sutil */
 body.page-writer-lite {
-  background-color: #0c0e14;
-  background-image: 
+  background-color: var(--bg-matte);
+  background-image:
     radial-gradient(ellipse at 50% 10%, rgba(12, 14, 20, 0.72) 0%, rgba(8, 10, 14, 0.94) 100%),
-    url('../images/writer_pattern_bg.jpg');
+    url('../images/optimized/writer-pattern-1024.webp');
   background-repeat: repeat;
   background-size: 512px 512px;
   background-attachment: fixed;
+}
+
+[data-theme='light'] body.page-writer-lite {
+  background-image:
+    radial-gradient(ellipse at 50% 10%, rgba(245, 244, 239, 0.78) 0%, rgba(237, 235, 226, 0.94) 100%),
+    url('../images/optimized/writer-pattern-1024.webp');
 }
 
 .app-link {
@@ -644,7 +661,7 @@ body.page-writer-lite {
 
 .app-hero-subpage h1 {
   font-size: clamp(30px, 4.6vw, 46px);
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .tagline {
@@ -853,6 +870,9 @@ footer::before {
 }
 
 @media (max-width: 820px) {
+  body.page-writer-lite {
+    background-attachment: scroll;
+  }
   .hero-grid {
     grid-template-columns: 1fr;
   }

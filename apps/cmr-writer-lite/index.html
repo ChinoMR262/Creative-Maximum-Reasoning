@@ -6,50 +6,33 @@
   <title>CMR Writer Lite — Creative Maximum Reasoning</title>
   <meta name="description" content="CMR Writer Lite: editor de capítulos, notas y vista previa de lectura con sistema de personajes. Desarrollado por Jonathan Gabriel Nieto.">
   <link rel="canonical" href="https://cmr-reasoning.com.ar/apps/cmr-writer-lite/">
-  
-  <!-- Política compatible con alojamiento estático; las cabeceras HTTP se administran en el perímetro. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self';">
+  <meta name="robots" content="index, follow, max-image-preview:large, noai, noimageai">
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests;">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  
-  <!-- Configuración de Tema y Colores -->
-  <meta name="color-scheme" content="dark">
+  <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#0a0c10">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="CMR Writer Lite — Creative Maximum Reasoning">
-  <meta property="og:description" content="Editor de capítulos, notas y vista previa de lectura con sistema de personajes. Actualmente en prueba cerrada.">
+  <meta property="og:title" content="CMR Writer Lite &mdash; Creative Maximum Reasoning">
+  <meta property="og:description" content="Editor de cap&iacute;tulos, notas y vista previa de lectura con sistema de personajes. Actualmente en prueba cerrada.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cmr-reasoning.com.ar/apps/cmr-writer-lite/">
-  <meta property="og:image" content="../../assets/images/CMR_Encabezado_Desarrollador_4096x2304.jpg">
+  <meta property="og:image" content="https://cmr-reasoning.com.ar/assets/images/CMR_Encabezado_Desarrollador_4096x2304.jpg">
+  <meta property="og:image:width" content="4096">
+  <meta property="og:image:height" content="2304">
+  <meta property="og:image:alt" content="CMR Writer Lite &mdash; editor narrativo de autor">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Favicons Oficiales -->
   <link rel="icon" type="image/x-icon" href="../../assets/favicons/favicon32.ico">
   <link rel="icon" type="image/x-icon" href="../../assets/favicons/favicon16.ico" sizes="16x16">
   <link rel="shortcut icon" href="../../assets/favicons/favicon48.ico">
   <link rel="apple-touch-icon" href="../../assets/images/CMR_Icono_Desarrollador_512x512.jpg">
 
-  <!-- Tipografía Editorial Oficial -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <!-- Hoja de Estilos Modular -->
   <link rel="stylesheet" href="../../assets/css/main.css">
-  
-  <!-- Estilo específico para fondo sutil de autor -->
-  <style>
-    body.page-writer-lite {
-      background-color: #0c0e14 !important;
-      background-image: 
-        radial-gradient(ellipse at 50% 12%, rgba(12, 14, 20, 0.76) 0%, rgba(8, 10, 14, 0.94) 100%),
-        url('writer_pattern_bg.jpg') !important;
-      background-repeat: repeat !important;
-      background-size: 512px 512px !important;
-      background-attachment: fixed !important;
-    }
-  </style>
-  
-  <!-- Motor de Animación Motion (Framer Motion) y Script Principal -->
+
   <script src="../../assets/js/motion.js" defer></script>
   <script type="module" src="../../assets/js/main.js"></script>
 </head>
@@ -60,7 +43,7 @@
   <header>
     <nav class="nav wrap-narrow" aria-label="Navegación de subpágina">
       <a class="brand" href="../../index.html">
-        <img class="brand-logo" src="../../assets/images/CMR Logo.png" alt="CMR Logo" width="26" height="26">
+        <img class="brand-logo" src="../../assets/images/optimized/cmr-logo-nav.webp" alt="CMR Logo" width="26" height="26" decoding="async">
         <span>CMR</span>
       </a>
       <div style="display: flex; gap: 16px; align-items: center;">
@@ -78,8 +61,8 @@
     <!-- App Hero -->
     <section class="app-hero-subpage">
       <div class="wrap-narrow">
-        <div class="app-icon-frame" style="width: 80px; height: 80px; margin-bottom: 20px; border-color: rgba(212, 163, 67, 0.45); border-radius: 18px; overflow: hidden; background: transparent;">
-          <img src="icon_cmr_writer_lite.png" alt="Icono oficial CMR Writer Lite" class="app-icon-img" width="80" height="80" style="width: 100%; height: 100%; object-fit: cover; border-radius: 18px;" onerror="this.src='../../assets/images/icon_cmr_writer_lite.png';">
+        <div class="app-icon-frame app-icon-frame-large">
+          <img src="icon-writer-160.webp" alt="Icono oficial CMR Writer Lite" class="app-icon-img" width="80" height="80" decoding="async">
         </div>
         <h1>CMR Writer Lite</h1>
         <p class="tagline">Un editor pensado para escribir historias por capítulos: redactar, tomar notas y leer el resultado como lo va a leer quien te sigue.</p>
@@ -174,7 +157,7 @@
 
       <!-- Columna Central: Emblema & Firma Oficial -->
       <div class="footer-col-center">
-        <img class="footer-emblem" src="../../assets/images/Perfil Logo.png" alt="CMR Emblema" width="76" height="76">
+        <img class="footer-emblem" src="../../assets/images/optimized/cmr-emblem-footer.webp" alt="CMR Emblema" width="76" height="76" loading="lazy" decoding="async">
         <p class="footer-brand-title">Creative Maximum Reasoning</p>
         <p class="footer-copyright">Copyright © <span id="year">2026</span> Jonathan Gabriel Nieto / CMR — Creative Maximum Reasoning.</p>
       </div>

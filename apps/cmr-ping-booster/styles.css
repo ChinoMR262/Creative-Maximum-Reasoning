@@ -30,7 +30,7 @@
   --text-pure: #f0eee9;
   --text-primary: #e6e4df;
   --text-secondary: #9e9ea6;
-  --text-muted: #676770;
+  --text-muted: #80808a;
   --text-code: #d4a343;
 
   --font-serif: 'Fraunces', Georgia, serif;
@@ -96,7 +96,7 @@ body::before {
   height: calc(100vh + 48px);
   background-image: 
     radial-gradient(ellipse at 50% 20%, rgba(37, 41, 50, 0.25) 0%, rgba(12, 15, 22, 0.70) 85%),
-    url("./assets/radar_bg_hd.jpg");
+    url("./assets/radar-bg-hd.webp");
   background-size: cover, cover;
   background-position: center top, center top;
   background-repeat: no-repeat, no-repeat;
@@ -1324,7 +1324,7 @@ body::after {
   padding: 52px 52px 38px;
   background:
     linear-gradient(105deg, rgba(10, 14, 20, 0.98) 0%, rgba(16, 22, 31, 0.92) 59%, rgba(38, 40, 44, 0.58) 100%),
-    url("./assets/radar_wallpaper.jpg") center / cover;
+    url("./assets/radar-wallpaper.webp") center / cover;
 }
 
 .pc-privacy-overline {
@@ -1420,7 +1420,7 @@ body::after {
   padding: 52px 52px 38px;
   background:
     linear-gradient(105deg, rgba(11, 16, 21, 0.98) 0%, rgba(16, 25, 31, 0.92) 58%, rgba(20, 38, 38, 0.68) 100%),
-    url("./assets/cmr_brand.jpg") center 42% / cover;
+    url("./assets/cmr-brand-background.webp") center 42% / cover;
 }
 
 .privacy-overline {
@@ -1838,7 +1838,7 @@ body::before {
   transform: none;
   filter: none;
   opacity: 0.18;
-  background-image: linear-gradient(90deg, rgba(16, 21, 28, 0.84), rgba(16, 21, 28, 0.58)), url("./assets/radar_bg_hd.jpg");
+  background-image: linear-gradient(90deg, rgba(16, 21, 28, 0.84), rgba(16, 21, 28, 0.58)), url("./assets/radar-bg-hd.webp");
   background-size: cover;
   background-position: 72% center;
 }

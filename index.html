@@ -6,9 +6,10 @@
   <title>CMR — Creative Maximum Reasoning</title>
   <meta name="description" content="Creative Maximum Reasoning (CMR): aplicaciones para Google Play escritas, editadas y desarrolladas por Jonathan Gabriel Nieto.">
   <link rel="canonical" href="https://cmr-reasoning.com.ar/">
+  <meta name="robots" content="index, follow, max-image-preview:large, noai, noimageai">
   
   <!-- Política compatible con alojamiento estático; las cabeceras HTTP se administran en el perímetro. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests;">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   
   <!-- Configuración de Tema -->
@@ -20,7 +21,11 @@
   <meta property="og:description" content="Escribo mundos. Construyo el software para leerlos. Aplicaciones desarrolladas por Jonathan Gabriel Nieto.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cmr-reasoning.com.ar/">
-  <meta property="og:image" content="assets/images/CMR_Encabezado_Desarrollador_4096x2304.jpg">
+  <meta property="og:image" content="https://cmr-reasoning.com.ar/assets/images/CMR_Encabezado_Desarrollador_4096x2304.jpg">
+  <meta property="og:image:width" content="4096">
+  <meta property="og:image:height" content="2304">
+  <meta property="og:image:alt" content="Creative Maximum Reasoning — software y narrativa de autor">
+  <meta name="twitter:card" content="summary_large_image">
 
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="assets/favicons/favicon32.ico">
@@ -129,7 +134,11 @@
         </div>
 
         <div class="hero-banner-frame">
-          <img src="assets/images/CMR_Encabezado_Desarrollador_4096x2304.jpg" alt="Encabezado Desarrollador CMR — Jonathan Gabriel Nieto" width="500" height="280">
+          <picture>
+            <source type="image/avif" srcset="assets/images/optimized/cmr-hero-720.avif 720w, assets/images/optimized/cmr-hero-1200.avif 1200w" sizes="(max-width: 820px) calc(100vw - 48px), 500px">
+            <source type="image/webp" srcset="assets/images/optimized/cmr-hero-720.webp 720w, assets/images/optimized/cmr-hero-1200.webp 1200w" sizes="(max-width: 820px) calc(100vw - 48px), 500px">
+            <img src="assets/images/optimized/cmr-hero-720.webp" alt="Encabezado Desarrollador CMR — Jonathan Gabriel Nieto" width="720" height="405" decoding="async" fetchpriority="high">
+          </picture>
         </div>
       </div>
     </section>
@@ -147,7 +156,7 @@
           <article class="living-frame app-card" data-material="roots" tabindex="0" aria-label="CMR Writer Lite">
             <span class="app-index" aria-hidden="true">01 / ANDROID</span>
             <div class="app-icon-frame">
-              <img src="assets/images/icon_cmr_writer_lite.png" alt="Icono oficial CMR Writer Lite" class="app-icon-img" width="52" height="52">
+              <img src="assets/images/optimized/icon-writer-160.webp" alt="Icono oficial CMR Writer Lite" class="app-icon-img" width="52" height="52" loading="lazy" decoding="async">
             </div>
             <h3>CMR Writer Lite</h3>
             <p class="desc">Editor de capítulos, notas y vista previa de lectura para escribir historias por capítulos, con sistema de personajes y árbol de eventos.</p>
@@ -162,7 +171,7 @@
           <article class="living-frame app-card" data-material="mechanism" tabindex="0" aria-label="CMR Ping Booster">
             <span class="app-index" aria-hidden="true">02 / ANDROID + PC</span>
             <div class="app-icon-frame">
-              <img src="assets/images/icon_cmr_ping_booster.png" alt="Icono oficial CMR Ping Booster" class="app-icon-img" width="52" height="52">
+              <img src="assets/images/optimized/icon-ping-128.webp" alt="Icono oficial CMR Ping Booster" class="app-icon-img" width="52" height="52" loading="lazy" decoding="async">
             </div>
             <h3>CMR Ping Booster</h3>
             <p class="desc">Suite local de medición de red, resolución DNS personalizada y diagnóstico de latencia para Android y Windows PC.</p>
@@ -181,7 +190,7 @@
     <section class="about" id="about">
       <div class="wrap about-grid">
         <div class="author-presentation living-frame" data-material="mechanism" tabindex="0">
-          <img class="author-photo" src="assets/images/CMR_Icono_Desarrollador_512x512.jpg" alt="Jonathan Gabriel Nieto" width="132" height="132">
+          <img class="author-photo" src="assets/images/optimized/cmr-author-272.webp" alt="Jonathan Gabriel Nieto" width="136" height="136" loading="lazy" decoding="async">
           <h3 class="author-name">Jonathan Gabriel Nieto</h3>
           <span class="author-badge">Escritor & Desarrollador</span>
         </div>
@@ -214,7 +223,7 @@
 
       <!-- Columna Central: Emblema & Firma Oficial -->
       <div class="footer-col-center">
-        <img class="footer-emblem" src="assets/images/Perfil Logo.png" alt="CMR Emblema" width="76" height="76">
+        <img class="footer-emblem" src="assets/images/optimized/cmr-emblem-footer.webp" alt="CMR Emblema" width="76" height="76" loading="lazy" decoding="async">
         <p class="footer-brand-title">Creative Maximum Reasoning</p>
         <p class="footer-copyright">Copyright © <span id="year">2026</span> Jonathan Gabriel Nieto / CMR — Creative Maximum Reasoning.</p>
       </div>

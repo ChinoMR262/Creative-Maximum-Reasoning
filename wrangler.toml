@@ -1,0 +1,9 @@
+name = "cmr-security-headers"
+main = "cloudflare/security-headers-worker.js"
+compatibility_date = "2026-09-21"
+workers_dev = false
+
+routes = [
+  { pattern = "cmr-reasoning.com.ar/*", zone_name = "cmr-reasoning.com.ar" },
+  { pattern = "www.cmr-reasoning.com.ar/*", zone_name = "cmr-reasoning.com.ar" }
+]
