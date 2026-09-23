@@ -23,7 +23,6 @@ export class RailNavList {
     nav.innerHTML = `
       <div class="rail-item-wrapper" data-expanded="true">
         <a class="rail-item active" href="${prefix}#top" data-target="top" aria-current="location" aria-expanded="true">
-          <span class="rail-item-index" aria-hidden="true">01</span>
           <span class="rail-item-content">
             <span class="rail-item-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V21h13V9.5"/></svg><strong>Inicio</strong></span>
             <span class="rail-item-detail" aria-hidden="false">La portada y la idea central de CMR.</span>
@@ -35,7 +34,6 @@ export class RailNavList {
 
       <div class="rail-item-wrapper" data-expanded="false" data-has-preview="true" id="railAppsWrapper">
         <a class="rail-item" href="${prefix}#apps" data-target="apps" id="railAppsItem" aria-expanded="false">
-          <span class="rail-item-index" aria-hidden="true">02</span>
           <span class="rail-item-content">
             <span class="rail-item-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 21h8M12 17v4"/></svg><strong>Aplicaciones</strong></span>
             <span class="rail-item-detail" aria-hidden="true">Software de escritura y red desarrollado por CMR.</span>
@@ -47,7 +45,6 @@ export class RailNavList {
 
       <div class="rail-item-wrapper" data-expanded="false">
         <a class="rail-item" href="${prefix}#about" data-target="about" aria-expanded="false">
-          <span class="rail-item-index" aria-hidden="true">03</span>
           <span class="rail-item-content">
             <span class="rail-item-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 21c.8-4 3.1-6 7-6s6.2 2 7 6"/></svg><strong>Sobre mí</strong></span>
             <span class="rail-item-detail" aria-hidden="true">Autoría, criterio y forma de trabajo.</span>
@@ -59,7 +56,6 @@ export class RailNavList {
 
       <div class="rail-item-wrapper" data-expanded="false">
         <a class="rail-item" href="${prefix}#contact" data-target="contact" aria-expanded="false">
-          <span class="rail-item-index" aria-hidden="true">04</span>
           <span class="rail-item-content">
             <span class="rail-item-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg><strong>Contacto</strong></span>
             <span class="rail-item-detail" aria-hidden="true">Canales oficiales y consultas directas.</span>

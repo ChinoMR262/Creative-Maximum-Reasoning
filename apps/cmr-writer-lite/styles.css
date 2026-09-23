@@ -153,12 +153,19 @@ strong {
   font-size: .92rem;
 }
 
+.legal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin: 0 0 .6rem;
+}
+
 .legal-back {
   display: inline-flex;
   align-items: center;
   gap: .7rem;
   min-height: 44px;
-  margin: 0 0 .6rem;
+  margin: 0;
   padding: .68rem .95rem;
   border: 1px solid color-mix(in srgb, var(--gold) 58%, var(--line));
   border-left-width: 3px;
@@ -301,6 +308,10 @@ footer {
 }
 
 @media (max-width: 560px) {
+  .legal-actions {
+    width: 100%;
+  }
+
   .legal-back {
     width: 100%;
     justify-content: center;

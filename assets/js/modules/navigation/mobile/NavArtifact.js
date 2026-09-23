@@ -19,7 +19,7 @@ export class NavArtifact {
 
     const container = document.createElement('div');
     container.className = 'cmr-nav-artifact';
-    const logoUrl = new URL('../../../../images/optimized/cmr-logo-nav.webp', import.meta.url).href;
+    const logoUrl = new URL('../../../../images/optimized/cmr-mini-banner-264.webp', import.meta.url).href;
 
     container.innerHTML = `
       <button class="artifact-trigger" id="artifactTrigger" aria-label="Abrir Navegación CMR" aria-expanded="false" aria-controls="artifactDrawer">
@@ -28,7 +28,7 @@ export class NavArtifact {
       <div class="artifact-drawer" id="artifactDrawer" role="dialog" aria-modal="true" aria-label="Navegación CMR" aria-hidden="true" inert>
         <div class="artifact-drawer-header">
           <div class="brand">
-            <img class="brand-logo" src="${logoUrl}" alt="CMR Logo" width="30" height="30" decoding="async">
+            <img class="brand-logo" src="${logoUrl}" alt="Creative Maximum Reasoning" width="27" height="34" decoding="async">
             <span class="brand-cmr">CMR</span>
           </div>
           <button class="artifact-trigger" id="artifactCloseBtn" aria-label="Cerrar navegación">
@@ -36,10 +36,10 @@ export class NavArtifact {
           </button>
         </div>
         <nav class="artifact-drawer-links" aria-label="Enlaces móviles">
-          <a href="#top">Inicio <span>01</span></a>
-          <a href="#apps">Aplicaciones <span>02</span></a>
-          <a href="#about">Sobre mí & S9U <span>03</span></a>
-          <a href="#contact">Contacto <span>04</span></a>
+          <a href="#top">Inicio</a>
+          <a href="#apps">Aplicaciones</a>
+          <a href="#about">Sobre mí & S9U</a>
+          <a href="#contact">Contacto</a>
         </nav>
         <div class="artifact-drawer-footer">
           <span class="artifact-platform-label">Aplicaciones Android</span>
