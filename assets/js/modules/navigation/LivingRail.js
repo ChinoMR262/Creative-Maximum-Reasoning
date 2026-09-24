@@ -4,7 +4,7 @@
  * doc/CMR_Web_System_v2_Documentation/docs/04_LIVING_NAVIGATION.md
  */
 
-import { RailBrand } from './components/RailBrand.js';
+import { RailBrand } from './components/RailBrand.js?v=20260924-brand-image';
 import { RailNavList } from './components/RailNavList.js';
 import { RailScrollSpy } from './components/RailScrollSpy.js';
 import { NavArtifact } from './mobile/NavArtifact.js';
