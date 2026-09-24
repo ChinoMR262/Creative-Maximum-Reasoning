@@ -14,7 +14,7 @@ import { ProximityEngine } from '../interaction/ProximityEngine.js';
 import { ThemeState } from '../theme/ThemeState.js';
 import { SeasonalEngine } from '../theme/SeasonalEngine.js';
 import { LivingFrameController } from '../materials/LivingFrameController.js';
-import { LivingRail } from '../navigation/LivingRail.js?v=20260924-brand-image';
+import { LivingRail } from '../navigation/LivingRail.js?v=20260924-nav-complete';
 import { ParticleSystem } from '../graphics/ParticleSystem.js';
 import { SecurityHardening } from '../security/SecurityHardening.js';
 import { CodexModal } from '../interaction/CodexModal.js';
