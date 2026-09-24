@@ -4,7 +4,7 @@
  * Directrices: doc/directrices-diseno-identidad-cmr.md & doc/CMR_Web_System_v2_Documentation
  */
 
-import { CMREngine } from './modules/engine/CMREngine.js?v=20260924-nav-complete';
+import { CMREngine } from './modules/engine/CMREngine.js?v=20260924-brand-ecosystem';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Inicializar el motor maestro CMR Web System v2

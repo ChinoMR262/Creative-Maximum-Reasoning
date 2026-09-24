@@ -3,7 +3,7 @@
  * Enlaces de navegación con tooltips de autor y panel de preview integrado
  */
 
-import { PreviewPanel } from '../preview/PreviewPanel.js';
+import { PreviewPanel } from '../preview/PreviewPanel.js?v=20260924-brand-ecosystem';
 
 export class RailNavList {
   constructor() {

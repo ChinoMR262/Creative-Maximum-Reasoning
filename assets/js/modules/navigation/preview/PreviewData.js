@@ -9,7 +9,9 @@ export const CMR_WRITER_PREVIEW_DATA = {
   status: 'En desarrollo · Prueba cerrada',
   title: 'CMR Writer Lite',
   subtitle: 'Editor de narrativa por capítulos con sistema de personajes y notas cronológicas, creado por Jonathan Gabriel Nieto.',
-  appUrl: 'apps/cmr-writer-lite/',
+  appUrl: 'https://play.google.com/store/apps/details?id=com.cmr.writerlite',
+  ctaLabel: 'Ver CMR Writer Lite en Google Play',
+  external: true,
   tabs: [
     {
       id: 'editor',
@@ -45,7 +47,9 @@ export const CMR_PING_PREVIEW_DATA = {
   status: 'Release 1.0.0 · Android',
   title: 'CMR Ping Booster',
   subtitle: 'Aplicación Android para diagnóstico de latencia, resolución DNS y lectura local del estado de red.',
-  appUrl: 'apps/cmr-ping-booster/',
+  appUrl: 'https://play.google.com/store/apps/details?id=com.cmr.pingbooster',
+  ctaLabel: 'Ver CMR Ping Booster en Google Play',
+  external: true,
   tabs: [
     {
       id: 'diagnostic',
@@ -149,4 +153,3 @@ export const CMR_REASONING_DATA = {
     }
   ]
 };
-

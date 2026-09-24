@@ -3,7 +3,7 @@
  * Ensamblador del panel flotante cinemático de aplicaciones
  */
 
-import { CMR_WRITER_PREVIEW_DATA, CMR_PING_PREVIEW_DATA, CMR_REASONING_DATA } from './PreviewData.js';
+import { CMR_WRITER_PREVIEW_DATA, CMR_PING_PREVIEW_DATA, CMR_REASONING_DATA } from './PreviewData.js?v=20260924-brand-ecosystem';
 import { PreviewTabs } from './PreviewTabs.js';
 
 export class PreviewPanel {
@@ -217,8 +217,8 @@ export class PreviewPanel {
       </div>
 
       <div class="preview-footer-action">
-        <a class="preview-link-btn" href="${data.appUrl}">
-          Explorar ficha técnica completa
+        <a class="preview-link-btn" href="${data.appUrl}" ${data.external ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+          ${data.ctaLabel || 'Explorar ficha técnica completa'}
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -230,4 +230,3 @@ export class PreviewPanel {
     this.element?.remove();
   }
 }
-
