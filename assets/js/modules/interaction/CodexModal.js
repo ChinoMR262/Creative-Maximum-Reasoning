@@ -4,7 +4,7 @@
  * Autor: Jonathan Gabriel Nieto // Neuquén, Patagonia Argentina
  */
 
-import { S9U_CODEX_DATA } from '../navigation/preview/PreviewData.js';
+import { S9U_CODEX_DATA } from './CodexData.js?v=20260928-direct-play-links';
 
 export class CodexModal {
   constructor() {

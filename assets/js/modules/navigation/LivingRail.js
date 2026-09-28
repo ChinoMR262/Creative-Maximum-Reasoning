@@ -5,7 +5,7 @@
  */
 
 import { RailBrand } from './components/RailBrand.js?v=20260924-brand-ecosystem';
-import { RailNavList } from './components/RailNavList.js?v=20260924-brand-ecosystem';
+import { RailNavList } from './components/RailNavList.js?v=20260928-direct-play-links';
 import { RailScrollSpy } from './components/RailScrollSpy.js?v=20260924-nav-complete';
 import { NavArtifact } from './mobile/NavArtifact.js?v=20260924-nav-complete';
 
@@ -55,10 +55,6 @@ export class LivingRail {
     if (mobileEl) {
       document.body.appendChild(mobileEl);
     }
-  }
-
-  getPreviewPanel() {
-    return this.navList?.previewPanel;
   }
 
   destroy() {

@@ -125,7 +125,7 @@ export class GestureRouter {
   }
 
   onKeyDown(e) {
-    // Si el usuario presiona Escape, avisar para cerrar overlays o preview activos
+    // Si el usuario presiona Escape, avisar para cerrar overlays activos
     if (e.key === 'Escape') {
       if (this.eventBus) {
         this.eventBus.emit('gesture:escape');

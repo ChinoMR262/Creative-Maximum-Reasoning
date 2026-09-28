@@ -1,13 +1,10 @@
 /**
  * Creative Maximum Reasoning (CMR) — Rail Navigation List Component
- * Enlaces de navegación con tooltips de autor y panel de preview integrado
+ * Enlaces de navegación con tooltips de autor
  */
-
-import { PreviewPanel } from '../preview/PreviewPanel.js?v=20260928-writer17-uploading';
 
 export class RailNavList {
   constructor() {
-    this.previewPanel = new PreviewPanel();
     this.element = null;
     this.handleClick = null;
   }
@@ -32,7 +29,7 @@ export class RailNavList {
         </a>
       </div>
 
-      <div class="rail-item-wrapper" data-expanded="false" data-has-preview="true" id="railAppsWrapper">
+      <div class="rail-item-wrapper" data-expanded="false" id="railAppsWrapper">
         <a class="rail-item" href="${prefix}#apps" data-target="apps" id="railAppsItem" aria-expanded="false">
           <span class="rail-item-content">
             <span class="rail-item-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 21h8M12 17v4"/></svg><strong>Aplicaciones</strong></span>
@@ -65,9 +62,6 @@ export class RailNavList {
         </a>
       </div>
     `;
-
-    // Mantener el preview fuera del rail: en móvil el rail se oculta por completo.
-    document.body.appendChild(this.previewPanel.render());
 
     this.handleClick = (event) => {
       const link = event.target.closest('.rail-item');
@@ -112,6 +106,5 @@ export class RailNavList {
     }
     this.handleClick = null;
     this.element = null;
-    this.previewPanel?.destroy();
   }
 }

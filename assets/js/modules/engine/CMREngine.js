@@ -14,7 +14,7 @@ import { ProximityEngine } from '../interaction/ProximityEngine.js';
 import { ThemeState } from '../theme/ThemeState.js';
 import { SeasonalEngine } from '../theme/SeasonalEngine.js';
 import { LivingFrameController } from '../materials/LivingFrameController.js';
-import { LivingRail } from '../navigation/LivingRail.js?v=20260924-brand-ecosystem';
+import { LivingRail } from '../navigation/LivingRail.js?v=20260928-direct-play-links';
 import { ParticleSystem } from '../graphics/ParticleSystem.js';
 import { SecurityHardening } from '../security/SecurityHardening.js';
 import { CodexModal } from '../interaction/CodexModal.js';
@@ -100,33 +100,12 @@ export class CMREngine {
 
     this.clock.start();
 
-    // D. Conectar disparadores de vistas previas de aplicaciones
-    this.setupAppPreviewTriggers();
-
     // Log sobrio de confirmación de arranque en consola
     console.info(
       `%c[CMR Engine v2.0] Operativo | Tier: ${this.quality.getTier()} | Tema: ${this.theme.getResolvedTheme()} | Estación: ${this.seasonal.resolvedSeason}`,
       'background: #0c0c0e; color: #d4a343; padding: 4px 8px; border: 1px solid #d4a343; font-family: monospace;'
     );
   }
-
-  setupAppPreviewTriggers() {
-    // Disparadores de vista previa interactiva desde las tarjetas
-    document.addEventListener('click', (e) => {
-      const trigger = e.target.closest('[data-preview-trigger]');
-      if (trigger) {
-        e.preventDefault();
-        const appKey = trigger.dataset.previewTrigger;
-        const preview = this.rail?.getPreviewPanel();
-        if (preview) {
-          preview.open(appKey);
-          const railApps = document.getElementById('railAppsItem');
-          railApps?.focus();
-        }
-      }
-    });
-  }
-
 
   destroy() {
     this.clock.stop();

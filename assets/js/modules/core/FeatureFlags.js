@@ -12,7 +12,6 @@ export class FeatureFlags {
       livingFrames: true,
       graphics: true,
       seasonalLayer: true,
-      previews: true,
       motionTransitions: true,
       audioFeedback: false,
       ...initialFlags

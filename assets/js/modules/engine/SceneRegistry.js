@@ -11,7 +11,7 @@ export class SceneRegistry {
 
   /**
    * Registra una zona/escena en el sistema
-   * @param {string} id - Identificador de la zona ('ambient', 'hero', 'rail', 'previews')
+   * @param {string} id - Identificador de la zona ('ambient', 'hero', 'rail')
    * @param {Object} scene - Instancia con contrato { update?, render?, resize?, dispose?, enabled? }
    */
   register(id, scene) {
