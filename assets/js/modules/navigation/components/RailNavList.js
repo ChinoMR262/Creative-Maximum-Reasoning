@@ -3,7 +3,7 @@
  * Enlaces de navegación con tooltips de autor y panel de preview integrado
  */
 
-import { PreviewPanel } from '../preview/PreviewPanel.js?v=20260928-writer17-factual';
+import { PreviewPanel } from '../preview/PreviewPanel.js?v=20260928-writer17-uploading';
 
 export class RailNavList {
   constructor() {

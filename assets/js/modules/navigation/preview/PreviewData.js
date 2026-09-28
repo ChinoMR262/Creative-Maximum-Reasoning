@@ -5,8 +5,8 @@
  */
 
 export const CMR_WRITER_PREVIEW_DATA = {
-  version: '1.0.0 · build 17 preparado',
-  status: 'Prueba cerrada · pendiente de Google Play',
+  version: '1.0.0 · actualización 17',
+  status: 'Prueba cerrada · carga en curso',
   title: 'CMR Writer Lite',
   subtitle: 'Sistema local de escritura y organización narrativa creado por Jonathan Gabriel Nieto.',
   appUrl: 'https://play.google.com/store/apps/details?id=com.cmr.writerlite',

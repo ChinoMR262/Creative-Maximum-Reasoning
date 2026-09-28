@@ -11,7 +11,22 @@ Sitio web oficial y portal de distribución de aplicaciones, desarrollos de soft
 Creative Maximum Reasoning es el sello de desarrollo y creación independiente liderado por **Jonathan Gabriel Nieto (S9U)** desde Neuquén, Argentina. Este repositorio contiene la plataforma web que sirve como punto central para nuestras aplicaciones y publicaciones.
 
 ### Desarrollos y Aplicaciones
-- **CMR Writer Lite:** Herramienta enfocada en la redacción fluida, minimalista y libre de distracciones.
+- **CMR Writer Lite:** Sistema local de escritura y organización narrativa con
+  capítulos, versiones, personajes, lugares, objetos, vínculos, cronología,
+  continuidad y backups portables.
+
+## Estado de CMR Writer Lite
+
+- Versión vigente: `1.0.0 (17)`.
+- Canal: prueba cerrada de Google Play; carga de v17 iniciada.
+- Estado externo pendiente: procesamiento y disponibilidad para testers.
+- Producción: inactiva; v17 no es todavía un lanzamiento público.
+- La ficha y la vista previa usan información factual de la aplicación, sin
+  telemetría, actividad ni contenido narrativo inventado.
+- La privacidad pública contempla imágenes de personajes y objetos, detección
+  local de géneros y comprobaciones locales de continuidad.
+
+Actualizado: 28 de septiembre de 2026.
 
 ---
 
