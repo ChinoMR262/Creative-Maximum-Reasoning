@@ -3,7 +3,7 @@
  * Ensamblador del panel flotante cinemático de aplicaciones
  */
 
-import { CMR_WRITER_PREVIEW_DATA, CMR_PING_PREVIEW_DATA, CMR_REASONING_DATA } from './PreviewData.js?v=20260924-brand-ecosystem';
+import { CMR_WRITER_PREVIEW_DATA, CMR_PING_PREVIEW_DATA, CMR_REASONING_DATA } from './PreviewData.js?v=20260928-writer17-factual';
 import { PreviewTabs } from './PreviewTabs.js';
 
 export class PreviewPanel {

@@ -583,6 +583,21 @@
     display: none;
   }
 
+  .cmr-preview-panel {
+    left: 16px;
+    right: 16px;
+    top: 50%;
+    width: auto;
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
+    transform: translateY(calc(-50% + 12px));
+  }
+
+  .cmr-preview-panel.open,
+  .cmr-preview-panel:hover {
+    transform: translateY(-50%);
+  }
+
   .cmr-nav-artifact {
     display: flex;
     position: fixed;

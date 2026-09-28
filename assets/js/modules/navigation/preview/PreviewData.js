@@ -5,10 +5,10 @@
  */
 
 export const CMR_WRITER_PREVIEW_DATA = {
-  version: 'v0.9.4',
-  status: 'En desarrollo · Prueba cerrada',
+  version: '1.0.0 · build 17 preparado',
+  status: 'Prueba cerrada · pendiente de Google Play',
   title: 'CMR Writer Lite',
-  subtitle: 'Editor de narrativa por capítulos con sistema de personajes y notas cronológicas, creado por Jonathan Gabriel Nieto.',
+  subtitle: 'Sistema local de escritura y organización narrativa creado por Jonathan Gabriel Nieto.',
   appUrl: 'https://play.google.com/store/apps/details?id=com.cmr.writerlite',
   ctaLabel: 'Ver CMR Writer Lite en Google Play',
   external: true,
@@ -16,28 +16,28 @@ export const CMR_WRITER_PREVIEW_DATA = {
     {
       id: 'editor',
       label: '01 · Editor',
-      excerpt: '«El silencio del Noveno Universo no era ausencia de sonido, sino el peso de una memoria que todavía nadie se había atrevido a escribir...»',
-      chapter: 'Capítulo VII · El Faro de Ceniza',
-      words: '2.450 palabras'
+      excerpt: 'Escritura de prólogos, capítulos y epílogos con versiones alternativas, notas y vista previa de lectura.',
+      chapter: 'Contenido guardado localmente',
+      words: 'Sin métricas inventadas'
     },
     {
       id: 'characters',
       label: '02 · Personajes',
-      initials: 'AK',
-      name: 'Arakiel de la Niebla',
-      role: 'Guardián del Umbral · Seres del Noveno Universo',
-      appearances: 'Apariciones: Cap. I, IV, VII',
-      archetype: 'Arquetipo: Ermitaño'
+      initials: 'CMR',
+      name: 'Identidad de personajes',
+      role: 'Retrato y ficha ilustrada · visor inmersivo',
+      appearances: 'Vínculos y constelación familiar',
+      archetype: 'Árbol de habilidades navegable'
     },
     {
       id: 'timeline',
       label: '03 · Cronología',
       events: [
-        { year: 'Año 412', desc: 'La fractura del velo astral y la caída de los primeros fragmentos.' },
-        { year: 'Año 430', desc: 'Fundación de los Bastiones de Piedra en la cordillera austral.' }
+        { year: 'Cronología', desc: 'Ordená eventos por año, fecha o secuencia libre.' },
+        { year: 'Continuidad', desc: 'Revisá relaciones narrativas y cabos sueltos sin enviar el manuscrito.' }
       ],
-      scope: 'Línea temporal principal',
-      universe: 'S9U Canon'
+      scope: 'Análisis local por proyecto',
+      universe: 'La decisión final es del escritor'
     }
   ]
 };

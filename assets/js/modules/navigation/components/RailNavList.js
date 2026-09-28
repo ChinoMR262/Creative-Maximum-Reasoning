@@ -3,7 +3,7 @@
  * Enlaces de navegación con tooltips de autor y panel de preview integrado
  */
 
-import { PreviewPanel } from '../preview/PreviewPanel.js?v=20260924-brand-ecosystem';
+import { PreviewPanel } from '../preview/PreviewPanel.js?v=20260928-writer17-factual';
 
 export class RailNavList {
   constructor() {
@@ -66,11 +66,8 @@ export class RailNavList {
       </div>
     `;
 
-    // Inyectar el panel de preview en el wrapper de Aplicaciones
-    const appsWrapper = nav.querySelector('#railAppsWrapper');
-    if (appsWrapper) {
-      appsWrapper.appendChild(this.previewPanel.render());
-    }
+    // Mantener el preview fuera del rail: en móvil el rail se oculta por completo.
+    document.body.appendChild(this.previewPanel.render());
 
     this.handleClick = (event) => {
       const link = event.target.closest('.rail-item');
