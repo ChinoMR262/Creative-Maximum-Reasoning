@@ -1032,9 +1032,8 @@ body::after {
 }
 
 .desktop-features-check li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: block;
+  line-height: 1.65;
   font-size: 0.84rem;
   color: var(--text-primary);
   font-family: var(--font-mono);
@@ -1042,6 +1041,7 @@ body::after {
 
 .desktop-features-check li::before {
   content: "—";
+  margin-right: 10px;
   color: var(--accent-gold);
   font-weight: 700;
 }

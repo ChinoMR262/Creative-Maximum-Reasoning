@@ -5,7 +5,7 @@
     "packageId": "com.cmr.pingbooster",
     "distribution": "Google Play",
     "aabName": "CMR_Ping_Booster_v1.0.0(8)_Release.aab",
-    "aabSha256": "BA64A3C8897AF98063352BB3C722AE6D21EB3014B3C893AD1A0D293B37CE8D60",
+    "aabSha256": "4BF88DF768C2B8D1977A597423C3E0F2BD44ECEB155F1DD0B37042AFCDBA88D2",
     "minAndroidVersion": "Android 7.0 (API 24)",
     "targetAndroidVersion": "Android 16 (API 36)",
     "releaseDate": "2026-10-09"
