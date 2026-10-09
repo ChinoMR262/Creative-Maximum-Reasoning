@@ -6,6 +6,12 @@ title Actualizar CMR en GitHub
 set "REPO_DIR=%~dp0"
 cd /d "%REPO_DIR%" || goto :repo_error
 
+where git >nul 2>&1
+if errorlevel 1 (
+    if exist "D:\Documento\Base de Datos CMR\herramientas-cmr\git-portable\cmd\git.exe" (
+        set "PATH=D:\Documento\Base de Datos CMR\herramientas-cmr\git-portable\cmd;D:\Documento\Base de Datos CMR\herramientas-cmr\git-portable\ucrt64\bin;%PATH%"
+    )
+)
 where git >nul 2>&1 || goto :git_error
 git rev-parse --is-inside-work-tree >nul 2>&1 || goto :repo_error
 git remote get-url origin >nul 2>&1 || goto :remote_error
