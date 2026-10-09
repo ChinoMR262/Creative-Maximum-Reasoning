@@ -1,10 +1,10 @@
 {
-  "versionCode": 4,
+  "versionCode": 8,
   "versionName": "1.0.0",
-  "releaseLabel": "1.0.0 (4)",
-  "artifactName": "CMR_Ping_Booster_v1.0.0(4)_Release.aab",
-  "sha256": "02B691461D9F57223AAC0445D6EEC6F5FEF47444D326E6C24E32C9C832BE2AB8",
+  "releaseLabel": "1.0.0 (8)",
+  "artifactName": "CMR_Ping_Booster_v1.0.0(8)_Release.aab",
+  "sha256": "BA64A3C8897AF98063352BB3C722AE6D21EB3014B3C893AD1A0D293B37CE8D60",
   "minAndroidVersion": "Android 7.0 (API 24)",
   "targetAndroidVersion": "Android 16 (API 36)",
-  "releaseDate": "2026-09-16"
+  "releaseDate": "2026-10-09"
 }

@@ -28,8 +28,8 @@
   <meta property="og:image" content="https://cmr-reasoning.com.ar/apps/cmr-ping-booster/assets/cmr_brand.jpg">
   <meta property="article:author" content="Jonathan Gabriel Nieto">
 
-  <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
-  <link rel="apple-touch-icon" href="../assets/logo.png">
+  <link rel="icon" type="image/png" href="../assets/cmr-app-icon-v8.png">
+  <link rel="apple-touch-icon" href="../assets/cmr-app-icon-v8.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,11 +44,6 @@
     "name": "CMR Ping Booster",
     "operatingSystem": "Android, Windows 10, Windows 11",
     "applicationCategory": "UtilitiesApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0.00",
-      "priceCurrency": "USD"
-    },
     "author": {
       "@type": "Person",
       "name": "Jonathan Gabriel Nieto"
@@ -73,7 +68,7 @@
   <header class="navbar">
     <div class="container nav-container">
       <a href="./index.html" class="brand">
-        <img src="../assets/logo-96.webp" width="32" height="32" decoding="async" alt="Official CMR Logo" class="brand-logo">
+        <img src="../assets/cmr-app-icon-v8.png" width="32" height="32" decoding="async" alt="Official CMR Logo" class="brand-logo">
         <div class="brand-text">
           <h1>CMR Ping Booster</h1>
           <span>Creative Maximum Reasoning</span>
@@ -150,7 +145,7 @@
               </div>
               <div class="trust-item">
                 <span class="trust-bullet"></span>
-                <span>Zero Data Collection</span>
+                <span>No logs at CMR</span>
               </div>
               <div class="trust-item">
                 <span class="trust-bullet"></span>
@@ -192,9 +187,9 @@
 
           <div class="spec-row">
             <span class="spec-code">MOD-02</span>
-            <div class="spec-name">Encrypted public DNS</div>
+            <div class="spec-name">Configurable public DNS</div>
             <div class="spec-desc">
-              Compares five public resolvers and forwards queries to the selected provider using DNS over TLS. Results depend on the network and location.
+              Prioritizes DNS over TLS to the selected resolver. If the network blocks it, the app may use unencrypted standard DNS with that same provider. Results depend on the network and location.
             </div>
             <div class="spec-status">Configurable DNS</div>
           </div>
@@ -219,9 +214,9 @@
 
           <div class="spec-row">
             <span class="spec-code">MOD-05</span>
-            <div class="spec-name">Immediate Reversibility</div>
+            <div class="spec-name">Stop and restore</div>
             <div class="spec-desc">
-              Stopping the session closes the local VPN interface and releases the Wi-Fi locks acquired by the app.
+              Stopping the session closes the local VPN interface, releases acquired Wi-Fi locks, and attempts to restore system settings changed by the optional CMR-ADB profile.
             </div>
             <div class="spec-status">Verifiable stop</div>
           </div>
@@ -230,7 +225,7 @@
             <span class="spec-code">MOD-06</span>
             <div class="spec-name">No CMR servers</div>
             <div class="spec-desc">
-              No account or advertising analytics are required. DNS queries go directly to the selected public resolver and are not received by CMR.
+              No account or advertising analytics are required. DNS queries go to the selected public resolver and are not received by CMR servers.
             </div>
             <div class="spec-status">No account</div>
           </div>
@@ -448,6 +443,7 @@
           <a href="./index.html#pc-suite" class="footer-link">PC Suite</a>
           <a href="./index.html#pc-updater" class="footer-link">PC Updater</a>
           <a href="./privacy.html" class="footer-link">Android Policy</a>
+          <a href="./licenses.html" class="footer-link">Third-party licenses</a>
           <a href="./pc-privacy.html" class="footer-link">PC Terms</a>
           <a href="../version.json" class="footer-link">version.json</a>
         </div>

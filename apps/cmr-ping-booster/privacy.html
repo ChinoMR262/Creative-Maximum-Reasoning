@@ -19,8 +19,8 @@
   <meta name="copyright" content="Copyright © 2026 Jonathan Gabriel Nieto / CMR — Creative Maximum Reasoning. Todos los derechos reservados.">
   <meta name="theme-color" content="#10120f">
 
-  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
-  <link rel="apple-touch-icon" href="./assets/logo.png">
+  <link rel="icon" type="image/png" href="./assets/cmr-app-icon-v8.png">
+  <link rel="apple-touch-icon" href="./assets/cmr-app-icon-v8.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
   <header class="navbar">
     <div class="container nav-container">
       <a href="./index.html" class="brand">
-        <img src="./assets/logo-96.webp" width="32" height="32" decoding="async" alt="Logo Oficial CMR" class="brand-logo">
+        <img src="./assets/cmr-app-icon-v8.png" width="32" height="32" decoding="async" alt="Logo Oficial CMR" class="brand-logo">
         <div class="brand-text">
           <h1>CMR Ping Booster</h1>
           <span>Creative Maximum Reasoning</span>
@@ -98,7 +98,7 @@
             </p>
             <ul style="padding-left: 20px; margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
               <li><strong>Datos Personales:</strong> No se solicitan nombres, cuentas, correos electrónicos, agendas de contactos, localización GPS ni identificadores únicos de hardware (IMEI/MAC).</li>
-              <li><strong>Historial de Navegación:</strong> CMR no recibe ni almacena consultas DNS, dominios visitados, paquetes de red ni sesiones web. Las consultas necesarias se envían directamente al resolver seleccionado.</li>
+              <li><strong>Consultas DNS:</strong> CMR no recibe ni almacena consultas DNS en servidores propios. Las consultas necesarias salen del dispositivo hacia el resolver público seleccionado, que aplica su propia política de privacidad.</li>
               <li><strong>Infraestructura:</strong> La aplicación no opera servidores proxy comerciales ni almacena registros (logs) de conexiones en la nube.</li>
             </ul>
             <p>
@@ -113,14 +113,14 @@
             </p>
 
             <div class="legal-highlight-box">
-              <strong style="color: var(--text-pure); display: block; margin-bottom: 6px; font-family: var(--font-mono); font-size: 0.85rem;">FINALIDAD TÉCNICA EXCLUSIVA:</strong>
+              <strong style="color: var(--text-pure); display: block; margin-bottom: 6px; font-family: var(--font-mono); font-size: 0.85rem;">FINALIDAD TÉCNICA:</strong>
               <p style="font-size: 0.88rem; margin-bottom: 0;">
-                La API <code>VpnService</code> crea una interfaz local (TUN <code>10.254.1.2</code>) que procesa consultas DNS. Las consultas permitidas se reenvían mediante DNS-over-TLS autenticado al proveedor mostrado en la app: Cloudflare, Google Public DNS, Quad9, AdGuard o Control D. El resultado depende de la red, el proveedor y la ubicación; la aplicación no garantiza una reducción de ping o microcortes.
+                La API <code>VpnService</code> crea una interfaz local (TUN <code>10.254.1.2</code>) que procesa consultas DNS. La app prioriza DNS-over-TLS autenticado hacia el proveedor seleccionado; si la red lo bloquea, puede usar DNS estándar sin cifrar con ese mismo proveedor para conservar la conectividad. El resultado depende de la red, el proveedor y la ubicación; no se garantiza una reducción de ping o microcortes.
               </p>
             </div>
 
             <p style="margin-top: 12px; font-size: 0.85rem; color: var(--text-muted);">
-              <strong>Aclaración:</strong> CMR Ping Booster no es una VPN remota, no oculta la IP pública y no envía tráfico general a servidores de CMR. Sí procesa los paquetes DNS que Android dirige a la interfaz local y los reenvía cifrados al resolver elegido.
+              <strong>Aclaración:</strong> CMR Ping Booster no es una VPN remota, no oculta la IP pública y no envía tráfico general a servidores de CMR. Sí procesa los paquetes DNS que Android dirige a la interfaz local y los reenvía al resolver elegido. El tráfico web y de juego no DNS conserva la ruta habitual de Android.
             </p>
           </section>
 
@@ -137,7 +137,7 @@
               <tbody>
                 <tr>
                   <td><code>INTERNET</code></td>
-                  <td>Realizar mediciones TCP/DNS y reenviar DNS mediante TLS.</td>
+                  <td>Realizar mediciones TCP/DNS y reenviar DNS; se prioriza TLS y puede haber fallback a DNS estándar.</td>
                   <td>Red</td>
                 </tr>
                 <tr>
@@ -146,7 +146,7 @@
                   <td>Estado de red</td>
                 </tr>
                 <tr>
-                  <td><code>ACCESS_WIFI_STATE / CHANGE_WIFI_STATE</code></td>
+                  <td><code>ACCESS_WIFI_STATE</code></td>
                   <td>Consultar el enlace y solicitar un Wi-Fi lock de baja latencia durante la sesión.</td>
                   <td>Wi-Fi</td>
                 </tr>
@@ -186,9 +186,9 @@
                   <td>Gestión local</td>
                 </tr>
                 <tr>
-                  <td><code>moe.shizuku.manager.permission.API_V23</code></td>
-                  <td>Solicitar acceso avanzado opcional únicamente a través de Shizuku.</td>
-                  <td>Opcional</td>
+                  <td><code>WRITE_SECURE_SETTINGS</code></td>
+                  <td>Permiso protegido declarado para funciones avanzadas de CMR-ADB. La instalación normal desde Play no lo concede por sí sola; la depuración inalámbrica requiere activación y vinculación voluntarias.</td>
+                  <td>Avanzado y opcional</td>
                 </tr>
               </tbody>
             </table>
@@ -217,10 +217,10 @@
               La compra otorga una licencia personal, limitada, revocable, no exclusiva y no transferible para usar CMR Ping Booster en dispositivos asociados a la cuenta de Google Play adquirente. El precio aplicable es el que muestra Google Play al confirmar la compra. La aplicación no incorpora anuncios, suscripciones ni compras dentro de la app.
             </p>
             <p style="margin-top: 10px;">
-              Las mediciones y ajustes dependen del dispositivo, Android, el proveedor de Internet, el resolver DNS, la ubicación y el servidor del juego. No se garantiza una reducción específica de ping, jitter, pérdida de paquetes o FPS. Las funciones avanzadas que requieren Shizuku, root o accesos especiales son opcionales, se identifican antes de usarse y quedan bajo control del usuario.
+              Las mediciones y ajustes dependen del dispositivo, Android, el proveedor de Internet, el resolver DNS, la ubicación y el servidor del juego. No se garantiza una reducción específica de ping, jitter, pérdida de paquetes o FPS. CMR-ADB es opcional: requiere que la persona active y vincule la depuración inalámbrica. Sus perfiles pueden modificar ajustes del sistema; la app intenta revertir los cambios al terminar la sesión, pero conviene comprobarlos tras una interrupción.
             </p>
             <p style="margin-top: 10px;">
-              La aplicación no aumenta la señal Wi-Fi, no desactiva el escaneo de redes que controla Android y no apaga Bienestar Digital, servicios del sistema ni aplicaciones de terceros. El MTU configurado corresponde exclusivamente a la interfaz DNS local y no modifica la interfaz Wi-Fi o móvil física.
+              La aplicación no aumenta la señal Wi-Fi ni modifica la memoria o los binarios de los juegos. El MTU de la sesión corresponde a la interfaz VPN local. Cuando CMR-ADB está vinculado, algunos perfiles pueden solicitar ajustes de escaneo, procesos y servicios del sistema; su disponibilidad y resultado dependen del dispositivo y de Android.
             </p>
             <p style="margin-top: 10px;">
               Las compras, cancelaciones y solicitudes de reembolso se administran mediante Google Play y la normativa de consumo aplicable. Nada de estos términos limita derechos irrenunciables de la persona consumidora.
@@ -230,7 +230,7 @@
           <section class="legal-section" id="licencias">
             <h2 class="legal-section-title"><span class="legal-section-num">08</span> Licencias de Terceros</h2>
             <p>
-              CMR Ping Booster utiliza componentes de Android, Kotlin, AndroidX, Jetpack Compose, Kotlin Coroutines, DataStore y Shizuku. Cada componente conserva el copyright y la licencia publicados por su titular; los avisos completos incluidos en el paquete prevalecen sobre este resumen. La mención de Google, Android, Shizuku, proveedores DNS o videojuegos no implica patrocinio, asociación ni aprobación de CMR.
+              CMR Ping Booster utiliza componentes de Android, Kotlin, AndroidX, Jetpack Compose, Kotlin Coroutines y DataStore. El cliente nativo CMR-ADB incorpora componentes criptográficos de terceros, entre ellos BoringSSL y libc++. Cada componente conserva el copyright y la licencia de su titular; deben consultarse sus avisos completos de distribución. La mención de Google, Android, proveedores DNS o videojuegos no implica patrocinio, asociación ni aprobación de CMR.
             </p>
           </section>
 

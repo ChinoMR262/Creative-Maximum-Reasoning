@@ -17,7 +17,7 @@ Creative Maximum Reasoning es el sello de desarrollo y creación independiente l
 
 ## Estado de CMR Writer Lite
 
-- Versión vigente: `1.0.0 (17)`.
+- Versión vigente: `1.0.0 (18)`.
 - Canal: v17 publicada en la prueba cerrada de Google Play.
 - Producción: inactiva; la publicación cerrada no es un lanzamiento público.
 - Las tarjetas genéricas y sus datos de demostración fueron retirados. La

@@ -35,6 +35,15 @@
 
   <script src="../../assets/js/motion.js" defer></script>
   <script type="module" src="../../assets/js/main.js?v=20260924-brand-ecosystem"></script>
+  <style>
+    .nav-links-wrap { display: flex; gap: 16px; align-items: center; }
+    .hero-desc-large { margin-top: 14px; font-size: 17px; line-height: 1.75; color: var(--text-muted); max-width: none; }
+    .hero-desc-sub { margin-top: 12px; color: var(--text-muted); line-height: 1.7; max-width: none; }
+    .features-list-wrap { margin-top: 24px; }
+    .section-desc-muted { margin-top: 14px; color: var(--text-muted); line-height: 1.7; max-width: 60ch; }
+    .buttons-wrap { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+    .s9u-text { font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: -0.02em; }
+  </style>
 </head>
 <body class="page-writer-lite">
   <a href="#content" class="skip-to-content">Saltar al contenido</a>
@@ -46,7 +55,7 @@
         <img class="brand-logo" src="../../assets/images/optimized/cmr-mini-banner-264.webp" alt="Creative Maximum Reasoning" width="27" height="34" decoding="async">
         <span>CMR</span>
       </a>
-      <div style="display: flex; gap: 16px; align-items: center;">
+      <div class="nav-links-wrap">
         <a class="footer-link" href="privacy.html">Privacidad</a>
         <a class="footer-link" href="terms.html">Términos</a>
         <a class="footer-link" href="../../index.html#apps">
@@ -74,11 +83,11 @@
     <section>
       <div class="wrap-narrow">
         <h2>Qué es</h2>
-        <p class="section-head" style="margin-top: 14px; font-size: 17px; line-height: 1.75; color: var(--text-muted); max-width: none;">
+        <p class="section-head hero-desc-large">
           CMR Writer Lite es una aplicación para escribir y organizar novelas, libros, sagas, cuentos y guiones. Reúne capítulos, notas, personajes, lugares, objetos, vínculos, cronología y continuidad dentro del dispositivo, con backups portables elegidos por el escritor.
         </p>
-        <p style="margin-top: 12px; color: var(--text-muted); line-height: 1.7; max-width: none;">
-          La versión 1.0.0 (17) ya está publicada en el canal de prueba cerrada para testers autorizados. Producción continúa inactiva y no es todavía un lanzamiento público.
+        <p class="hero-desc-sub">
+          La versión 1.0.0 (18) ya está publicada en el canal de prueba cerrada para testers autorizados. Producción continúa inactiva y no es todavía un lanzamiento público.
         </p>
       </div>
     </section>
@@ -87,7 +96,7 @@
     <section>
       <div class="wrap-narrow">
         <h2>Funciones</h2>
-        <div class="features-list" style="margin-top: 24px;">
+        <div class="features-list features-list-wrap">
           <div class="feature-row">
             <h3>Escritura por capítulos y versiones</h3>
             <p>Redactá prólogos, capítulos y epílogos, conservá borradores alternativos y elegí cuál forma parte del canon.</p>
@@ -115,11 +124,11 @@
     <!-- Documentación Legal y Google Play -->
     <section class="feedback-section">
       <div class="wrap-narrow">
-        <h2>Centro Legal & Cumplimiento Google Play</h2>
-        <p style="margin-top: 14px; color: var(--text-muted); line-height: 1.7; max-width: 60ch;">
+        <h2>Centro Legal &amp; Cumplimiento Google Play</h2>
+        <p class="section-desc-muted">
           Accedé a la documentación legal oficial, seguridad de datos y directrices de propiedad intelectual de la aplicación:
         </p>
-        <div style="display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap;">
+        <div class="buttons-wrap">
           <a class="btn btn-outline" href="privacy.html">Política de Privacidad</a>
           <a class="btn btn-outline" href="terms.html">Términos de Uso</a>
           <a class="btn btn-outline" href="copyright.html">Copyright</a>
@@ -131,7 +140,7 @@
     <section class="feedback-section">
       <div class="wrap-narrow">
         <h2>¿Sos parte de la prueba cerrada?</h2>
-        <p style="margin-top: 14px; color: var(--text-muted); line-height: 1.7; max-width: 60ch;">
+        <p class="section-desc-muted">
           Tu opinión como tester ayuda a definir qué queda y qué cambia antes del lanzamiento público. Los comentarios generales se reciben a través del formulario que te compartimos al sumarte a la prueba.
         </p>
         <p class="contact-line">
@@ -146,7 +155,7 @@
     <div class="wrap-narrow footer-grid">
       <!-- Columna Izquierda: Contacto & Volver -->
       <div class="footer-col-left">
-        <span class="footer-col-tag">Navegación & Soporte</span>
+        <span class="footer-col-tag">Navegación &amp; Soporte</span>
         <a class="footer-link" href="../../index.html">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
           Volver a la página principal
@@ -167,7 +176,7 @@
 
       <!-- Columna Derecha: Ecosistema & Redes -->
       <div class="footer-col-right">
-        <span class="footer-col-tag">Ecosistema & Redes</span>
+        <span class="footer-col-tag">Ecosistema &amp; Redes</span>
         <div class="footer-social-row">
           <!-- Google Play -->
           <a class="social-btn" href="https://play.google.com/store/apps/dev?id=9143476523440074627" target="_blank" rel="noopener noreferrer" title="Google Play Store — Creative Maximum Reasoning" aria-label="Google Play">
@@ -182,7 +191,7 @@
           </a>
           <!-- S9U -->
           <a class="social-btn" href="../../index.html#about" title="Seres del Noveno Universo (S9U)" aria-label="S9U">
-            <span style="font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: -0.02em;">S9U</span>
+            <span class="s9u-text">S9U</span>
           </a>
         </div>
         <span class="footer-subtext">CMR Writer Lite — Edición de autor</span>
