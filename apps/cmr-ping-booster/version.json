@@ -1,14 +1,14 @@
 {
   "android": {
-    "versionCode": 8,
+    "versionCode": 12,
     "versionName": "1.0.0",
     "packageId": "com.cmr.pingbooster",
     "distribution": "Google Play",
-    "aabName": "CMR_Ping_Booster_v1.0.0(8)_Release.aab",
-    "aabSha256": "4BF88DF768C2B8D1977A597423C3E0F2BD44ECEB155F1DD0B37042AFCDBA88D2",
+    "aabName": "CMR_Ping_Booster_v1.0.0(12)_Release.aab",
+    "aabSha256": "6574E7B75AF6BAE0F119A5CDEAC51A73E49812D142460E35D756415F2A2A5C34",
     "minAndroidVersion": "Android 7.0 (API 24)",
     "targetAndroidVersion": "Android 16 (API 36)",
-    "releaseDate": "2026-10-09"
+    "releaseDate": "2026-10-12"
   },
   "pc": {
     "version": "1.0.0",
