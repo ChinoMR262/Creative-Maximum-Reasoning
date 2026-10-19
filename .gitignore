@@ -11,3 +11,22 @@ dist/
 .wrangler-npm-cache/
 .DS_Store
 Thumbs.db
+
+# Trabajo intermedio y artefactos de IA (Regla CMR: exclusion total de IAs)
+.ai-work/
+**/.ai-work/
+.agents/
+**/.agents/
+.gemini/
+**/.gemini/
+.codex/
+**/.codex/
+.claude/
+**/.claude/
+.cursor/
+**/.cursor/
+.system_generated/
+**/.system_generated/
+AI_TEMP/
+AI_CACHE/
+

@@ -47,6 +47,13 @@ echo [3/8] Incluyendo archivos creados, modificados y eliminados...
 git add -A -- .
 if errorlevel 1 goto :stage_error
 
+rem Seguridad CMR: Excluir submodulos no autorizados y artefactos de IA
+for /f "tokens=3*" %%A in ('git ls-files --stage 2^>nul ^| findstr "^160000"') do (
+    echo [SEGURIDAD CMR] Submodulo no permitido removido de Git: %%B
+    git rm --cached -f "%%B" >nul 2>&1
+)
+git rm --cached -r --ignore-unmatch .ai-work .ai-cache .agents .gemini .codex .claude .cursor .system_generated AI_TEMP AI_CACHE >nul 2>&1
+
 git diff --cached --quiet
 set "DIFF_CODE=!errorlevel!"
 if !DIFF_CODE! GTR 1 goto :stage_error
