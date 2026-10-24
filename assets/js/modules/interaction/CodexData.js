@@ -4,9 +4,9 @@
 
 export const S9U_CODEX_DATA = {
   title: 'Seres del Noveno Universo (S9U)',
-  subtitle: 'Cosmología, crónicas y arquitectura mitológica de autor creada por Jonathan Gabriel Nieto.',
-  author: 'Jonathan Gabriel Nieto',
-  region: 'Neuquén, Patagonia Argentina',
+  subtitle: 'Cosmología, crónicas y arquitectura mitológica de autor creada por Creative Maximum Reasoning (CMR).',
+  author: 'Creative Maximum Reasoning (CMR)',
+  region: 'Argentina',
   badge: 'Códice Canónico de Autor',
   sections: [
     {

@@ -8,7 +8,7 @@ Sitio web oficial y portal de distribución de aplicaciones, desarrollos de soft
 
 ## Acerca del Proyecto
 
-Creative Maximum Reasoning es el sello de desarrollo y creación independiente liderado por **Jonathan Gabriel Nieto (S9U)** desde Neuquén, Argentina. Este repositorio contiene la plataforma web que sirve como punto central para nuestras aplicaciones y publicaciones.
+Creative Maximum Reasoning (CMR) es un proyecto independiente de software y creación narrativa con domicilio en Neuquén, Argentina. Este repositorio contiene la plataforma web que sirve como punto central para sus aplicaciones y publicaciones.
 
 ### Desarrollos y Aplicaciones
 - **CMR Writer Lite:** Sistema local de escritura y organización narrativa con

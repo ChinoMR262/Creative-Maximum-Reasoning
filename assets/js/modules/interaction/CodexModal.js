@@ -1,7 +1,7 @@
 /**
  * Creative Maximum Reasoning (CMR) — S9U Codex Modal
  * Experiencia interactiva y cinemática del universo literario Seres del Noveno Universo (S9U)
- * Autor: Jonathan Gabriel Nieto // Neuquén, Patagonia Argentina
+ * Autor: Creative Maximum Reasoning (CMR) // Argentina
  */
 
 import { S9U_CODEX_DATA } from './CodexData.js?v=20260928-direct-play-links';
