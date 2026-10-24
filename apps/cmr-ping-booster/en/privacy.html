@@ -24,7 +24,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../styles.css">
 </head>
@@ -123,6 +123,12 @@
             </p>
           </section>
 
+          <section class="legal-section" id="network-measurements">
+            <h2 class="legal-section-title"><span class="legal-section-num">03A</span> Network measurements and third-party services</h2>
+            <p>The radar and some diagnostics open TCP connections to the listed destinations and DNS queries to the selected resolver; a DNS check may query <code>google.com</code>. When the user requests a download measurement, the app tests Cloudflare Speed Test and may fall back to Tele2. Those services may receive the IP address and connection metadata needed to respond and apply their own policies. Radar or resolver measurements are not the game's server ping.</p>
+            <p>CMR-ADB may discover Wireless debugging services through mDNS on the local network and connect to the paired device to run actions the user requests. Discovery and connection are used when CMR-ADB features are opened or used; Android may show a local network access permission.</p>
+          </section>
+
           <section class="legal-section" id="permissions">
             <h2 class="legal-section-title"><span class="legal-section-num">04</span> Android Permissions and Technical Justification</h2>
             <table class="legal-table">
@@ -148,6 +154,11 @@
                   <td><code>ACCESS_WIFI_STATE</code></td>
                   <td>Read link status and request a low-latency Wi-Fi lock during the session.</td>
                   <td>Wi-Fi</td>
+                </tr>
+                <tr>
+                  <td><code>ACCESS_LOCAL_NETWORK</code></td>
+                  <td>Discover and connect to Android Wireless debugging services on the local network for optional CMR-ADB pairing and control.</td>
+                  <td>Optional local network</td>
                 </tr>
                 <tr>
                   <td><code>WAKE_LOCK</code></td>
@@ -264,6 +275,8 @@
         <div class="footer-links-row">
           <a href="./index.html#app-android" class="footer-link">Android App</a>
           <a href="./index.html#pc-suite" class="footer-link">PC Suite</a>
+          <a href="./help.html" class="footer-link">Android Help</a>
+          <a href="./licenses.html" class="footer-link">Android Licenses</a>
           <a href="./privacy.html" class="footer-link">Android Policy</a>
           <a href="./pc-privacy.html" class="footer-link">PC Terms</a>
           <a href="../version.json" class="footer-link">version.json</a>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="canonical" href="https://cmr-reasoning.com.ar/apps/cmr-ping-booster/en/help.html">
+  <link rel="alternate" hreflang="es" href="https://cmr-reasoning.com.ar/apps/cmr-ping-booster/help.html">
+  <title>Help and FAQ · CMR Ping Booster</title>
+  <link rel="icon" type="image/png" href="../assets/cmr-app-icon-v8-current.png">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="legal-main"><article class="container legal-document" style="max-width:940px">
+    <p><a href="./index.html">CMR Ping Booster</a> · <a href="../help.html" lang="es">Español</a></p>
+    <h1>Help and frequently asked questions</h1>
+    <h2>How do I start and stop a session?</h2>
+    <p>When you start, Android shows its native VPN authorization prompt. Stop the session with the main switch or the persistent notification. Stopping closes the local DNS interface and the measurements tied to the session.</p>
+    <h2>Does CMR route game traffic?</h2>
+    <p>No. The local interface processes DNS queries; general game traffic keeps Android's normal route. An app's own DNS-over-HTTPS or Android Private DNS may bypass local DNS processing.</p>
+    <h2>Does the radar show my actual match ping?</h2>
+    <p>No. The radar and resolver measurements check connectivity to the destinations they display. They may not measure a match server and cannot guarantee a ping value.</p>
+    <h2>What if DNS-over-TLS cannot connect?</h2>
+    <p>To preserve name resolution, CMR may try standard unencrypted DNS with the same provider. The selected DNS provider receives those queries and applies its own policy.</p>
+    <h2>What is CMR-ADB and how do I pair it?</h2>
+    <p>It is an optional advanced feature. Enable Android Wireless debugging and complete pairing with the code shown by the system. It may request permission to discover and connect to debugging services on the local network. It does not grant root access. Each optimization action is started explicitly; restoration depends on what Android allows.</p>
+    <h2>Why does the app ask for Do Not Disturb or usage access?</h2>
+    <p>These are optional Android-managed accesses. Do Not Disturb access allows the app to apply and restore the preference during a session; usage access helps sort app suggestions. Manage them in Android Settings.</p>
+    <h2>Need support?</h2>
+    <p>Email <a href="mailto:cmr.apps.oficial@gmail.com">cmr.apps.oficial@gmail.com</a>. Include your device model, Android version, and the step where the problem appears. Do not send pairing codes or sensitive data.</p>
+    <p><a href="./privacy.html">Privacy</a> · <a href="./licenses.html">Licenses</a> · <a href="./index.html">Home</a></p>
+  </article></main>
+</body>
+</html>

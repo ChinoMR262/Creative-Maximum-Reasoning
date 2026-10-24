@@ -24,7 +24,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./styles.css">
 </head>
@@ -124,6 +124,12 @@
             </p>
           </section>
 
+          <section class="legal-section" id="network-measurements">
+            <h2 class="legal-section-title"><span class="legal-section-num">03A</span> Mediciones de red y proveedores externos</h2>
+            <p>El radar y algunos diagnósticos realizan conexiones TCP a los destinos mostrados y consultas DNS al resolver elegido; una comprobación DNS puede consultar <code>google.com</code>. Cuando la persona solicita medir descarga, la app prueba Cloudflare Speed Test y, si hace falta, Tele2. Esos servicios pueden recibir la dirección IP y los metadatos de conexión necesarios para responder y aplican sus propias políticas. La medición del radar o del resolver no es el ping del servidor del juego.</p>
+            <p>CMR-ADB puede descubrir servicios de Depuración inalámbrica mediante mDNS en la red local y conectarse al dispositivo emparejado para ejecutar acciones que la persona solicita. La búsqueda y conexión solo se usan al abrir o usar las funciones de CMR-ADB; Android puede mostrar un permiso de acceso a la red local.</p>
+          </section>
+
           <section class="legal-section" id="permisos">
             <h2 class="legal-section-title"><span class="legal-section-num">04</span> Desglose de Permisos de Android y Justificación</h2>
             <table class="legal-table">
@@ -149,6 +155,11 @@
                   <td><code>ACCESS_WIFI_STATE</code></td>
                   <td>Consultar el enlace y solicitar un Wi-Fi lock de baja latencia durante la sesión.</td>
                   <td>Wi-Fi</td>
+                </tr>
+                <tr>
+                  <td><code>ACCESS_LOCAL_NETWORK</code></td>
+                  <td>Descubrir servicios de Depuración inalámbrica y conectarse a ellos en la red local para el emparejamiento y control opcionales de CMR-ADB.</td>
+                  <td>Red local opcional</td>
                 </tr>
                 <tr>
                   <td><code>WAKE_LOCK</code></td>
@@ -265,6 +276,8 @@
         <div class="footer-links-row">
           <a href="./index.html#app-android" class="footer-link">App Android</a>
           <a href="./index.html#suite-pc" class="footer-link">Suite PC</a>
+          <a href="./help.html" class="footer-link">Ayuda Android</a>
+          <a href="./licenses.html" class="footer-link">Licencias Android</a>
           <a href="./privacy.html" class="footer-link">Política Android</a>
           <a href="./pc-privacy.html" class="footer-link">Política PC</a>
           <a href="./version.json" class="footer-link">version.json</a>
