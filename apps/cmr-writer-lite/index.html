@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CMR Writer Lite — Creative Maximum Reasoning</title>
-  <meta name="description" content="CMR Writer Lite: escritura y organización narrativa local con capítulos, personajes, vínculos, cronología, continuidad y backups. Desarrollado por Creative Maximum Reasoning (CMR).">
+  <meta name="description"
+    content="CMR Writer Lite: escritura y organización narrativa local con capítulos, personajes, vínculos, cronología, continuidad y backups. Desarrollado por Creative Maximum Reasoning (CMR).">
   <link rel="canonical" href="https://cmr-reasoning.com.ar/apps/cmr-writer-lite/">
   <meta name="robots" content="index, follow, max-image-preview:large, noai, noimageai">
 
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests;">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests;">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#0a0c10">
 
   <meta property="og:title" content="CMR Writer Lite &mdash; Creative Maximum Reasoning">
-  <meta property="og:description" content="Escritura y organizaci&oacute;n narrativa local con cap&iacute;tulos, personajes, v&iacute;nculos, cronolog&iacute;a, continuidad y backups. Actualmente en prueba cerrada.">
+  <meta property="og:description"
+    content="Escritura y organizaci&oacute;n narrativa local con cap&iacute;tulos, personajes, v&iacute;nculos, cronolog&iacute;a, continuidad y backups. Actualmente en prueba cerrada.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cmr-reasoning.com.ar/apps/cmr-writer-lite/">
   <meta property="og:image" content="https://cmr-reasoning.com.ar/assets/images/Baneer-CMR-Final.png">
@@ -30,21 +34,62 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../../assets/css/main.css?v=20260928-direct-play-links">
 
   <script src="../../assets/js/motion.js" defer></script>
   <script type="module" src="../../assets/js/main.js?v=20260924-brand-ecosystem"></script>
   <style>
-    .nav-links-wrap { display: flex; gap: 16px; align-items: center; }
-    .hero-desc-large { margin-top: 14px; font-size: 17px; line-height: 1.75; color: var(--text-muted); max-width: none; }
-    .hero-desc-sub { margin-top: 12px; color: var(--text-muted); line-height: 1.7; max-width: none; }
-    .features-list-wrap { margin-top: 24px; }
-    .section-desc-muted { margin-top: 14px; color: var(--text-muted); line-height: 1.7; max-width: 60ch; }
-    .buttons-wrap { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
-    .s9u-text { font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: -0.02em; }
+    .nav-links-wrap {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .hero-desc-large {
+      margin-top: 14px;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      max-width: none;
+    }
+
+    .hero-desc-sub {
+      margin-top: 12px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: none;
+    }
+
+    .features-list-wrap {
+      margin-top: 24px;
+    }
+
+    .section-desc-muted {
+      margin-top: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 60ch;
+    }
+
+    .buttons-wrap {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .s9u-text {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
   </style>
 </head>
+
 <body class="page-writer-lite">
   <a href="#content" class="skip-to-content">Saltar al contenido</a>
 
@@ -52,14 +97,18 @@
   <header>
     <nav class="nav wrap-narrow" aria-label="Navegación de subpágina">
       <a class="brand" href="../../index.html">
-        <img class="brand-logo" src="../../assets/images/optimized/cmr-mini-banner-264.webp" alt="Creative Maximum Reasoning" width="27" height="34" decoding="async">
+        <img class="brand-logo" src="../../assets/images/optimized/cmr-mini-banner-264.webp"
+          alt="Creative Maximum Reasoning" width="27" height="34" decoding="async">
         <span>CMR</span>
       </a>
       <div class="nav-links-wrap">
         <a class="footer-link" href="privacy.html">Privacidad</a>
         <a class="footer-link" href="terms.html">Términos</a>
         <a class="footer-link" href="../../index.html#apps">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
           Volver
         </a>
       </div>
@@ -71,10 +120,12 @@
     <section class="app-hero-subpage">
       <div class="wrap-narrow">
         <div class="app-icon-frame app-icon-frame-large">
-          <img src="icon-writer-160.webp" alt="Icono oficial CMR Writer Lite" class="app-icon-img" width="80" height="80" decoding="async">
+          <img src="icon-writer-160.webp" alt="Icono oficial CMR Writer Lite" class="app-icon-img" width="80"
+            height="80" decoding="async">
         </div>
         <h1>CMR Writer Lite</h1>
-        <p class="tagline">Un espacio local para escribir, organizar personajes y explorar la continuidad de cada historia sin apartarte de tu propia voz.</p>
+        <p class="tagline">Un espacio local para escribir, organizar personajes y explorar la continuidad de cada
+          historia sin apartarte de tu propia voz.</p>
         <span class="badge">Prueba cerrada — Google Play</span>
       </div>
     </section>
@@ -84,10 +135,14 @@
       <div class="wrap-narrow">
         <h2>Qué es</h2>
         <p class="section-head hero-desc-large">
-          CMR Writer Lite es una aplicación para escribir y organizar novelas, libros, sagas, cuentos y guiones. Reúne capítulos, notas, personajes, lugares, objetos, vínculos, cronología y continuidad dentro del dispositivo, con backups portables elegidos por el escritor.
+          CMR Writer Lite es una aplicación para escribir y organizar novelas, libros, sagas, cuentos y guiones. Reúne
+          capítulos, notas, personajes, lugares, objetos, vínculos, cronología y continuidad dentro del dispositivo, con
+          backups portables elegidos por el escritor.
         </p>
         <p class="hero-desc-sub">
-          La edición 1.0.0 (19) está preparada para la siguiente actualización del canal de prueba cerrada. La disponibilidad efectiva depende de Google Play; producción continúa inactiva y no es todavía un lanzamiento público.
+          La edición 1.0.0 (20) está preparada para la siguiente actualización del canal de prueba cerrada. La
+          disponibilidad efectiva depende de Google Play; producción continúa inactiva y no es todavía un lanzamiento
+          público.
         </p>
       </div>
     </section>
@@ -99,27 +154,33 @@
         <div class="features-list features-list-wrap">
           <div class="feature-row">
             <h3>Escritura por capítulos y versiones</h3>
-            <p>Redactá prólogos, capítulos y epílogos, conservá borradores alternativos y elegí cuál forma parte del canon.</p>
+            <p>Redactá prólogos, capítulos y epílogos, conservá borradores alternativos y elegí cuál forma parte del
+              canon.</p>
           </div>
           <div class="feature-row">
             <h3>Personajes con identidad visual</h3>
-            <p>Organizá fichas, retratos, láminas ilustradas, relaciones, constelación familiar y árboles de habilidades amplios.</p>
+            <p>Organizá fichas, retratos, láminas ilustradas, relaciones, constelación familiar y árboles de habilidades
+              amplios.</p>
           </div>
           <div class="feature-row">
             <h3>Vínculos, cronología y continuidad</h3>
-            <p>Recorré redes panorámicas, tramas, escaletas y eventos; Writer Lite señala relaciones narrativas sin reescribir tu obra.</p>
+            <p>Recorré redes panorámicas, tramas, escaletas y eventos; Writer Lite señala relaciones narrativas sin
+              reescribir tu obra.</p>
           </div>
           <div class="feature-row">
             <h3>Lugares, objetos e imágenes propias</h3>
-            <p>Construí universos y fichas de lore, y agregá imágenes propias a personajes y objetos desde el selector del dispositivo.</p>
+            <p>Construí universos y fichas de lore, y agregá imágenes propias a personajes y objetos desde el selector
+              del dispositivo.</p>
           </div>
           <div class="feature-row">
             <h3>Proyectos con identidad propia</h3>
-            <p>Agregá una descripción breve a cada obra para reconocerla desde su tarjeta y mantenela dentro de tus copias <code>.cmr</code>.</p>
+            <p>Agregá una descripción breve a cada obra para reconocerla desde su tarjeta y mantenela dentro de tus
+              copias <code>.cmr</code>.</p>
           </div>
           <div class="feature-row">
             <h3>Privacidad y backups portables</h3>
-            <p>La escritura, la detección opcional de géneros y el análisis de continuidad funcionan localmente. Los backups <code>.cmr</code> se guardan donde vos elijas.</p>
+            <p>La escritura, la detección opcional de géneros y el análisis de continuidad funcionan localmente. Los
+              backups <code>.cmr</code> se guardan donde vos elijas.</p>
           </div>
         </div>
       </div>
@@ -130,7 +191,8 @@
       <div class="wrap-narrow">
         <h2>Centro Legal &amp; Cumplimiento Google Play</h2>
         <p class="section-desc-muted">
-          Accedé a la documentación legal oficial, seguridad de datos y directrices de propiedad intelectual de la aplicación:
+          Accedé a la documentación legal oficial, seguridad de datos y directrices de propiedad intelectual de la
+          aplicación:
         </p>
         <div class="buttons-wrap">
           <a class="btn btn-outline" href="privacy.html">Política de Privacidad</a>
@@ -145,7 +207,8 @@
       <div class="wrap-narrow">
         <h2>¿Sos parte de la prueba cerrada?</h2>
         <p class="section-desc-muted">
-          Tu opinión como tester ayuda a definir qué queda y qué cambia antes del lanzamiento público. Los comentarios generales se reciben a través del formulario que te compartimos al sumarte a la prueba.
+          Tu opinión como tester ayuda a definir qué queda y qué cambia antes del lanzamiento público. Los comentarios
+          generales se reciben a través del formulario que te compartimos al sumarte a la prueba.
         </p>
         <p class="contact-line">
           Reportes urgentes o bloqueantes: <a href="mailto:cmr.apps.oficial@gmail.com">cmr.apps.oficial@gmail.com</a>
@@ -161,11 +224,18 @@
       <div class="footer-col-left">
         <span class="footer-col-tag">Navegación &amp; Soporte</span>
         <a class="footer-link" href="../../index.html">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
           Volver a la página principal
         </a>
         <a class="footer-link" href="mailto:contacto@cmr-reasoning.com.ar">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
           contacto@cmr-reasoning.com.ar
         </a>
         <span class="footer-subtext">Argentina</span>
@@ -173,7 +243,8 @@
 
       <!-- Columna Central: Emblema & Firma Oficial -->
       <div class="footer-col-center">
-        <img class="footer-emblem" src="../../assets/images/optimized/cmr-emblem-footer.webp" alt="CMR Emblema" width="76" height="76" loading="lazy" decoding="async">
+        <img class="footer-emblem" src="../../assets/images/optimized/cmr-emblem-footer.webp" alt="CMR Emblema"
+          width="76" height="76" loading="lazy" decoding="async">
         <p class="footer-brand-title">Creative Maximum Reasoning</p>
         <p class="footer-copyright">Copyright © <span id="year">2026</span> CMR — Creative Maximum Reasoning.</p>
       </div>
@@ -183,8 +254,12 @@
         <span class="footer-col-tag">Ecosistema &amp; Redes</span>
         <div class="footer-social-row">
           <!-- Google Play -->
-          <a class="social-btn" href="https://play.google.com/store/apps/dev?id=9143476523440074627" target="_blank" rel="noopener noreferrer" title="Google Play Store — Creative Maximum Reasoning" aria-label="Google Play">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.793 12 3.61 22.186a2.38 2.38 0 0 1-.61-.958V2.772c.162-.38.375-.708.61-.958zm11.242 11.243l2.253 2.253-11.7 6.649 9.447-8.902zm0-2.114L5.405 2.04l11.7 6.65-2.254 2.253zm1.472 1.057l3.864 2.196c1.09.619 1.09 1.626 0 2.245l-3.864 2.196-2.52-2.52 2.52-2.117z"/></svg>
+          <a class="social-btn" href="https://play.google.com/store/apps/dev?id=9143476523440074627" target="_blank"
+            rel="noopener noreferrer" title="Google Play Store — Creative Maximum Reasoning" aria-label="Google Play">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M3.609 1.814L13.793 12 3.61 22.186a2.38 2.38 0 0 1-.61-.958V2.772c.162-.38.375-.708.61-.958zm11.242 11.243l2.253 2.253-11.7 6.649 9.447-8.902zm0-2.114L5.405 2.04l11.7 6.65-2.254 2.253zm1.472 1.057l3.864 2.196c1.09.619 1.09 1.626 0 2.245l-3.864 2.196-2.52-2.52 2.52-2.117z" />
+            </svg>
           </a>
           <!-- Wattpad -->
           <!-- S9U -->
@@ -198,4 +273,5 @@
   </footer>
 
 </body>
+
 </html>

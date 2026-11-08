@@ -11,13 +11,14 @@ Sitio web oficial y portal de distribución de aplicaciones, desarrollos de soft
 Creative Maximum Reasoning (CMR) es un proyecto independiente de software y creación narrativa con domicilio en Neuquén, Argentina. Este repositorio contiene la plataforma web que sirve como punto central para sus aplicaciones y publicaciones.
 
 ### Desarrollos y Aplicaciones
+
 - **CMR Writer Lite:** Sistema local de escritura y organización narrativa con
   capítulos, versiones, personajes, lugares, objetos, vínculos, cronología,
   continuidad y backups portables.
 
 ## Estado de CMR Writer Lite
 
-- Próxima compilación preparada: `1.0.0 (19)`.
+- Próxima compilación preparada: `1.0.0 (20)`.
 - Canal: prueba cerrada de Google Play; la disponibilidad efectiva de cada
   compilación debe confirmarse en Play Console y no se infiere desde este
   repositorio.
@@ -28,7 +29,7 @@ Creative Maximum Reasoning (CMR) es un proyecto independiente de software y crea
   copias `.cmr`, imágenes, detección local de géneros, continuidad y los flujos
   reales de guardar, compartir e importar.
 
-Actualizado: 19 de octubre de 2026.
+Actualizado: 8 de noviembre de 2026.
 
 ---
 
