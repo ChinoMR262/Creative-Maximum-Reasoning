@@ -1,0 +1,12 @@
+{
+  "packageName": "com.cmr.writerlite",
+  "versionCode": 21,
+  "versionName": "1.0.0 Beta",
+  "releaseLabel": "1.0.0 Beta (21)",
+  "minAndroidVersion": "Android 7.0 (API 24)",
+  "targetAndroidVersion": "Android 16 (API 36)",
+  "releaseNotes": "Plantillas de diagramas completas y listas para usar, colocación exacta en la nota, erradicación de parpadeo de teclado y notificador de actualización confiable en todos los dispositivos.",
+  "playStoreUrl": "https://play.google.com/store/apps/details?id=com.cmr.writerlite",
+  "marketUrl": "market://details?id=com.cmr.writerlite",
+  "publishedAt": "2026-11-20"
+}
