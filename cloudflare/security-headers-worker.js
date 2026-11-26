@@ -48,7 +48,7 @@ export default {
 
     // 2. Manejo de trampa 404 de Cloudflare Email Protection
     if (lowerPath.startsWith('/cdn-cgi/l/email-protection')) {
-      return Response.redirect(new URL('mailto:contacto@cmr-reasoning.com.ar', url), 302);
+      return applySecurityHeaders(Response.redirect(new URL('/#contact', url), 301));
     }
 
     const cacheableMethod = request.method === 'GET' || request.method === 'HEAD';
