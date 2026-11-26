@@ -26,6 +26,10 @@ export function applySecurityHeaders(response) {
   return secured;
 }
 
+function redirectTo(path, baseUrl, status = 301) {
+  return applySecurityHeaders(Response.redirect(new URL(path, baseUrl).href, status));
+}
+
 export default {
   async fetch(request) {
     const url = new URL(request.url);
@@ -35,20 +39,20 @@ export default {
 
     // 1. Redirecciones 301 permanentes para rutas antiguas y binarios obsoletos (evitar 404)
     if (lowerPath === legacyPcDownload || lowerPath === legacyPcDownloadAlt) {
-      return applySecurityHeaders(Response.redirect(new URL('/apps/cmr-ping-booster/', url), 301));
+      return redirectTo('/apps/cmr-ping-booster/', url, 301);
     }
 
     if (lowerPath === '/apps/cmr-writer-lite.html') {
-      return applySecurityHeaders(Response.redirect(new URL('/apps/cmr-writer-lite/', url), 301));
+      return redirectTo('/apps/cmr-writer-lite/', url, 301);
     }
 
     if (lowerPath === '/apps/cmr-ping-booster.html') {
-      return applySecurityHeaders(Response.redirect(new URL('/apps/cmr-ping-booster/', url), 301));
+      return redirectTo('/apps/cmr-ping-booster/', url, 301);
     }
 
     // 2. Manejo de trampa 404 de Cloudflare Email Protection
     if (lowerPath.startsWith('/cdn-cgi/l/email-protection')) {
-      return applySecurityHeaders(Response.redirect(new URL('/#contact', url), 301));
+      return redirectTo('/#contact', url, 301);
     }
 
     const cacheableMethod = request.method === 'GET' || request.method === 'HEAD';
